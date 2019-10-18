@@ -60,3 +60,6 @@ export default class Game extends Phaser.Scene {
     let pointer = this.input.activePointer;
   }
 }
+
+//https://codepen.io/rexrainbow/pen/GaxqLZ
+//https://labs.phaser.io/edit.html?src=src/game%20objects/dom%20element/form%20input.js&v=3.20.1
