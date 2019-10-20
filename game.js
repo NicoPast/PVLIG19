@@ -6,7 +6,12 @@ export default class Game extends Phaser.Scene {
     this.load.image('victim', 'favicon.png');
     this.load.image('square', 'Button.png');
     this.load.image('red', 'red.png');
+    this.load.image('white', 'white.png');
     this.load.image('green', 'green.png');
+    this.load.image('pink', 'pink.png');
+    this.load.image('yellow', 'yellow.png');
+    this.load.image('blue', 'blue.png');
+    
   }
 
   create() {
@@ -39,12 +44,16 @@ export default class Game extends Phaser.Scene {
     this.vic.scale = 10;
 
     let arriba = {
-      imagen: this.add.sprite(750, 400, 'red').setScale(0.4).setAlpha(0.6),
-      curado: false
+      imagen: this.add.sprite(750, 400, 'white').setScale(0.4).setAlpha(0.1),
+      curado: false ,
+      generado : false ,
+      curacion : -1
     }
     let abajo = {
-      imagen: this.add.sprite(575, 400, 'red').setScale(0.3).setAlpha(0.6),
-      curado: false
+      imagen: this.add.sprite(575, 400, 'white').setScale(0.3).setAlpha(0.1),
+      curado: false ,
+      generado : false,
+      curacion : -1
     }
     this.cuerpo.partes.push(arriba);
     this.cuerpo.partes.push(abajo);
@@ -59,17 +68,17 @@ export default class Game extends Phaser.Scene {
             case 0:
               if(this.parteactual != i && this.cuerpo.partes[i].curado == false){
               this.parteSel.setText('PARTE ACTUAL: CABEZA');
-              this.sol1 = Math.floor(Math.random() * 5) + 1;
+              this.generarenfermedad(i);
+              this.cuerpo.partes[i].generado = true;
               this.parteactual = 0;
-              console.log(this.sol1);
               }
               break;
             case 1:
               if(this.parteactual != i && this.cuerpo.partes[i].curado == false){
               this.parteSel.setText('PARTE ACTUAL: PECHO');
-              this.sol1 = Math.floor(Math.random() * 5) + 1;
+              this.generarenfermedad(i);
+              this.cuerpo.partes[i].generado = true;
               this.parteactual = 1;
-              console.log(this.sol1);
                 }
               break;
           }
@@ -107,7 +116,7 @@ export default class Game extends Phaser.Scene {
         window.alert("ELIGE PRIMERO UNA PARTE");
         return;
       }
-      else if (this.prueba == this.sol1) {
+      else if (this.prueba ==  this.cuerpo.partes[this.parteactual].curacion) {
         console.log('curado');
         this.cuerpo.partes[this.parteactual].curado = true;
         this.cuerpo.partes[this.parteactual].imagen.setTexture('green');
@@ -122,7 +131,7 @@ export default class Game extends Phaser.Scene {
     }
 
   }
-
+  
   comprobar_estado() {
 
 
@@ -143,6 +152,43 @@ export default class Game extends Phaser.Scene {
       this.vic.angle = 0;
       this.vic.body.setVelocity(300,0);
       this.cuerpo.curado = true;
+    }
+  }
+
+  generarenfermedad(i) {
+    if (!this.cuerpo.partes[i].generado) {
+      this.cuerpo.partes[i].curacion = Math.floor(Math.random() * 5) + 1;
+      switch(i){
+        case 0:
+            console.log('Cabeza = ' +  this.cuerpo.partes[i].curacion);
+          break;
+        case 1:
+            console.log('Pecho = ' +  this.cuerpo.partes[i].curacion);
+          break;
+      }
+      switch (this.cuerpo.partes[i].curacion) {
+        case 1:
+            this.cuerpo.partes[i].imagen.setTexture('yellow');
+            this.cuerpo.partes[i].imagen.setAlpha(0.5);
+          break;
+        case 2:
+            this.cuerpo.partes[i].imagen.setTexture('red');
+            this.cuerpo.partes[i].imagen.setAlpha(0.5);
+          break;
+        case 3:
+            this.cuerpo.partes[i].imagen.setTexture('pink');
+            this.cuerpo.partes[i].imagen.setAlpha(0.5);
+          break;
+        case 4:
+            this.cuerpo.partes[i].imagen.setTexture('blue');
+            this.cuerpo.partes[i].imagen.setAlpha(0.5);
+          break;
+        case 5:
+            this.cuerpo.partes[i].imagen.setTexture('white');
+            this.cuerpo.partes[i].imagen.setAlpha(0.5);
+          break;
+
+      }
     }
   }
 }
