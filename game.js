@@ -131,7 +131,7 @@ export default class Game extends Phaser.Scene {
       window.alert('TE LO HAS CARGADO , FELICIDADES');
       this.cuerpo.partes[0].imagen.setAlpha(0);
       this.cuerpo.partes[1].imagen.setAlpha(0);
-      this.vic.angle = 0; this.vic.setBounce(0);
+      this.vic.angle = 180; this.vic.setBounce(0);
       
     }
     else if(this.cuerpo.partes[0].curado && this.cuerpo.partes[1].curado){
@@ -140,6 +140,7 @@ export default class Game extends Phaser.Scene {
       this.cuerpo.partes[0].imagen.setAlpha(0);
       this.cuerpo.partes[1].imagen.setAlpha(0);
       this.vic.setBounce(1);
+      this.vic.angle = 0;
       this.vic.body.setVelocity(300,0);
       this.cuerpo.curado = true;
     }
