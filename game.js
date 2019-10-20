@@ -77,8 +77,9 @@ export default class Game extends Phaser.Scene {
         }
       });
     }
-
+    
     this.parteactual = -1;
+    //this.reset = this.add.sprite(1200, 700, 'red');
     this.marcador = this.add.text(50, 700, 'INTENTOS: ' + this.cuerpo.vidas);
     this.marcador.setFontSize(40);
     this.parteSel = this.add.text(50, 750, 'PARTE ACTUAL: NINGUNA');
@@ -130,7 +131,7 @@ export default class Game extends Phaser.Scene {
       window.alert('TE LO HAS CARGADO , FELICIDADES');
       this.cuerpo.partes[0].imagen.setAlpha(0);
       this.cuerpo.partes[1].imagen.setAlpha(0);
-      this.vic.angle = 180; this.vic.setBounce(0);
+      this.vic.angle = 0; this.vic.setBounce(0);
       
     }
     else if(this.cuerpo.partes[0].curado && this.cuerpo.partes[1].curado){
