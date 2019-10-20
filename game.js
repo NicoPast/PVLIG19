@@ -5,12 +5,11 @@ export default class Game extends Phaser.Scene {
   preload() {
     this.load.image('victim', 'favicon.png');
     this.load.image('square', 'Button.png');
-    this.load.image('red' , 'red.png');
-    this.load.image('green' ,'green.png');
+    this.load.image('red', 'red.png');
+    this.load.image('green', 'green.png');
   }
 
   create() {
-    this.sol1 = Math.floor(Math.random() * 5) + 1;
     this.vic = this.physics.add.image(700, 400, 'victim');
     this.vic.setCollideWorldBounds(true);
     this.vic.body.setAllowGravity(false)
@@ -26,82 +25,126 @@ export default class Game extends Phaser.Scene {
       this.buts[i].on('pointerdown', pointer => {
         this.prueba = i + 1;
         this.comprobar_curacion();
-        console.log(this.cuerpo.vidas);
-        switch (i) {
-          case 0:
-            console.log(this.prueba);
-            break;
-          case 1:
-            console.log(this.prueba);
-            break;
-          case 2:
-            console.log(this.prueba);
-            break;
-          case 3:
-            console.log(this.prueba);
-            break;
-          case 4:
-            console.log(this.prueba);
-            break;
 
-        }
-        
       });
     }
-    
-    
-    this.cuerpo = { 
-      curado : false ,
-      vidas : 5 ,
 
+
+    this.cuerpo = {
+      curado: false,
+      vidas: 5,
+      partes: []
     };
     this.vic.angle = 90;
     this.vic.scale = 10;
+
+    let arriba = {
+      imagen: this.add.sprite(750, 400, 'red').setScale(0.4).setAlpha(0.6),
+      curado: false
+    }
+    let abajo = {
+      imagen: this.add.sprite(575, 400, 'red').setScale(0.3).setAlpha(0.6),
+      curado: false
+    }
+    this.cuerpo.partes.push(arriba);
+    this.cuerpo.partes.push(abajo);
+    this.cuerpo.partes[0].imagen.setInteractive();
+    this.cuerpo.partes[1].imagen.setInteractive();
     this.cuerpo.vidas = 5;
-    this.marcador = this.add.text( 50 , 700, 'INTENTOS: ' + this.cuerpo.vidas);
+    for (let i = 0; i < 2; i++) {
+      this.cuerpo.partes[i].imagen.on('pointerdown', pointer => {
+
+        if (!this.cuerpo.curado) {
+          switch (i) {
+            case 0:
+              if(this.parteactual != i && this.cuerpo.partes[i].curado == false){
+              this.parteSel.setText('PARTE ACTUAL: CABEZA');
+              this.sol1 = Math.floor(Math.random() * 5) + 1;
+              this.parteactual = 0;
+              console.log(this.sol1);
+              }
+              break;
+            case 1:
+              if(this.parteactual != i && this.cuerpo.partes[i].curado == false){
+              this.parteSel.setText('PARTE ACTUAL: PECHO');
+              this.sol1 = Math.floor(Math.random() * 5) + 1;
+              this.parteactual = 1;
+              console.log(this.sol1);
+                }
+              break;
+          }
+
+        }
+      });
+    }
+
+    this.parteactual = -1;
+    this.marcador = this.add.text(50, 700, 'INTENTOS: ' + this.cuerpo.vidas);
     this.marcador.setFontSize(40);
-    console.log(this.sol1);
+    this.parteSel = this.add.text(50, 750, 'PARTE ACTUAL: NINGUNA');
+    this.parteSel.setFontSize(40);
     
   }
 
   update(time, delta) {
-    
+
     let pointer = this.input.activePointer;
-    
+
   }
 
 
-  cambiar_vidas(){
+  cambiar_vidas() {
     this.cuerpo.vidas--;
     this.marcador.setText('INTENTOS: ' + this.cuerpo.vidas);
 
   }
 
-  comprobar_curacion(){
-    if(this.cuerpo.curado != true && this.cuerpo.vidas > 0){
-      if (this.prueba == this.sol1) {
-        console.log('curado');
-        window.alert('LO HAS CURADO');
-        this.vic.body.setAllowGravity(true);
-        this.vic.y = 400;
-        this.vic.setBounce(1);
-        this.vic.body.setVelocity(300,0);
-        this.cuerpo.curado = true;
-        this.vic.angle = 0;
+  comprobar_curacion() {
+    if (this.cuerpo.curado != true && this.cuerpo.vidas > 0) {
+
+      if (this.parteactual == -1) {
+        window.alert("ELIGE PRIMERO UNA PARTE");
+        return;
       }
-      else{ 
+      else if (this.prueba == this.sol1) {
+        console.log('curado');
+        this.cuerpo.partes[this.parteactual].curado = true;
+        this.cuerpo.partes[this.parteactual].imagen.setTexture('green');
+        this.parteactual = -1;
+        this.parteSel.setText('PARTE ACTUAL: NINGUNA');
+      }
+      else {
         console.log('error');
         this.cambiar_vidas();
-        if(this.cuerpo.vidas == 0){
-        this.vic.body.setAllowGravity(true);
-        window.alert('TE LO HAS CARGADO , FELICIDADES'); 
-        this.vic.angle = 180;this.vic.setBounce(0);
-        this.vic.y = 400;
-        }
-      } 
+      }
+      this.comprobar_estado();
     }
 
   }
+
+  comprobar_estado() {
+
+
+    if (this.cuerpo.vidas == 0) {
+      this.vic.body.setAllowGravity(true);
+      window.alert('TE LO HAS CARGADO , FELICIDADES');
+      this.cuerpo.partes[0].imagen.setAlpha(0);
+      this.cuerpo.partes[1].imagen.setAlpha(0);
+      this.vic.angle = 180; this.vic.setBounce(0);
+      
+    }
+    else if(this.cuerpo.partes[0].curado && this.cuerpo.partes[1].curado){
+      window.alert('LO HAS CURADO');
+      this.vic.body.setAllowGravity(true);
+      this.cuerpo.partes[0].imagen.setAlpha(0);
+      this.cuerpo.partes[1].imagen.setAlpha(0);
+      this.vic.setBounce(1);
+      this.vic.body.setVelocity(300,0);
+      this.cuerpo.curado = true;
+    }
+  }
 }
+
+
 //https://codepen.io/rexrainbow/pen/GaxqLZ
 //https://labs.phaser.io/edit.html?src=src/game%20objects/dom%20element/form%20input.js&v=3.20.1
