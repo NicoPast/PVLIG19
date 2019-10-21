@@ -93,8 +93,7 @@ export default class Game extends Phaser.Scene {
 
       });
     }
-    this.generarenfermedad(0);
-    this.generarenfermedad(1); 
+    
     this.parteactual = -1;
     this.start = this.add.sprite(1200, 750, 'red');
     this.start.scaleY = 0.3;
@@ -105,6 +104,8 @@ export default class Game extends Phaser.Scene {
     this.start.on('pointerdown', pointer => {
       if(!this.empezado){
       this.empezado = true;
+      this.generarenfermedad(0);
+      this.generarenfermedad(1); 
       this.start.setTexture('green');
       this.startText.setText("RESET");
       this.startText.x = 1100;
