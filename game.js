@@ -28,9 +28,13 @@ export default class Game extends Phaser.Scene {
       this.buts[i].setInteractive();
 
       this.buts[i].on('pointerdown', pointer => {
+        if(this.empezado){
         this.prueba = i + 1;
         this.comprobar_curacion();
-
+        }
+        else{
+          window.alert('COMIENZA PRIMERO LA PARTIDA');
+        }
       });
     }
 
@@ -62,33 +66,54 @@ export default class Game extends Phaser.Scene {
     this.cuerpo.vidas = 5;
     for (let i = 0; i < 2; i++) {
       this.cuerpo.partes[i].imagen.on('pointerdown', pointer => {
-
-        if (!this.cuerpo.curado) {
-          switch (i) {
-            case 0:
-              if(this.parteactual != i && this.cuerpo.partes[i].curado == false){
-              this.parteSel.setText('PARTE ACTUAL: CABEZA');
-              this.generarenfermedad(i);
-              this.cuerpo.partes[i].generado = true;
-              this.parteactual = 0;
-              }
-              break;
-            case 1:
-              if(this.parteactual != i && this.cuerpo.partes[i].curado == false){
-              this.parteSel.setText('PARTE ACTUAL: PECHO');
-              this.generarenfermedad(i);
-              this.cuerpo.partes[i].generado = true;
-              this.parteactual = 1;
+        if (this.empezado) {
+          if (!this.cuerpo.curado) {
+            switch (i) {
+              case 0:
+                if (this.parteactual != i && this.cuerpo.partes[i].curado == false) {
+                  this.parteSel.setText('PARTE ACTUAL: CABEZA');
+                  this.cuerpo.partes[i].generado = true;
+                  this.parteactual = 0;
                 }
-              break;
-          }
+                break;
+              case 1:
+                if (this.parteactual != i && this.cuerpo.partes[i].curado == false) {
+                  this.parteSel.setText('PARTE ACTUAL: PECHO');
+                  this.cuerpo.partes[i].generado = true;
+                  this.parteactual = 1;
+                }
+                break;
+            }
 
+          }
         }
+        else{
+          window.alert('COMIENZA PRIMERO LA PARTIDA');
+        }
+
       });
     }
-    
+    this.generarenfermedad(0);
+    this.generarenfermedad(1); 
     this.parteactual = -1;
-    //this.reset = this.add.sprite(1200, 700, 'red');
+    this.start = this.add.sprite(1200, 750, 'red');
+    this.start.scaleY = 0.3;
+    this.startText = this.add.text(1045 , 720 , 'COMENZAR');
+    this.startText.setFontSize(70);
+    
+    this.start.setInteractive();
+    this.start.on('pointerdown', pointer => {
+      if(!this.empezado){
+      this.empezado = true;
+      this.start.setTexture('green');
+      this.startText.setText("RESET");
+      this.startText.x = 1100;
+      }
+      else{
+        this.scene.restart();
+      }
+    });
+    this.empezado = false;
     this.marcador = this.add.text(50, 700, 'INTENTOS: ' + this.cuerpo.vidas);
     this.marcador.setFontSize(40);
     this.parteSel = this.add.text(50, 750, 'PARTE ACTUAL: NINGUNA');
