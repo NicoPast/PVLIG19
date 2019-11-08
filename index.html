@@ -8,12 +8,13 @@
     <link rel="stylesheet" href="game.css">
     <script src="phaser.min.js"></script>
 
-    <title>¡Juego con Phaser!</title>
+    <title>WHAT THE HELL</title>
 </head>
 
 <body>
-    <h1>What The Hell</h1>
+    <h1>Juego con Phaser</h1>
     <script type="module">
+        import Boot from './boot.js';
         import Game from './game.js';
 
         var config = {
@@ -28,7 +29,7 @@
                 mode: Phaser.Scale.FIT,
                 autoCenter: Phaser.Scale.CENTER_BOTH
             },
-            scene: [ Game ],
+            scene: [ Boot, Game ],
             physics: { default: 'arcade', arcade: { gravity: { y: 400 }, debug: false } }
         };
         new Phaser.Game(config);
