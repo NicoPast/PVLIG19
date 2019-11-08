@@ -7,9 +7,7 @@ export default class Writter extends Phaser.GameObjects.Sprite{
 
         this.setInteractive();
         this.on('pointerdown', pointer => {
-            if(!tween.isPaused())
-                tween.play();
-            else tween.resume();
+             tween.resume();
         });
 
         let tween = scene.tweens.add({
