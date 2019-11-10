@@ -13,7 +13,11 @@
 
 <body>
     <h1>What The Hell</h1>
-    <h2>The best game that still doesn't exist.</h2>
+    <h2>The best game that still doesn't exist.</h2>    
+    <button id = 'P1'>Jugar como agente de campo</button>
+    <button id = 'P2'>Jugar como agente informativo</button>
+    <script>
+    </script>
     <script type="module">
         import Boot from './boot.js';
         import Game from './game.js';
@@ -33,7 +37,9 @@
             scene: [ Boot, Game ],
             physics: { default: 'arcade', arcade: { gravity: { y: 400 }, debug: false } }
         };
-        new Phaser.Game(config);
+
+        P1.onclick = () => new Phaser.Game(config);
+        P2.onclick = () => console.log('load the other game');
     </script>
 </body>
 

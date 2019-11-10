@@ -6,6 +6,7 @@ export default class Pattern extends Phaser.GameObjects.Sprite{
 
         this.scene.add.existing(this).setAlpha(0.1).setScale(4);
         this.visible = false;
+        this.setInteractive();
 
         this.on('pointerup', pointer =>{
             console.log(':D');
@@ -22,7 +23,6 @@ export default class Pattern extends Phaser.GameObjects.Sprite{
         let sol = []; 
 
         this.activate = function(){
-            this.setInteractive();
             this.visible = true;
             for(let i = 0; i < nodes.length; i++){
                 nodes[i].show();
@@ -30,7 +30,6 @@ export default class Pattern extends Phaser.GameObjects.Sprite{
         }
 
         this.deactivate = function(){
-            this.disableInteractive();
             this.visible = false;
             for(let i = 0; i < nodes.length; i++){
                 nodes[i].hide();

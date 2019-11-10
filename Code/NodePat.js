@@ -4,6 +4,7 @@ export default class NodePat extends Phaser.GameObjects.Sprite{
     
         this.scene.add.existing(this).setScale(0.15);
         this.visible = false;
+        this.setInteractive();
         
         let val = num;
 
@@ -18,12 +19,10 @@ export default class NodePat extends Phaser.GameObjects.Sprite{
 
         this.show = function(){
             this.visible = true;
-            this.setInteractive();
         }
 
         this.hide = function(){
             this.visible = false;
-            this.disableInteractive();
         }
     }
 }

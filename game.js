@@ -9,6 +9,7 @@ export default class Game extends Phaser.Scene {
   }
 
   create() {
+    this.background = this.add.image(650, 375, 'room');
     this.zoom = this.add.image(220, 400,'square');
     this.zoom.scaleY = 1.2;
     this.vic = new Victim(this, 850, 400, { x: this.zoom.x, y: this.zoom.y });
