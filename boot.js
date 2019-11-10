@@ -4,14 +4,14 @@ export default class Boot extends Phaser.Scene{
     }
 
     preload(){
-        this.load.image('victim', 'favicon.png');
-        this.load.image('square', 'Button.png');
-        this.load.image('red', 'red.png');
-        this.load.image('white', 'white.png');
-        this.load.image('green', 'green.png');
-        this.load.image('pink', 'pink.png');
-        this.load.image('yellow', 'yellow.png');
-        this.load.image('blue', 'blue.png');
+        this.load.image('victim', './Assets/favicon.png');
+        this.load.image('square', './Assets/Button.png');
+        this.load.image('red', './Assets/red.png');
+        this.load.image('white', './Assets/white.png');
+        this.load.image('green', './Assets/green.png');
+        this.load.image('pink', './Assets/pink.png');
+        this.load.image('yellow', './Assets/yellow.png');
+        this.load.image('blue', './Assets/blue.png');
     }
 
     create(){
