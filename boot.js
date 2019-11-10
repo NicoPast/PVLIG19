@@ -1,6 +1,9 @@
 export default class Boot extends Phaser.Scene{
     constructor(){
         super( { key: 'Boot' } );
+        let but = document.getElementById('P1');
+
+        but.onclick = () => this.scene.start('Game');;
     }
 
     preload(){
@@ -16,6 +19,5 @@ export default class Boot extends Phaser.Scene{
     }
 
     create(){
-        this.scene.start('Game');
     }
 }

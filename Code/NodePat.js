@@ -14,7 +14,12 @@ export default class NodePat extends Phaser.GameObjects.Sprite{
         })
 
         this.on('pointerover', pointer =>{
+            this.alpha = 0.5;
             pattern.updateSol(val);
+        })
+
+        this.on('pointerout', pointer =>{
+            this.alpha = 1;
         })
 
         this.show = function(){

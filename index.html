@@ -37,8 +37,7 @@
             scene: [ Boot, Game ],
             physics: { default: 'arcade', arcade: { gravity: { y: 400 }, debug: false } }
         };
-
-        P1.onclick = () => new Phaser.Game(config);
+        new Phaser.Game(config);
         P2.onclick = () => console.log('load the other game');
     </script>
 </body>

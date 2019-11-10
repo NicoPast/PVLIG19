@@ -1,25 +1,28 @@
 export default class Torso extends Phaser.GameObjects.Sprite{
-    constructor(scene, x, y){
+    constructor(scene, x, y, text){
         super(scene, x, y - 20, 'blue');
         
         this.scene.add.existing(this);
         this.scaleX = 0.7;
         this.scaleY = 0.9;
-        this.name = 'abdomen';
+        this.name = 'Abdomen';
         this.setInteractive();
 
         this.chest = this.scene.add.image(x, y - 120, 'green');
         this.chest.scaleX = 0.7;
         this.chest.scaleY = 0.4;
-        this.chest.name = 'chest';
+        this.chest.name = 'Chest';
         this.chest.setInteractive();
 
         this.on('pointerdown', pointer =>{
             console.log(this.name);
+            text.setText('Selected: ' + this.name);
         })
 
         this.chest.on('pointerdown', pointer =>{
             console.log(this.chest.name);
+            text.setText('Selected: ' + this.chest.name);
+
         })
 
         let active = false;
