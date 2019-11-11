@@ -1,13 +1,18 @@
-const app = require('express')(); // servidor de aplicaciones
+let express = require('express');
+const app = express(); // servidor de aplicaciones
 const http = require('http').createServer(app); // servidor HTTP
-const io = require('socket.io')(http); // Importamos `socket.io`
+const io = require('socket.io').listen(http); // Importamos `socket.io`
 
 const port = 3000; // El puerto
 var clients = [];
 
 app.get('/', function(req, res){
-  res.sendFile(__dirname + '/client.html');
+  res.sendFile(__dirname + '/Pages/index.html');
 });
+
+app.use('/Assets/', express.static('Assets'))
+app.use('/Code/', express.static('Code'))
+app.use('/Pages/', express.static('Pages'))
 
 io.on('connection', socket => {
   console.log('a user connected');
@@ -35,3 +40,4 @@ io.on('connection', socket => {
 http.listen(port, () => {
   console.log('Servidor escuchando en el puerto', port);
 });
+

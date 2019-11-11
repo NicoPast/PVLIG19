@@ -1,6 +1,6 @@
-import Victim from "./Code/Victim.js";
-import Inventory from "./Code/Inventory.js";
-import Writter from "./Code/Writter.js";
+import Victim from "./Victim.js";
+import Inventory from "./Inventory.js";
+import Writter from "./Writter.js";
 
 export default class Game extends Phaser.Scene {
   constructor() {

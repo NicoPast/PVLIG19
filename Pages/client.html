@@ -22,7 +22,7 @@
 </script>
 
 <script>
-  const direccion = 'localhost';
+  const direccion = '127.0.0.1';
   const puerto = 3000;
   const socket = io('http://' + direccion + ':' + puerto);
 </script>
@@ -30,8 +30,7 @@
 <script>
   armas.onclick = () => socket.emit('precios', 'armas');
   comida.onclick = () => socket.emit('precios', 'comida');
-  // cambiara dependiendo de la ip con la que se trabaje
-  atras.onclick = () => window.location.href = 'http://127.0.0.1:5500/'
+  atras.onclick = () => window.location.href = '/';
 </script>
 
   <script>
