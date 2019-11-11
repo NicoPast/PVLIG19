@@ -15,12 +15,10 @@ export default class Torso extends Phaser.GameObjects.Sprite{
         this.chest.setInteractive();
 
         this.on('pointerdown', pointer =>{
-            console.log(this.name);
             text.setText('Selected: ' + this.name);
         })
 
         this.chest.on('pointerdown', pointer =>{
-            console.log(this.chest.name);
             text.setText('Selected: ' + this.chest.name);
 
         })

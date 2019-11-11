@@ -43,7 +43,6 @@ export default class Face extends Phaser.GameObjects.Sprite{
 
         parts.forEach(element =>{
             element.on('pointerdown', pointer =>{
-                console.log(element.name);
                 text.setText('Selected: ' + element.name);
             });
         })

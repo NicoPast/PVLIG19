@@ -2,18 +2,17 @@ import Victim from "./Code/Victim.js";
 import Inventory from "./Code/Inventory.js";
 import Writter from "./Code/Writter.js";
 
-
 export default class Game extends Phaser.Scene {
   constructor() {
     super({ key: 'Game' });
   }
 
   create() {
-    this.background = this.add.image(650, 375, 'room');
-    this.zoom = this.add.image(220, 400,'square');
-    this.zoom.scaleY = 1.2;
-    this.selText = this.add.text(40, 600, 'Selected: None', {fontSize: '32px'});
-    this.vic = new Victim(this, 850, 400, { x: this.zoom.x, y: this.zoom.y, text: this.selText });
+    let background = this.add.image(650, 375, 'room');
+    let zoom = this.add.image(220, 400,'square');
+    zoom.scaleY = 1.2;
+    let selText = this.add.text(40, 600, 'Selected: None', {fontSize: '32px'});
+    let vic = new Victim(this, 850, 400, { x: zoom.x, y: zoom.y, text: selText });
     this.desTex = new Writter(this, 700, 950, 'green');
     this.desAcc = new Inventory(this, 1500, 400, 'square');    
   }
