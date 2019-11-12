@@ -1,22 +1,23 @@
 import Pattern from "./Pattern.js";
 
 export default class Action extends Phaser.GameObjects.Sprite{
-    constructor(scene, x, y, inventary, type){
+    constructor(scene, x, y, inventory, type){
 
         let name = 'blue';
-        let use = {};
+        let use;
         switch(type){
             case 0:
                 name = 'blue';
                 use = new Pattern(scene, 750, 400);
             break;
             case 1:
-                name = 'pink';
+                name = 'green';
             break;
             case 2:
                 name = 'red';
             break;
             case 3:
+                use = false;
                 name = 'yellow';
             break;
         }
@@ -29,9 +30,14 @@ export default class Action extends Phaser.GameObjects.Sprite{
         this.setInteractive();
 
         this.on('pointerdown', pointer => {
-            inventary.updateTween();
+            inventory.updateTween();
             if(type == 0)
             use.activate();
+            else if(type == 3 && use){
+                inventory.removeItem();
+                console.log('I use the power of this ancient relic!');
+                use = false;
+            }
         })
 
         let tween = scene.tweens.add({
@@ -46,6 +52,10 @@ export default class Action extends Phaser.GameObjects.Sprite{
 
         this.updateTween = function(){
             tween.resume();
+        }
+
+        this.updateUse = function(newUse){
+            use = newUse;
         }
     }
 }

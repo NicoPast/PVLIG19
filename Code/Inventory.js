@@ -1,6 +1,6 @@
 import Action from "./Action.js";
 
-export default class Inventary extends Phaser.GameObjects.Sprite{
+export default class Inventory extends Phaser.GameObjects.Sprite{
     constructor(scene ,x , y, texture){
         super(scene, x, y, texture);
 
@@ -30,8 +30,14 @@ export default class Inventary extends Phaser.GameObjects.Sprite{
             buts.push(new Action(scene, x + 50, 100 + i * 200, this, i));
         }
 
-        let tween = scene.tweens.add({
-            targets: this,
+        let item = this.scene.add.image(x + 50, 700, 'square');
+        item.scaleY = 0.37;
+        item.scaleX = 0.6;
+        item.visible = false;
+        item.name = 'empty';
+
+        let tween = this.scene.tweens.add({
+            targets: [this, item],
             x: x - 250,
             duration: 100,
             yoyo: true,
@@ -57,6 +63,25 @@ export default class Inventary extends Phaser.GameObjects.Sprite{
                 activated = true;
                 this.deactivator.visible = true;
             }
+        }
+
+        this.addItem = function(name){
+            switch(name){
+                case "Charlemagne's cross":
+                    item.setTexture('pink');
+                    item.visible = true;
+                    item.name = name;
+                    console.log(item.name);
+                break;
+                default:
+                    console.log('item inexistente');
+                break;
+            }
+            buts[3].updateUse(true);
+        }
+
+        this.removeItem = function(){
+            item.visible = false;
         }
     }
 }

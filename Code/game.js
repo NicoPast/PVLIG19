@@ -14,7 +14,11 @@ export default class Game extends Phaser.Scene {
     let selText = this.add.text(40, 600, 'Selected: None', {fontSize: '32px'});
     let vic = new Victim(this, 850, 400, { x: zoom.x, y: zoom.y, text: selText });
     this.desTex = new Writter(this, 700, 950, 'green');
-    this.desAcc = new Inventory(this, 1500, 400, 'square');    
+    this.desAcc = new Inventory(this, 1500, 400, 'square'); 
+    
+    socket.on('relic', name =>{
+      this.desAcc.addItem(name);
+  })
   }
 
   updateUI(actual){

@@ -5,15 +5,12 @@
     <meta charset="UTF-8">
     <link rel="shortcut icon" href="favicon.png" type="image/png" />
     <meta name="viewport" content="width=device-width, initial-scale=2.0">
-    <link rel="stylesheet" href="Pages/game.css">
-    <script src="Pages/phaser.min.js"></script>
+    <link rel="stylesheet" href="/Pages/game.css">
 
     <title>WHAT THE HELL</title>
 </head>
 
 <body>
-    <script src="/socket.io/socket.io.js"></script>
-
     <h1>What The Hell</h1>
     <h2>The best game that still doesn't exist.</h2>    
     <button id = 'P1'>Jugar como agente de campo</button>
@@ -21,25 +18,7 @@
     <script>
     </script>
     <script type="module">
-        import Boot from './Code/boot.js';
-        import Game from './Code/game.js';
-
-        var config = {
-            type: Phaser.AUTO,
-            width: 1400,
-            height: 800,
-            pixelArt: true,
-            input: {
-                gamepad: true
-            },
-            scale: {
-                mode: Phaser.Scale.FIT,
-                autoCenter: Phaser.Scale.CENTER_BOTH
-            },
-            scene: [ Boot, Game ],
-            physics: { default: 'arcade', arcade: { gravity: { y: 400 }, debug: false } }
-        };
-        new Phaser.Game(config);
+        P1.onclick = () => window.location.href = 'Pages/game.html';
         P2.onclick = () => window.location.href = 'Pages/client.html';
     </script>
 </body>

@@ -8,37 +8,45 @@
 
 <script src="/socket.io/socket.io.js"></script>
 
-<button id="armas">Pedir precios de armas</button>
-<button id="comida">Pedir precios de comida</button>
+<button id="relic">Send Relic</button>
+<button id="services">Hire electrician</button>
 <button id="atras">Volver a la anterior pagina</button>
 
-<p id="lista"></p>
 
+<!--initialization-->
 <script>
-  const armas = document.getElementById("armas");
-  const comida = document.getElementById("comida");
-  const muestra = document.getElementById("lista");
+  const relic = document.getElementById("relic");
+  const services = document.getElementById("services");
   const atras = document.getElementById("atras");
 </script>
 
+<!--socket creation-->
 <script>
   const direccion = '127.0.0.1';
   const puerto = 3000;
   const socket = io('http://' + direccion + ':' + puerto);
+
+  socket.emit('identify', 'information agent');
 </script>
 
+<!--Html functions-->
 <script>
-  armas.onclick = () => socket.emit('precios', 'armas');
-  comida.onclick = () => socket.emit('precios', 'comida');
-  atras.onclick = () => window.location.href = '/';
+  //armas.onclick = () => socket.emit('precios', 'armas');
+  relic.onclick = () => socket.emit('relic', "Charlemagne's cross");
+  services.onclick = () => socket.emit('services', 'electrician');
+  atras.onclick = () => {
+      socket.emit('leave', 'information agent')
+      window.location.href = '/';
+  };
 </script>
 
-  <script>
-    socket.on('respuesta', lista => {
-      // `JSON.stringify` convierte un JSON a string para
-      // poder mostrarlo
-      muestra.innerHTML = JSON.stringify(lista)
-    });
-  </script>
- </body>
+<!--Socket functions-->
+<script>
+socket.on('problem', error =>{
+  console.log(error);
+})
+</script>
+
+</body>
+
 </html>
