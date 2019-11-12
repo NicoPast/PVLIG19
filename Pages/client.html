@@ -18,14 +18,13 @@
   const relic = document.getElementById("relic");
   const services = document.getElementById("services");
   const atras = document.getElementById("atras");
-</script>
+</script> 
 
 <!--socket creation-->
 <script>
   const direccion = '127.0.0.1';
   const puerto = 3000;
   const socket = io('http://' + direccion + ':' + puerto);
-
   socket.emit('identify', 'information agent');
 </script>
 
@@ -38,13 +37,18 @@
       socket.emit('leave', 'information agent')
       window.location.href = '/';
   };
+  window.addEventListener("beforeunload", function(salir){
+    socket.emit('leave', 'information agent');
+    window.location.href = '/';
+  } );
 </script>
 
 <!--Socket functions-->
 <script>
 socket.on('problem', error =>{
   console.log(error);
-})
+});
+
 </script>
 
 </body>

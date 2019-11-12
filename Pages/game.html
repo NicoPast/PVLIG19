@@ -62,6 +62,10 @@
       socket.emit('leave', 'field agent')
       window.location.href = '/';
   };
+  window.addEventListener("beforeunload", function(salir){
+    socket.emit('leave', 'field agent');
+    window.location.href = '/';
+  } );
 </script>
 
 <!--Server functions-->

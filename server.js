@@ -37,6 +37,7 @@ io.on('connection', socket => {
     // para enviar algo, usamos `emit`
     // que tiene un nombre de mensaje,
     // y un objeto
+      console.log(' reliquia : ' + name);
     if(fieldAg != null) fieldAg.emit('relic', name);
     else if(infoAg != null) infoAg.emit('problem', 'Error, no hay jugador conectado');
   });
