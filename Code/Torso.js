@@ -1,6 +1,6 @@
 export default class Torso extends Phaser.GameObjects.Sprite{
     constructor(scene, x, y, text){
-        super(scene, x, y - 20, 'blue');
+        super(scene, x, y - 20, CreateSick());
         
         this.scene.add.existing(this);
         this.scaleX = 0.7;
@@ -8,7 +8,7 @@ export default class Torso extends Phaser.GameObjects.Sprite{
         this.name = 'Abdomen';
         this.setInteractive();
 
-        this.chest = this.scene.add.image(x, y - 120, 'green');
+        this.chest = this.scene.add.image(x, y - 120, CreateSick());
         this.chest.scaleX = 0.7;
         this.chest.scaleY = 0.4;
         this.chest.name = 'Chest';
@@ -42,5 +42,21 @@ export default class Torso extends Phaser.GameObjects.Sprite{
         }
 
         this.hide();
+
+        function CreateSick(){
+            
+            switch (Math.floor(Math.random() * 5) + 1) {
+                case 1:
+                    return'green';
+                case 2: 
+                    return 'red';
+                case 3: 
+                    return 'pink';
+                case 4:
+                    return 'blue';
+                case 5:
+                    return 'white';
+            }
+        }
     }
 }
