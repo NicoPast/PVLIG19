@@ -1,4 +1,4 @@
-import FaceParts from "./FaceParts.js";
+import Parts from "./Parts.js";
 
 export default class Face extends Phaser.GameObjects.Sprite {
     constructor(scene, x, y, text) {
@@ -15,10 +15,10 @@ export default class Face extends Phaser.GameObjects.Sprite {
         let parts = [];
 
 
-        parts.push(new FaceParts(scene, x + 140, y , 'ears' , CreateSick()));
-        parts.push(new FaceParts(scene, x, y + 15,  'nose', CreateSick()));
-        parts.push(new FaceParts(scene, x, y + 80, 'mouth', CreateSick()));
-        parts.push(new FaceParts(scene, x, y - 40, 'eyes', CreateSick()));
+        parts.push(new Parts(scene, x + 140, y , 'ears' , CreateSick()));
+        parts.push(new Parts(scene, x, y + 15,  'nose', CreateSick()));
+        parts.push(new Parts(scene, x, y + 80, 'mouth', CreateSick()));
+        parts.push(new Parts(scene, x, y - 40, 'eyes', CreateSick()));
 
         parts.forEach( element => {
             if(element.getPart() == 'ears'){

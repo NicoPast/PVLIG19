@@ -1,8 +1,14 @@
-export default class Puzzle extends Phaser.GameObjects.Sprite{
-    constructor( scene , sick , part){
-       super(scene , sick , part);
+export default class Puzzle {
+    constructor(scene, sick, part){
             console.log('creada una enfermeda de tipo ' + sick  + ' en ' + part);
+        
 
-
+        // var Fire = {
+        //     ears: {
+        //         1: 
+        //     },
+        // }
     }
 }
+
+

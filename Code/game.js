@@ -15,7 +15,7 @@ export default class Game extends Phaser.Scene {
     let vic = new Victim(this, 850, 400, { x: zoom.x, y: zoom.y, text: selText });
     this.desTex = new Writter(this, 700, 950, 'green');
     this.desAcc = new Inventory(this, 1500, 400, 'square'); 
-    
+    this.posesion = 0;
     socket.on('relic', name =>{
       this.desAcc.addItem(name);
   })
@@ -28,6 +28,8 @@ export default class Game extends Phaser.Scene {
       this.desAcc.updateTween();
   }
 
-  update(time, delta) {    
+  update(time, delta) { 
+    this.posesion += 0.01;
+    console.log(this.posesion);
   }
 }

@@ -1,39 +1,37 @@
+import Parts from './Parts.js'
 export default class Torso extends Phaser.GameObjects.Sprite{
     constructor(scene, x, y, text){
-        super(scene, x, y - 20, CreateSick());
+        super(scene, x, y - 20, 'yellow');
         
         this.scene.add.existing(this);
         this.scaleX = 0.7;
         this.scaleY = 0.9;
-        this.name = 'Abdomen';
-        this.setInteractive();
-
-        this.chest = this.scene.add.image(x, y - 120, CreateSick());
-        this.chest.scaleX = 0.7;
-        this.chest.scaleY = 0.4;
-        this.chest.name = 'Chest';
-        this.chest.setInteractive();
-
-        this.on('pointerdown', pointer =>{
-            text.setText('Selected: ' + this.name);
-        })
-
-        this.chest.on('pointerdown', pointer =>{
-            text.setText('Selected: ' + this.chest.name);
-
-        })
+        
+        let bodyparts = [];
+        bodyparts.push( new Parts( scene , x, y + 80, 'abdomen' , CreateSick()));
+        bodyparts.push(new Parts( scene , x, y - 120, 'chest' , CreateSick()));
+       
+        bodyparts.forEach( element => {
+            element.on('pointerdown', pointer =>{
+                text.setText('Selected: ' + element.getPart());
+            });
+        });
 
         let active = false;
 
         this.render = function(){
             this.visible = true;
-            this.chest.visible = true;
+            bodyparts.forEach( element => {
+                element.visible = true;
+            });
             active = true;
         }
 
         this.hide = function(){
             this.visible = false;
-            this.chest.visible = false;
+            bodyparts.forEach( element => {
+                element.visible = false;
+            });
             active = false;
         }
 

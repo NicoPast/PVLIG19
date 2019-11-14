@@ -23,7 +23,8 @@ export default class Victim extends Phaser.GameObjects.Sprite{
 
         this.updateZoom = function(){
             this.generalBodyParts.forEach(element => {
-                if(this.generalBodyParts[i].isActive()) this.generalBodyParts[i].hide();
+                if(element.isActive()) 
+                element.hide();
             });     
         }
     }

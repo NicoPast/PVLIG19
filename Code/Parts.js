@@ -1,6 +1,6 @@
 import Puzzle from "./Puzzle.js";
 
-export default class FaceParts extends Phaser.GameObjects.Sprite {
+export default class Parts extends Phaser.GameObjects.Sprite {
     constructor(scene, x, y,  part , sick) {
         super(scene, x, y, sick);
 
@@ -28,7 +28,16 @@ export default class FaceParts extends Phaser.GameObjects.Sprite {
                 this.scaleX = 0.35;
                 this.scaleY = 0.1;
                 break;
+            case 'chest':
+                this.scaleX = 0.7;
+                this.scaleY = 0.4;
+                break;
+            case 'abdomen':
+                this.scaleX = 0.7;
+                this.scaleY = 0.4;
+                break;                
             default:
+            console.log('Como cojones has llegado aquí');
                 break;
         }
 
