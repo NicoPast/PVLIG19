@@ -29,6 +29,7 @@ io.on('connection', socket => {
     // para enviar algo, usamos `emit`
     // que tiene un nombre de mensaje,
     // y un objeto
+    console.log( 'service sended of type ' + servicio);
     if(fieldAg != null) fieldAg.emit('service', servicio);
     else if(infoAg != null) infoAg.emit('problem', 'Error, no hay jugador conectado');
   });

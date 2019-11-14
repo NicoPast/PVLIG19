@@ -15,15 +15,19 @@ export default class Face extends Phaser.GameObjects.Sprite {
         let parts = [];
 
 
-        parts.push(new FaceParts(scene, x + 140, y, text, 'earL' , CreateSick()));
-        parts.push(new FaceParts(scene, x - 140, y, text, 'earR' , CreateSick()));
-        parts.push(new FaceParts(scene, x, y + 15, text, 'nose', CreateSick()));
-        parts.push(new FaceParts(scene, x, y + 80, text, 'mouth', CreateSick()));
-        parts.push(new FaceParts(scene, x, y - 40, text, 'eyes', CreateSick()));
+        parts.push(new FaceParts(scene, x + 140, y , 'ears' , CreateSick()));
+        parts.push(new FaceParts(scene, x, y + 15,  'nose', CreateSick()));
+        parts.push(new FaceParts(scene, x, y + 80, 'mouth', CreateSick()));
+        parts.push(new FaceParts(scene, x, y - 40, 'eyes', CreateSick()));
 
         parts.forEach( element => {
+            if(element.getPart() == 'ears'){
+                element.other.on('pointerdown', pointer =>{
+                    text.setText('Selected: ' + element.getPart());
+                });
+            }
             element.on('pointerdown', pointer =>{
-                text.setText('Selected: ' + element.getPart())
+                text.setText('Selected: ' + element.getPart());
             });
         });
 
@@ -32,6 +36,9 @@ export default class Face extends Phaser.GameObjects.Sprite {
         this.render = function () {
             this.visible = true;
             parts.forEach(element => {
+                if(element.getPart() == 'ears'){
+                    element.other.visible = true;
+                }
                 element.visible = true;
             });
             active = true;
@@ -40,6 +47,9 @@ export default class Face extends Phaser.GameObjects.Sprite {
         this.hide = function () {
             this.visible = false;
             parts.forEach(element => {
+                if(element.getPart() == 'ears'){
+                    element.other.visible = false;
+                }
                 element.visible = false;
             });
             active = false;
@@ -50,6 +60,14 @@ export default class Face extends Phaser.GameObjects.Sprite {
         }
 
         this.hide();
+
+
+        this.getActualPart = function(){
+                parts.forEach(element => {
+                element.getActualPart();
+            })
+
+        }
 
         function CreateSick(){
             
@@ -66,7 +84,6 @@ export default class Face extends Phaser.GameObjects.Sprite {
                     return 'white';
             }
         }
-   
     }
     
 }

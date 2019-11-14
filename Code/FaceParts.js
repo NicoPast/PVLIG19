@@ -1,18 +1,20 @@
+import Puzzle from "./Puzzle.js";
+
 export default class FaceParts extends Phaser.GameObjects.Sprite {
-    constructor(scene, x, y, text, part , sick) {
+    constructor(scene, x, y,  part , sick) {
         super(scene, x, y, sick);
 
         this.scene.add.existing(this);
         this.setInteractive();
-        console.log(part + ' createad with ' + sick );
+        let curado = false;
         switch (part) {
-            case 'earL':
+            case 'ears':
                 this.scaleX = 0.1;
                 this.scaleY = 0.25;
-                break;
-            case 'earR':
-                this.scaleX = 0.1;
-                this.scaleY = 0.25;
+                this.other = scene.add.image(x - 280 , y ,sick);
+                this.other.scaleX = 0.1;
+                this.other.scaleY = 0.25;
+                this.other.setInteractive();
                 break;
             case 'nose':
                 this.scaleX = 0.1;
@@ -30,8 +32,12 @@ export default class FaceParts extends Phaser.GameObjects.Sprite {
                 break;
         }
 
+        let puzzle = new Puzzle(scene , sick , part);
         this.getPart = function () {
             return part;
+        }
+        this.getCurado = function(){
+            return curado;
         }
     }
 }
