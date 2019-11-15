@@ -20,17 +20,19 @@ export default class Writter extends Phaser.GameObjects.Sprite{
             this.updateTween();
         });
 
-        /*
         let input;
-        let element = this.add.dom(400, 0).createFromCache('nameform');
-        
+        let element = scene.add.dom(300, 1000, 'nameform', "background-color: lime; width: 220px; height: 10px; font: 48px Arial").createFromCache("nameField");
+
+        let text = scene.add.text(300, 10, 'Please enter your name', { color: 'white', fontSize: '20px '});
+
         element.addListener('click');
         element.on('click', function(event){
 
             if (event.target.name === 'playButton')
             {
+                console.log('punto 1');
                 var inputText = this.getChildByName('nameField');
-    
+
                 //  Have they entered anything?
                 if (inputText.value !== '')
                 {
@@ -45,8 +47,8 @@ export default class Writter extends Phaser.GameObjects.Sprite{
                 }
             }
         });
-        */
-       
+        
+
         let activated = false;
 
         let tween = scene.tweens.add({

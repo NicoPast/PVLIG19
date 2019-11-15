@@ -16,6 +16,35 @@ export default class Game extends Phaser.Scene {
     this.desTex = new Writter(this, 700, 950, 'green');
     this.desAcc = new Inventory(this, 1500, 400, 'square'); 
     this.posesion = 0;
+    /*
+    let input;
+    let element = this.add.dom(300, 1000, 'nameform', "background-color: lime; width: 220px; height: 10px; font: 48px Arial").createFromCache("nameField");
+
+    let text = this.add.text(300, 10, 'Please enter your name', { color: 'white', fontSize: '20px '});
+
+    element.addListener('click');
+    element.on('click', function(event){
+
+        if (event.target.name === 'playButton')
+        {
+            console.log('punto 1');
+            var inputText = this.getChildByName('nameField');
+
+            //  Have they entered anything?
+            if (inputText.value !== '')
+            {
+                //  Turn off the click events
+                this.removeListener('click');
+
+                //  Hide the login element
+                this.setVisible(false);
+
+                //  Populate the text with whatever they typed in
+                input = 'Welcome ' + inputText.value;
+            }
+        }
+    });
+    */
     socket.on('relic', name =>{
       this.desAcc.addItem(name);
   })
