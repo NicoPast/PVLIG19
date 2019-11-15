@@ -18,7 +18,7 @@ export default class Game extends Phaser.Scene {
     this.desAcc = new Inventory(this, 1500, 400, 'square'); 
     this.posesion = 0;
     this.startTime = Date.now();
-    this.posRate = 100;
+    this.posRate = 0.5;
     /*
     let input;
     let element = this.add.dom(300, 1000, 'nameform', "background-color: lime; width: 220px; height: 10px; font: 48px Arial").createFromCache("nameField");

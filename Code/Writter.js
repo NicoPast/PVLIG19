@@ -16,7 +16,7 @@ export default class Writter extends Phaser.GameObjects.Sprite{
         deactivator.visible = false;
         deactivator.setInteractive();
 
-        this.deactivator.on('pointerdown', pointer => {
+        deactivator.on('pointerdown', pointer => {
             this.updateTween();
         });
 
