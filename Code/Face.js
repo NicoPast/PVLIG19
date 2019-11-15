@@ -4,7 +4,7 @@ export default class Face extends Phaser.GameObjects.Sprite {
     constructor(scene, x, y, text) {
         super(scene, x, y + 10, 'yellow');
 
-        this.scene.add.existing(this).setScale(0.95);
+        scene.add.existing(this).setScale(0.95);
         this.scaleX = 0.6;
         this.scaleY = 0.85;
         this.setInteractive();
@@ -59,9 +59,6 @@ export default class Face extends Phaser.GameObjects.Sprite {
             return active;
         }
 
-        this.hide();
-
-
         this.getActualPart = function(){
                 parts.forEach(element => {
                 element.getActualPart();
@@ -84,6 +81,8 @@ export default class Face extends Phaser.GameObjects.Sprite {
                     return 'white';
             }
         }
+
+        this.hide();
     }
     
 }

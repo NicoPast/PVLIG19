@@ -3,7 +3,7 @@ export default class Torso extends Phaser.GameObjects.Sprite{
     constructor(scene, x, y, text){
         super(scene, x, y - 20, 'yellow');
         
-        this.scene.add.existing(this);
+        scene.add.existing(this);
         this.scaleX = 0.7;
         this.scaleY = 0.9;
         
@@ -39,8 +39,6 @@ export default class Torso extends Phaser.GameObjects.Sprite{
             return active;
         }
 
-        this.hide();
-
         function CreateSick(){
             
             switch (Math.floor(Math.random() * 5) + 1) {
@@ -56,5 +54,7 @@ export default class Torso extends Phaser.GameObjects.Sprite{
                     return 'white';
             }
         }
+
+        this.hide();
     }
 }

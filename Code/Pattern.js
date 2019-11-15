@@ -4,7 +4,7 @@ export default class Pattern extends Phaser.GameObjects.Sprite{
     constructor(scene, x, y){
         super(scene, x, y, 'yellow')
 
-        this.scene.add.existing(this).setAlpha(0.1).setScale(4);
+        scene.add.existing(this).setAlpha(0.1).setScale(4);
         this.visible = false;
         this.setInteractive();
 

@@ -2,7 +2,7 @@ export default class Writter extends Phaser.GameObjects.Sprite{
     constructor(scene ,x , y, texture){
         super(scene, x, y, texture);
 
-        this.scene.add.existing(this);        
+        scene.add.existing(this);        
         this.scaleX = 2.7;
         this.setInteractive();
         this.on('pointerdown', pointer => {
@@ -10,11 +10,11 @@ export default class Writter extends Phaser.GameObjects.Sprite{
             this.scene.updateUI('t');
         });
 
-        this.deactivator = this.scene.add.image(650, 400, 'square').setAlpha(0.3);
-        this.deactivator.scaleY = 2;
-        this.deactivator.scaleX = 3.25;
-        this.deactivator.visible = false;
-        this.deactivator.setInteractive();
+        let deactivator = this.scene.add.image(650, 400, 'square').setAlpha(0.3);
+        deactivator.scaleY = 2;
+        deactivator.scaleX = 3.25;
+        deactivator.visible = false;
+        deactivator.setInteractive();
 
         this.deactivator.on('pointerdown', pointer => {
             this.updateTween();
@@ -69,11 +69,11 @@ export default class Writter extends Phaser.GameObjects.Sprite{
             tween.resume();
             if(activated){
                 activated = false
-                this.deactivator.visible = false;
+                deactivator.visible = false;
             }
             else {
                 activated = true;
-                this.deactivator.visible = true;
+                deactivator.visible = true;
             }
         }
     }

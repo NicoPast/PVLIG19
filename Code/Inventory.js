@@ -4,22 +4,22 @@ export default class Inventory extends Phaser.GameObjects.Sprite{
     constructor(scene ,x , y, texture){
         super(scene, x, y, texture);
 
-        this.scene.add.existing(this);
+        scene.add.existing(this);
         this.scaleY = 2;
         this.setInteractive();
 
         this.on('pointerdown', pointer => {
             this.updateTween();
-            this.scene.updateUI('i');
+            scene.updateUI('i');
         });
 
-        this.deactivator = this.scene.add.image(750, 370, 'square').setAlpha(0.3);
-        this.deactivator.scaleY = 1.9;
-        this.deactivator.scaleX = 4;
-        this.deactivator.visible = false;
-        this.deactivator.setInteractive();
+        let deactivator = scene.add.image(750, 370, 'square').setAlpha(0.3);
+        deactivator.scaleY = 1.9;
+        deactivator.scaleX = 4;
+        deactivator.visible = false;
+        deactivator.setInteractive();
 
-        this.deactivator.on('pointerdown', pointer => {
+        deactivator.on('pointerdown', pointer => {
             this.updateTween();
         });
 
@@ -57,11 +57,11 @@ export default class Inventory extends Phaser.GameObjects.Sprite{
             }
             if(activated){
                 activated = false
-                this.deactivator.visible = false;
+                deactivator.visible = false;
             }
             else {
                 activated = true;
-                this.deactivator.visible = true;
+                deactivator.visible = true;
             }
         }
 

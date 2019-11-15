@@ -24,7 +24,7 @@ export default class Action extends Phaser.GameObjects.Sprite{
 
         super(scene, x, y, name);
 
-        this.scene.add.existing(this);
+        scene.add.existing(this);
         this.scaleY = 0.37;
         this.scaleX = 0.6;
         this.setInteractive();

@@ -4,7 +4,7 @@ export default class Parts extends Phaser.GameObjects.Sprite {
     constructor(scene, x, y,  part , sick) {
         super(scene, x, y, sick);
 
-        this.scene.add.existing(this);
+        scene.add.existing(this);
         this.setInteractive();
         let curado = false;
         switch (part) {
