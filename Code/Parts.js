@@ -1,7 +1,8 @@
 import Puzzle from "./Puzzle.js";
 
 export default class Parts extends Phaser.GameObjects.Sprite {
-    constructor(scene, x, y,  part , sick) {
+    constructor(scene, x, y, part, text) {
+        let sick = CreateSick();
         super(scene, x, y, sick);
 
         scene.add.existing(this);
@@ -11,7 +12,7 @@ export default class Parts extends Phaser.GameObjects.Sprite {
             case 'ears':
                 this.scaleX = 0.1;
                 this.scaleY = 0.25;
-                this.other = scene.add.image(x - 280 , y ,sick);
+                this.other = scene.add.image(x - 280, y, sick);
                 this.other.scaleX = 0.1;
                 this.other.scaleY = 0.25;
                 this.other.setInteractive();
@@ -35,20 +36,49 @@ export default class Parts extends Phaser.GameObjects.Sprite {
             case 'abdomen':
                 this.scaleX = 0.7;
                 this.scaleY = 0.4;
-                break;                
+                break;
             default:
-            console.log('Como cojones has llegado aquí');
+                console.log('Como cojones has llegado aquí');
                 break;
         }
 
-        let puzzle = new Puzzle(scene , sick , part);
+       this.puzzle = new Puzzle(scene, sick, part);
+
         this.getPart = function () {
             return part;
         }
-        this.getCurado = function(){
+        this.getCurado = function () {
             return curado;
         }
+
+        this.on('pointerdown', pointer => {
+            text.setText('Selected: ' + part);
+            scene.setPart(this);
+        });
+        if(part == 'ears'){
+            this.other.on('pointerdown', pointer => {
+                text.setText('Selected: ' + part);
+                scene.setPart(this);
+            });
+        }
+
+        function CreateSick() {
+
+            switch (Math.floor(Math.random() * 5) + 1) {
+                case 1:
+                    return 'green';
+                case 2:
+                    return 'red';
+                case 3:
+                    return 'pink';
+                case 4:
+                    return 'blue';
+                case 5:
+                    return 'white';
+            }
+        }
     }
+
 }
 
 

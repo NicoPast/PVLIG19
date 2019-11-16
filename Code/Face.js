@@ -15,28 +15,18 @@ export default class Face extends Phaser.GameObjects.Sprite {
         let parts = [];
 
 
-        parts.push(new Parts(scene, x + 140, y , 'ears' , CreateSick()));
-        parts.push(new Parts(scene, x, y + 15,  'nose', CreateSick()));
-        parts.push(new Parts(scene, x, y + 80, 'mouth', CreateSick()));
-        parts.push(new Parts(scene, x, y - 40, 'eyes', CreateSick()));
+        parts.push(new Parts(scene, x + 140, y, 'ears', text));
+        parts.push(new Parts(scene, x, y + 15, 'nose', text));
+        parts.push(new Parts(scene, x, y + 80, 'mouth', text));
+        parts.push(new Parts(scene, x, y - 40, 'eyes', text));
 
-        parts.forEach( element => {
-            if(element.getPart() == 'ears'){
-                element.other.on('pointerdown', pointer =>{
-                    text.setText('Selected: ' + element.getPart());
-                });
-            }
-            element.on('pointerdown', pointer =>{
-                text.setText('Selected: ' + element.getPart());
-            });
-        });
 
         let active = false;
 
         this.render = function () {
             this.visible = true;
             parts.forEach(element => {
-                if(element.getPart() == 'ears'){
+                if (element.getPart() == 'ears') {
                     element.other.visible = true;
                 }
                 element.visible = true;
@@ -47,7 +37,7 @@ export default class Face extends Phaser.GameObjects.Sprite {
         this.hide = function () {
             this.visible = false;
             parts.forEach(element => {
-                if(element.getPart() == 'ears'){
+                if (element.getPart() == 'ears') {
                     element.other.visible = false;
                 }
                 element.visible = false;
@@ -59,30 +49,7 @@ export default class Face extends Phaser.GameObjects.Sprite {
             return active;
         }
 
-        this.getActualPart = function(){
-                parts.forEach(element => {
-                element.getActualPart();
-            })
-
-        }
-
-        function CreateSick(){
-            
-            switch (Math.floor(Math.random() * 5) + 1) {
-                case 1:
-                    return'green';
-                case 2: 
-                    return 'red';
-                case 3: 
-                    return 'pink';
-                case 4:
-                    return 'blue';
-                case 5:
-                    return 'white';
-            }
-        }
-
         this.hide();
     }
-    
+
 }

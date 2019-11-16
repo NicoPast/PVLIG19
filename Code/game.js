@@ -50,7 +50,7 @@ export default class Game extends Phaser.Scene {
     */
     socket.on('relic', name =>{
       this.desAcc.addItem(name);
-  })
+  });
   }
 
   updateUI(actual){
@@ -70,5 +70,10 @@ export default class Game extends Phaser.Scene {
 
       this.vic.loose();
     }
+    
   }
+  setPart(part){
+    this.vic.setPart(part);
+    console.log(this.vic.getPart());
+  } 
 }
