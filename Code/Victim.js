@@ -56,15 +56,11 @@ export default class Victim extends Phaser.GameObjects.Sprite{
 
         this.setPart = function(part){
             actualpart = part;
-            algo();
         }
 
         this.getPart = function(){
             return actualpart;
         }
         
-        function algo(){
-            actualpart.algo();
-        }
     }
 }

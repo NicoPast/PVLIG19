@@ -36,8 +36,13 @@ export default class Inventory extends Phaser.GameObjects.Sprite{
         item.visible = false;
         item.name = 'empty';
 
+        let holyWater = this.scene.add.image(x + 50, 500, 'square');
+        holyWater.scaleY = 0.37;
+        holyWater.scaleX = 0.6;
+        holyWater.visible = false;
+
         let tween = this.scene.tweens.add({
-            targets: [this, item],
+            targets: [this, item, holyWater],
             x: x - 250,
             duration: 100,
             yoyo: true,
@@ -66,19 +71,22 @@ export default class Inventory extends Phaser.GameObjects.Sprite{
         }
 
         this.addItem = function(name){
-            switch(name){
-                case "Charlemagne's cross":
-                    item.setTexture('pink');
-                    item.visible = true;
-                    item.name = name;
-                    console.log(item.name);
-                break;
-                default:
-                    console.log('item inexistente');
-                break;
-            }
+            item.setTexture('pink');
+            item.visible = true;
+            item.name = name;
+            console.log(item.name);
             buts[3].updateUse(true);
         }
+        this.addHolyWater = function(HolyWater){
+            this.HolyWater = HolyWater;
+            holyWater.setTexture('pink');
+            holyWater.visible = true;
+            buts[2].updateUse(true);
+            console.log( "I have a Holy Water with this configuration "+ this.HolyWater.SaintHair + " " + this.HolyWater.CrossPiece + " " + this.HolyWater.SacredText + " " + this.HolyWater.candleWax);
+        }
+        this.useHolyWater = function(){
+            holyWater.visible = false;
+        }    
 
         this.removeItem = function(){
             item.visible = false;

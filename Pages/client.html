@@ -1,55 +1,100 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <title>Cliente del juego</title>
 </head>
+
 <body>
 
-<script src="/socket.io/socket.io.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
 
-<button id="relic">Send Relic</button>
-<button id="services">Hire electrician</button>
-<button id="atras">Volver a la anterior pagina</button>
+  <button id="atras">Volver a la anterior pagina</button>
 
+  <p>Do you need any service?</p>
+  <select id="services">
+    <option value="none">Nothing</option>
+    <option value="electrician">Electrician</option>
+    <option value="firefighters">Firefighters</option>
+    <option value="plumber">Plumber</option>
+    <option value="pest_control">Pest Control</option>
+  </select>
+  <button id="submitService"> Send </button>
 
-<!--initialization-->
-<script>
-  const relic = document.getElementById("relic");
-  const services = document.getElementById("services");
-  const atras = document.getElementById("atras");
-</script> 
+  <p>Send one of our many Relics</p>
+  <select id="relics">
+    <option value="Charlemagne's cross">Charlemagne's cross</option>
+    <option value="Shrine of the Three Kings">Shrine of the Three Kings</option>
+    <option value="The Holy Foreskin">The Holy Foreskin</option>
+  </select>
+  <button id="submitRelic"> Send </button>
 
-<!--socket creation-->
-<script>
-  const direccion = '127.0.0.1';
-  const puerto = 3000;
-  const socket = io('http://' + direccion + ':' + puerto);
-  socket.emit('identify', 'information agent');
-</script>
+  <p>Create your own Holy Water</p>
+  <input id="check1" type="checkbox" name="component" value="SaintHair" /> Saint Hair<br>
+  <input id="check2" type="checkbox" name="component" value="CrossPiece" /> Cross Piece<br>
+  <input id="check3" type="checkbox" name="component" value="SacredText" /> Piece of sacred Text<br>
+  <input id="check4" type="checkbox" name="component" value="candleWax" /> Sacred Candle Wax<br>
+  <button id="submitWater"> Create and Send </button>
 
-<!--Html functions-->
-<script>
-  //armas.onclick = () => socket.emit('precios', 'armas');
-  relic.onclick = () => socket.emit('relic', "Charlemagne's cross");
-  services.onclick = () => socket.emit('services', 'electrician');
-  atras.onclick = () => {
+  <p> </p>
+
+  <!--initialization-->
+  <script>
+    const relic = document.getElementById("relics");
+    const sendRelic = document.getElementById("submitRelic");
+    const services = document.getElementById("services");
+    const sendServices = document.getElementById("submitService");
+    const atras = document.getElementById("atras");
+    const sendWater = document.getElementById("submitWater");
+    const check1 = document.getElementById("check1");
+    const check2 = document.getElementById("check2");
+    const check3 = document.getElementById("check3");
+    const check4 = document.getElementById("check4");
+
+    function HolyWater(com1, com2, com3, com4) {
+      this.SaintHair = com1;
+      this.CrossPiece = com2;
+      this.SacredText = com3;
+      this.candleWax = com4;
+    }
+  </script>
+
+  <!--socket creation-->
+  <script>
+    const direccion = '127.0.0.1';
+    const puerto = 3000;
+    const socket = io('http://' + direccion + ':' + puerto);
+    socket.emit('identify', 'information agent');
+  </script>
+
+  <!--Html functions-->
+  <script>
+    //armas.onclick = () => socket.emit('precios', 'armas');
+    sendRelic.onclick = () => socket.emit('relic', relic.options[relic.selectedIndex].value);
+    sendServices.onclick = () => socket.emit('services', services.options[services.selectedIndex].value);
+    sendWater.onclick = () => {
+      let HolyWaterSend = new HolyWater(check1.checked, check2.checked, check3.checked, check4.checked);
+      console.log(HolyWaterSend.SaintHair + " " + HolyWaterSend.CrossPiece + " " + HolyWaterSend.SacredText + " " + HolyWaterSend.candleWax);
+      socket.emit('holyWater', HolyWaterSend);
+    }
+    atras.onclick = () => {
       socket.emit('leave', 'information agent')
       window.location.href = '/';
-  };
-  window.addEventListener("beforeunload", function(salir){
-    socket.emit('leave', 'information agent');
-    window.location.href = '/';
-  } );
-</script>
+    };
+    window.addEventListener("beforeunload", function (salir) {
+      socket.emit('leave', 'information agent');
+      window.location.href = '/';
+    });
+  </script>
 
-<!--Socket functions-->
-<script>
-socket.on('problem', error =>{
-  console.log(error);
-});
+  <!--Socket functions-->
+  <script>
+    socket.on('problem', error => {
+      console.log(error);
+    });
 
-</script>
+  </script>
 
 </body>
 

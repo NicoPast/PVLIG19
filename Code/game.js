@@ -9,13 +9,13 @@ export default class Game extends Phaser.Scene {
 
   create() {
     let background = this.add.image(650, 375, 'room');
-    let zoom = this.add.image(220, 400,'square');
+    let zoom = this.add.image(220, 400, 'square');
     zoom.scaleY = 1.2;
-    this.posText = this.add.text(20, 20, 'Possesion Progress: 0%', {fontSize: '32px'})
-    let selText = this.add.text(40, 600, 'Selected: None', {fontSize: '32px'});
+    this.posText = this.add.text(20, 20, 'Possesion Progress: 0%', { fontSize: '32px' })
+    let selText = this.add.text(40, 600, 'Selected: None', { fontSize: '32px' });
     this.vic = new Victim(this, 850, 400, { x: zoom.x, y: zoom.y, text: selText });
     this.desTex = new Writter(this, 700, 950, 'green');
-    this.desAcc = new Inventory(this, 1500, 400, 'square'); 
+    this.desAcc = new Inventory(this, 1500, 400, 'square');
     this.posesion = 0;
     this.startTime = Date.now();
     this.posRate = 0.5;
@@ -48,32 +48,37 @@ export default class Game extends Phaser.Scene {
         }
     });
     */
-    socket.on('relic', name =>{
+    socket.on('relic', name => {
       this.desAcc.addItem(name);
-  });
+    });
+    socket.on('holyWater', HolyWater => {
+      this.desAcc.addHolyWater(HolyWater);
+    });
   }
 
-  updateUI(actual){
-    if(this.desTex.isActive() && actual == 'i')
+  updateUI(actual) {
+    if (this.desTex.isActive() && actual == 'i')
       this.desTex.updateTween();
-    if(this.desAcc.isActive() && actual == 't')
+    if (this.desAcc.isActive() && actual == 't')
       this.desAcc.updateTween();
   }
 
-  update(time, delta) { 
-    if(this.posesion < 100) {
+  setPart(part) {
+    this.vic.setPart(part);
+    console.log(this.vic.getPart());
+  }
+
+  update(time, delta) {
+    if (this.posesion < 100) {
       this.posesion = (Date.now() - this.startTime) * (0.001 * this.posRate);
       this.posText.setText('Possesion Progress: ' + parseFloat(Math.round(this.posesion * 100) / 100).toFixed(2) + ' %')
     }
-    else{
+    else {
       this.posText.setText('Possesion Progress: 100.00 %')
 
       this.vic.loose();
     }
-    
+
   }
-  setPart(part){
-    this.vic.setPart(part);
-    console.log(this.vic.getPart());
-  } 
+
 }

@@ -33,6 +33,11 @@ export default class Action extends Phaser.GameObjects.Sprite{
             inventory.updateTween();
             if(type == 0)
             use.activate();
+            else if(type == 2 && use){
+                inventory.useHolyWater();
+                console.log('I use the power of this Holy Water');
+                use = false;
+            }
             else if(type == 3 && use){
                 inventory.removeItem();
                 console.log('I use the power of this ancient relic!');

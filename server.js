@@ -43,6 +43,15 @@ io.on('connection', socket => {
     else if(infoAg != null) infoAg.emit('problem', 'Error, no hay jugador conectado');
   });
 
+  socket.on('holyWater', HolyWaterSend => {
+    // para enviar algo, usamos `emit`
+    // que tiene un nombre de mensaje,
+    // y un objeto
+    console.log( 'send water with this configuration: ' + HolyWaterSend.SaintHair + " " + HolyWaterSend.CrossPiece + " " + HolyWaterSend.SacredText + " " + HolyWaterSend.candleWax);
+    if(fieldAg != null) fieldAg.emit('holyWater', HolyWaterSend);
+    else if(infoAg != null) infoAg.emit('problem', 'Error, no hay jugador conectado');
+  });
+
   socket.on('identify', name => {
     console.log('a ' + name + ' has connected');
     if(name == 'field agent' && fieldAg == null) 

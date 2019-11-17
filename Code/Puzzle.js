@@ -3,11 +3,7 @@ export default class Puzzle {
             console.log('creada una enfermeda de tipo ' + sick  + ' en ' + part);
         
 
-        // var Fire = {
-        //     ears: {
-        //         1: 
-        //     },
-        // }
+        
     }
 }
 
