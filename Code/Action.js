@@ -35,7 +35,7 @@ export default class Action extends Phaser.GameObjects.Sprite{
             use.activate();
             else if(type == 2 && use){
                 inventory.useHolyWater();
-                console.log('I use the power of this Holy Water');
+                //console.log('I use the power of this Holy Water');
                 use = false;
             }
             else if(type == 3 && use){

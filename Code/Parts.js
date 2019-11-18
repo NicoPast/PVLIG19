@@ -50,18 +50,31 @@ export default class Parts extends Phaser.GameObjects.Sprite {
         this.getCurado = function () {
             return curado;
         }
-
+        this.getPuzzle = function(){
+            return this.puzzle.solution;
+        }
         this.on('pointerdown', pointer => {
             text.setText('Selected: ' + part);
-            scene.setPart(this);
+            scene.vic.setPart(this);
+            console.log(this.puzzle.solution);
         });
         if (part == 'ears') {
             this.other.on('pointerdown', pointer => {
                 text.setText('Selected: ' + part);
-                scene.setPart(this);
+                scene.vic.setPart(this);
+                console.log(this.puzzle.solution);
             });
         }
+        this.Curar = function(bool){
+            if(bool){
+                console.log("Curado");
+                curado = true;
+            }
 
+            else{
+                console.log("Fallo");
+            }
+        }
         function CreateSick() {
 
             switch (Math.floor(Math.random() * 5) + 1) {

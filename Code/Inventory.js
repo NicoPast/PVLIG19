@@ -82,9 +82,14 @@ export default class Inventory extends Phaser.GameObjects.Sprite{
             holyWater.setTexture('pink');
             holyWater.visible = true;
             buts[2].updateUse(true);
-            console.log( "I have a Holy Water with this configuration "+ this.HolyWater.SaintHair + " " + this.HolyWater.CrossPiece + " " + this.HolyWater.SacredText + " " + this.HolyWater.candleWax);
+            console.log( "I have a Holy Water with this configuration "+ this.HolyWater.sol[0] + " " + this.HolyWater.sol[1] + " " + this.HolyWater.sol[2] + " " + this.HolyWater.sol[3]);
         }
         this.useHolyWater = function(){
+            let correct = true;
+            for(let i = 0; i < this.HolyWater.sol.length;i++){
+                if(this.HolyWater.sol[i] != scene.vic.actualpart.puzzle.solution[i]) correct = false;
+            }
+            scene.vic.actualpart.Curar(correct);
             holyWater.visible = false;
         }    
 

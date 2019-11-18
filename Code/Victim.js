@@ -8,7 +8,7 @@ export default class Victim extends Phaser.GameObjects.Sprite{
         scene.add.existing(this).setScale(10).setAngle(90);
         generalBodyParts.push(new GeneralBP(scene, x - 120, y, 0.3, 0, zoom, this, 'blue'));
         generalBodyParts.push(new GeneralBP(scene, x + 30, y, 0.4, 1, zoom, this, 'yellow'));
-        let actualpart;
+        this.actualpart;
 
         let levitate = scene.tweens.add({
             targets: [this, generalBodyParts[0], generalBodyParts[1]],
@@ -55,12 +55,8 @@ export default class Victim extends Phaser.GameObjects.Sprite{
         }
 
         this.setPart = function(part){
-            actualpart = part;
+            this.actualpart = part;
+            console.log(this.actualpart);
         }
-
-        this.getPart = function(){
-            return actualpart;
-        }
-        
     }
 }

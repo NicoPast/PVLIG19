@@ -63,11 +63,6 @@ export default class Game extends Phaser.Scene {
       this.desAcc.updateTween();
   }
 
-  setPart(part) {
-    this.vic.setPart(part);
-    console.log(this.vic.getPart());
-  }
-
   update(time, delta) {
     if (this.posesion < 100) {
       this.posesion = (Date.now() - this.startTime) * (0.001 * this.posRate);
