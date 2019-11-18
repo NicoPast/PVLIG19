@@ -62,7 +62,7 @@ export default class Parts extends Phaser.GameObjects.Sprite {
             this.other.on('pointerdown', pointer => {
                 text.setText('Selected: ' + part);
                 scene.vic.setPart(this);
-                console.log(this.puzzle.solution);
+                console.log( part + " " + this.puzzle.solution);
             });
         }
         this.Curar = function(bool){
