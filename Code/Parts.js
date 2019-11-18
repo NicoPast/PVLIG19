@@ -42,8 +42,8 @@ export default class Parts extends Phaser.GameObjects.Sprite {
                 break;
         }
 
-       this.puzzle = new Puzzle(scene, sick, part);
-
+        this.puzzle = new Puzzle(scene, sick, part);
+        
         this.getPart = function () {
             return part;
         }
@@ -55,7 +55,7 @@ export default class Parts extends Phaser.GameObjects.Sprite {
             text.setText('Selected: ' + part);
             scene.setPart(this);
         });
-        if(part == 'ears'){
+        if (part == 'ears') {
             this.other.on('pointerdown', pointer => {
                 text.setText('Selected: ' + part);
                 scene.setPart(this);

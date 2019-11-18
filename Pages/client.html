@@ -53,10 +53,7 @@
     const check4 = document.getElementById("check4");
 
     function HolyWater(com1, com2, com3, com4) {
-      this.SaintHair = com1;
-      this.CrossPiece = com2;
-      this.SacredText = com3;
-      this.candleWax = com4;
+      this.sol = [com1, com2, com3, com4];
     }
   </script>
 
@@ -75,7 +72,7 @@
     sendServices.onclick = () => socket.emit('services', services.options[services.selectedIndex].value);
     sendWater.onclick = () => {
       let HolyWaterSend = new HolyWater(check1.checked, check2.checked, check3.checked, check4.checked);
-      console.log(HolyWaterSend.SaintHair + " " + HolyWaterSend.CrossPiece + " " + HolyWaterSend.SacredText + " " + HolyWaterSend.candleWax);
+      console.log(HolyWaterSend.sol[0] + " " + HolyWaterSend.sol[1] + " " + HolyWaterSend.sol[2] + " " + HolyWaterSend.sol[3]);
       socket.emit('holyWater', HolyWaterSend);
     }
     atras.onclick = () => {
