@@ -1,7 +1,7 @@
 import Action from "./Action.js";
 
-export default class Inventory extends Phaser.GameObjects.Sprite{
-    constructor(scene ,x , y, texture){
+export default class Inventory extends Phaser.GameObjects.Sprite {
+    constructor(scene, x, y, texture) {
         super(scene, x, y, texture);
 
         scene.add.existing(this);
@@ -26,7 +26,7 @@ export default class Inventory extends Phaser.GameObjects.Sprite{
         let activated = false;
 
         let buts = [];
-        for(let i = 0; i < 4; i++){
+        for (let i = 0; i < 4; i++) {
             buts.push(new Action(scene, x + 50, 100 + i * 200, this, i));
         }
 
@@ -48,19 +48,19 @@ export default class Inventory extends Phaser.GameObjects.Sprite{
             yoyo: true,
             repeat: 0,
             paused: true,
-            onYoyo: function() { tween.pause(); }
+            onYoyo: function () { tween.pause(); }
         })
 
-        this.isActive = function(){
+        this.isActive = function () {
             return activated;
         }
 
-        this.updateTween = function(){
+        this.updateTween = function () {
             tween.resume();
-            for(let i = 0; i < buts.length; i++){
+            for (let i = 0; i < buts.length; i++) {
                 buts[i].updateTween();
             }
-            if(activated){
+            if (activated) {
                 activated = false
                 deactivator.visible = false;
             }
@@ -70,30 +70,30 @@ export default class Inventory extends Phaser.GameObjects.Sprite{
             }
         }
 
-        this.addItem = function(name){
-            item.setTexture('pink');
+        this.addItem = function (name) {
+            item.setTexture('cthulhu');
             item.visible = true;
             item.name = name;
             console.log(item.name);
             buts[3].updateUse(true);
         }
-        this.addHolyWater = function(HolyWater){
+        this.addHolyWater = function (HolyWater) {
             this.HolyWater = HolyWater;
-            holyWater.setTexture('pink');
+            holyWater.setTexture('cthulhu');
             holyWater.visible = true;
             buts[2].updateUse(true);
-            console.log( "I have a Holy Water with this configuration "+ this.HolyWater.sol[0] + " " + this.HolyWater.sol[1] + " " + this.HolyWater.sol[2] + " " + this.HolyWater.sol[3]);
+            console.log("I have a Holy Water with this configuration " + this.HolyWater.sol[0] + " " + this.HolyWater.sol[1] + " " + this.HolyWater.sol[2] + " " + this.HolyWater.sol[3]);
         }
-        this.useHolyWater = function(){
+        this.useHolyWater = function () {
             let correct = true;
-            for(let i = 0; i < this.HolyWater.sol.length;i++){
-                if(this.HolyWater.sol[i] != scene.vic.actualpart.puzzle.solution[i]) correct = false;
+            for (let i = 0; i < this.HolyWater.sol.length; i++) {
+                if (this.HolyWater.sol[i] != scene.vic.actualpart.puzzle.solution[i]) correct = false;
             }
             scene.vic.actualpart.Curar(correct);
             holyWater.visible = false;
-        }    
+        }
 
-        this.removeItem = function(){
+        this.removeItem = function () {
             item.visible = false;
         }
     }

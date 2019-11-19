@@ -6,7 +6,7 @@ export default class Victim extends Phaser.GameObjects.Sprite{
 
         let generalBodyParts = [];
         scene.add.existing(this).setScale(10).setAngle(90);
-        generalBodyParts.push(new GeneralBP(scene, x - 120, y, 0.3, 0, zoom, this, 'blue'));
+        generalBodyParts.push(new GeneralBP(scene, x - 120, y, 0.3, 0, zoom, this, 'arcano'));
         generalBodyParts.push(new GeneralBP(scene, x + 30, y, 0.4, 1, zoom, this, 'yellow'));
         this.actualpart;
 

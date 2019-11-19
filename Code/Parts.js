@@ -79,15 +79,15 @@ export default class Parts extends Phaser.GameObjects.Sprite {
 
             switch (Math.floor(Math.random() * 5) + 1) {
                 case 1:
-                    return 'green';
+                    return 'goo';
                 case 2:
-                    return 'red';
+                    return 'fire';
                 case 3:
-                    return 'pink';
+                    return 'cthulhu';
                 case 4:
-                    return 'blue';
+                    return 'arcano';
                 case 5:
-                    return 'white';
+                    return 'insectos';
             }
         }
     }

@@ -14,7 +14,7 @@ export default class Game extends Phaser.Scene {
     this.posText = this.add.text(20, 20, 'Possesion Progress: 0%', { fontSize: '32px' })
     let selText = this.add.text(40, 600, 'Selected: None', { fontSize: '32px' });
     this.vic = new Victim(this, 850, 400, { x: zoom.x, y: zoom.y, text: selText });
-    this.desTex = new Writter(this, 700, 950, 'green');
+    this.desTex = new Writter(this, 700, 950, 'goo');
     this.desAcc = new Inventory(this, 1500, 400, 'square');
     this.posesion = 0;
     this.startTime = Date.now();
@@ -73,7 +73,10 @@ export default class Game extends Phaser.Scene {
 
       this.vic.loose();
     }
-
+    if (this.vic.actualpart == undefined) {
+      console.log(this.vic.actualpart);
+    }
+    else console.log(this.vic.actualpart.getPart());
   }
 
 }

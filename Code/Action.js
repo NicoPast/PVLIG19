@@ -1,25 +1,25 @@
 import Pattern from "./Pattern.js";
 
-export default class Action extends Phaser.GameObjects.Sprite{
-    constructor(scene, x, y, inventory, type){
+export default class Action extends Phaser.GameObjects.Sprite {
+    constructor(scene, x, y, inventory, type) {
 
-        let name = 'blue';
+        let name;
         let use;
-        switch(type){
+        switch (type) {
             case 0:
-                name = 'blue';
+                name = 'arcano';
                 use = new Pattern(scene, 750, 400);
-            break;
+                break;
             case 1:
-                name = 'green';
-            break;
+                name = 'goo';
+                break;
             case 2:
-                name = 'red';
-            break;
+                name = 'fire';
+                break;
             case 3:
                 use = false;
                 name = 'yellow';
-            break;
+                break;
         }
 
         super(scene, x, y, name);
@@ -31,19 +31,22 @@ export default class Action extends Phaser.GameObjects.Sprite{
 
         this.on('pointerdown', pointer => {
             inventory.updateTween();
-            if(type == 0)
-            use.activate();
-            else if(type == 2 && use){
-                inventory.useHolyWater();
-                //console.log('I use the power of this Holy Water');
-                use = false;
+            if (scene.vic.actualpart != undefined) {
+                if (type == 0)
+                    use.activate();
+                else if (type == 2 && use) {
+                    inventory.useHolyWater();
+                    //console.log('I use the power of this Holy Water');
+                    use = false;
+                }
+                else if (type == 3 && use) {
+                    inventory.removeItem();
+                    console.log('I use the power of this ancient relic!');
+                    use = false;
+                }
             }
-            else if(type == 3 && use){
-                inventory.removeItem();
-                console.log('I use the power of this ancient relic!');
-                use = false;
-            }
-        })
+            else  window.alert("Selecciona primero una parte");
+        });
 
         let tween = scene.tweens.add({
             targets: this,
@@ -52,14 +55,14 @@ export default class Action extends Phaser.GameObjects.Sprite{
             yoyo: true,
             repeat: 0,
             paused: true,
-            onYoyo: function() { tween.pause(); }
+            onYoyo: function () { tween.pause(); }
         })
 
-        this.updateTween = function(){
+        this.updateTween = function () {
             tween.resume();
         }
 
-        this.updateUse = function(newUse){
+        this.updateUse = function (newUse) {
             use = newUse;
         }
     }

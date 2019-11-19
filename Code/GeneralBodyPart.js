@@ -20,6 +20,7 @@ export default class GeneralBP extends Phaser.GameObjects.Sprite{
             victim.updateZoom();            
             typeImg.render();
             zoom.text.setText('Selected: None');
+            victim.actualpart = undefined;
         });
 
         this.render = function(){
