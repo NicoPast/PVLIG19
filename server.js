@@ -11,6 +11,9 @@ var clients = [];
 app.get('/', function(req, res){
   res.sendFile(__dirname + '/Pages/index.html');
 });
+app.get('/Pages/inputText.html', function(req, res){
+  res.sendFile(__dirname + '/Pages/inputText.html');
+});
 
 app.use('/Assets/', express.static('Assets'))
 app.use('/Code/', express.static('Code'))

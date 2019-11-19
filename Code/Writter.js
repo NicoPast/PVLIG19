@@ -20,45 +20,21 @@ export default class Writter extends Phaser.GameObjects.Sprite{
             this.updateTween();
         });
 
-        let input;
-        let element = scene.add.dom(300, 1000, 'nameform', "background-color: lime; width: 220px; height: 10px; font: 48px Arial").createFromCache("nameField");
 
-        let text = scene.add.text(300, 10, 'Please enter your name', { color: 'white', fontSize: '20px '});
-
-        element.addListener('click');
-        element.on('click', function(event){
-
-            if (event.target.name === 'playButton')
-            {
-                console.log('punto 1');
-                var inputText = this.getChildByName('nameField');
-
-                //  Have they entered anything?
-                if (inputText.value !== '')
-                {
-                    //  Turn off the click events
-                    this.removeListener('click');
-    
-                    //  Hide the login element
-                    this.setVisible(false);
-    
-                    //  Populate the text with whatever they typed in
-                    input = 'Welcome ' + inputText.value;
-                }
-            }
-        });
+        let element = scene.add.dom(x,y).createFromCache("nameform");
         
+        console.log(element.x + ' ' +  element.y + ' ' + this.x + ' ' +  this.y);
 
         let activated = false;
 
         let tween = scene.tweens.add({
-            targets: this,
-            y: y - 100,
+            targets: [this,element],
+            y: y - 200,
             duration: 100,
             yoyo: true,
             repeat: 0,
             paused: true,
-            onYoyo: function() { tween.pause(); }
+            onYoyo: function() { tween.pause();}
           })
 
         this.isActive = function(){
