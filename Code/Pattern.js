@@ -1,7 +1,7 @@
 import NodePat from "./NodePat.js";
 
 export default class Pattern extends Phaser.GameObjects.Sprite{
-    constructor(scene, x, y){
+    constructor(scene, x, y , inventory){
         super(scene, x, y, 'yellow')
 
         scene.add.existing(this).setAlpha(0.1).setScale(4);
@@ -37,6 +37,7 @@ export default class Pattern extends Phaser.GameObjects.Sprite{
             for(let i = 0; i < sol.length; i++){
                 console.log(sol[i]);
             }
+            inventory.usePattern(sol);
             sol = [];
         }
 

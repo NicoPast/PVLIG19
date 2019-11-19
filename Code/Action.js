@@ -8,7 +8,7 @@ export default class Action extends Phaser.GameObjects.Sprite {
         switch (type) {
             case 0:
                 name = 'arcano';
-                use = new Pattern(scene, 750, 400);
+                use = new Pattern(scene, 750, 400,  inventory);
                 break;
             case 1:
                 name = 'goo';
@@ -35,12 +35,12 @@ export default class Action extends Phaser.GameObjects.Sprite {
                 if (type == 0)
                     use.activate();
                 else if (type == 2 && use) {
-                    inventory.useHolyWater();
+                    inventory.useHolyWater('holyWater');
                     //console.log('I use the power of this Holy Water');
                     use = false;
                 }
                 else if (type == 3 && use) {
-                    inventory.removeItem();
+                    inventory.removeItem('item');
                     console.log('I use the power of this ancient relic!');
                     use = false;
                 }

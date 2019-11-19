@@ -23,22 +23,22 @@ export default class Puzzle {
         }
         this.goo = {
             eyes: {
-                sol: [false, false, false, true]
+                sol: [2, 3, 4, 0 ,1 ]
             },
             ears: {
-                sol: [false, false, true, false]
+                sol: [0, 2, 3, 4 , 1]
             },
             nose: {
-                sol: [false, false, true, true]
+                sol: [3, 1, 4, 0 , 2]
             },
             mouth: {
-                sol: [false, true, false, false]
+                sol: [4, 3, 1, 0 , 2]
             },
             abdomen: {
-                sol: [false, true, false, true]
+                sol: [1, 0, 4, 2 , 3]
             },
             chest: {
-                sol: [true, false, false, true]
+                sol: [2, 4, 3, 1 , 0]
             }
         }
         this.arcano = {

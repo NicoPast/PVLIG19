@@ -51,6 +51,7 @@ export default class Victim extends Phaser.GameObjects.Sprite{
             setTimeout(function() { levitatePos.resume(); }, 3000);
             generalBodyParts.forEach(element => {
                 element.hide();
+                element.visible = false;
             });
         }
 

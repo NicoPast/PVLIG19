@@ -23,8 +23,6 @@ export default class Writter extends Phaser.GameObjects.Sprite{
 
         let element = scene.add.dom(x,y).createFromCache("nameform");
         
-        console.log(element.x + ' ' +  element.y + ' ' + this.x + ' ' +  this.y);
-
         let activated = false;
 
         let tween = scene.tweens.add({

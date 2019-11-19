@@ -40,7 +40,7 @@ export default class Inventory extends Phaser.GameObjects.Sprite {
         holyWater.scaleY = 0.37;
         holyWater.scaleX = 0.6;
         holyWater.visible = false;
-
+        
         let tween = this.scene.tweens.add({
             targets: [this, item, holyWater],
             x: x - 250,
@@ -91,6 +91,14 @@ export default class Inventory extends Phaser.GameObjects.Sprite {
             }
             scene.vic.actualpart.Curar(correct);
             holyWater.visible = false;
+        }
+
+        this.usePattern = function(sol){
+            let correct = true;
+            for (let i = 0; i < sol.length; i++) {
+                if (sol[i] != scene.vic.actualpart.puzzle.solution[i]) correct = false;
+            }
+            scene.vic.actualpart.Curar(correct);
         }
 
         this.removeItem = function () {
