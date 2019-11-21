@@ -34,5 +34,8 @@ export default class GeneralBP extends Phaser.GameObjects.Sprite{
         this.isActive = function(){
             return typeImg.isShowing();
         }
+        this.getCurado = function(){
+            return typeImg.getCurado();
+        }
     }
 }

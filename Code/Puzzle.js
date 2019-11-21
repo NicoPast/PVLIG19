@@ -43,42 +43,42 @@ export default class Puzzle {
         }
         this.arcano = {
             eyes: {
-                sol: [false, false, false, true]
+                sol: [2, 3, 4, 0 ,1 ]
             },
             ears: {
-                sol: [false, false, true, false]
+                sol: [0, 2, 3, 4 , 1]
             },
             nose: {
-                sol: [false, false, true, true]
+                sol: [3, 1, 4, 0 , 2]
             },
             mouth: {
-                sol: [false, true, false, false]
+                sol: [4, 3, 1, 0 , 2]
             },
             abdomen: {
-                sol: [false, true, false, true]
+                sol: [1, 0, 4, 2 , 3]
             },
             chest: {
-                sol: [true, false, false, true]
+                sol: [2, 4, 3, 1 , 0]
             }
         }
         this.cthulhu = {
             eyes: {
-                sol: [false, false, false, true]
+                sol: CrearReliquia()
             },
             ears: {
-                sol: [false, false, true, false]
+                sol: CrearReliquia()
             },
             nose: {
-                sol: [false, false, true, true]
+                sol: CrearReliquia()
             },
             mouth: {
-                sol: [false, true, false, false]
+                sol: CrearReliquia()
             },
             abdomen: {
-                sol: [false, true, false, true]
+                sol: CrearReliquia()
             },
             chest: {
-                sol: [true, false, false, true]
+                sol: CrearReliquia()
             }
         }
         this.insectos = {
@@ -102,7 +102,43 @@ export default class Puzzle {
             }
         }
         this.solution = this[sick][part].sol;
+
+
+        function CrearReliquia(){
+            switch (Math.floor(Math.random() * 3) + 1) {
+                case 1:
+                    return "Charlemagne's cross";
+                case 2:
+                    return "Shrine of the Three Kings";
+                case 3:
+                    return "The Holy Foreskin";
+               
+            }
+        }
     }
 }
 
 
+/*
+this.arcano = {
+    eyes: {
+        sol: "frase en latin eyes"
+    },
+    ears: {
+        sol: "frase en latin ears"
+    },
+    nose: {
+        sol: "frase en latin nose"
+    },
+    mouth: {
+        sol: "frase en latin mouth"
+    },
+    abdomen: {
+        sol: "frase en latin abdomen"
+    },
+    chest: {
+        sol: "frase en latin chest"
+    }
+}
+
+*/

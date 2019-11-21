@@ -35,5 +35,10 @@ export default class Torso extends Phaser.GameObjects.Sprite {
         }
 
         this.hide();
+
+        this.getCurado = function(){
+            if(bodyparts[0].getCurado() && bodyparts[1].getCurado()) return true;
+            else return false;
+        }
     }
 }

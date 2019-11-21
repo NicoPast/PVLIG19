@@ -19,6 +19,11 @@ export default class Game extends Phaser.Scene {
     this.posesion = 0;
     this.startTime = Date.now();
     this.posRate = 0.5;
+
+
+    this.keycheat = this.input.keyboard.addKey('P');
+    this.win = false;
+
     /*
     let input;
     let element = this.add.dom(300, 1000, 'nameform', "background-color: lime; width: 220px; height: 10px; font: 48px Arial").createFromCache("nameField");
@@ -76,6 +81,26 @@ export default class Game extends Phaser.Scene {
       this.desTex.visible = false;
       this.vic.loose();
     }
+
+    if (this.keycheat.isDown) {
+      this.WinGame();
+    }
   }
 
+  algo() {
+    console.log('me cago en tu abuela');
+  }
+
+  WinGame() {
+    if (!this.win) {
+      this.win = true;
+      console.log('hey as wineado y esas cosas');
+      this.posRate = 0;
+      this.posesion = 0;
+      this.zoom.visible = false;
+      this.selText.visible = false;
+      this.desAcc.visible = false;
+      this.desTex.visible = false;
+    }
+  }
 }

@@ -50,6 +50,13 @@ export default class Face extends Phaser.GameObjects.Sprite {
         }
 
         this.hide();
+
+        this.getCurado = function(){
+            for(let i = 0 ; i < parts.length; i++){
+                if(!parts[i].getCurado()) return false;
+            }
+            return true;
+        }
     }
 
 }

@@ -43,14 +43,14 @@ export default class Parts extends Phaser.GameObjects.Sprite {
         }
 
         this.puzzle = new Puzzle(scene, sick, part);
-        
+
         this.getPart = function () {
             return part;
         }
         this.getCurado = function () {
             return curado;
         }
-        this.getPuzzle = function(){
+        this.getPuzzle = function () {
             return this.puzzle.solution;
         }
         this.on('pointerdown', pointer => {
@@ -62,16 +62,20 @@ export default class Parts extends Phaser.GameObjects.Sprite {
             this.other.on('pointerdown', pointer => {
                 text.setText('Selected: ' + part);
                 scene.vic.setPart(this);
-                console.log( part + " " + this.puzzle.solution);
+                console.log(part + " " + this.puzzle.solution);
             });
         }
-        this.Curar = function(bool){
-            if(bool){
+        this.Curar = function (bool) {
+            if (bool) {
                 console.log("Curado");
                 curado = true;
+                this.setTexture('square');
+                if(part == 'ears')this.other.visible = false;
+                this.visible = false;
+                scene.vic.ComCuracion();
             }
 
-            else{
+            else {
                 console.log("Fallo");
             }
         }

@@ -59,5 +59,13 @@ export default class Victim extends Phaser.GameObjects.Sprite{
             this.actualpart = part;
             console.log(this.actualpart);
         }
+
+        this.ComCuracion = function(){
+            this.actualpart = undefined;
+            if(generalBodyParts[0].getCurado() && generalBodyParts[1].getCurado()){
+                scene.WinGame();
+            }
+            else console.log('aun no');
+        }
     }
 }

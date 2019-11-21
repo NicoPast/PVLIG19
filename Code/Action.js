@@ -40,8 +40,8 @@ export default class Action extends Phaser.GameObjects.Sprite {
                     use = false;
                 }
                 else if (type == 3 && use) {
-                    inventory.removeItem('item');
-                    console.log('I use the power of this ancient relic!');
+                    inventory.useRelic();
+                    //console.log('I use the power of this ancient relic!');
                     use = false;
                 }
             }

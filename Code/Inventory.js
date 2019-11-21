@@ -101,7 +101,10 @@ export default class Inventory extends Phaser.GameObjects.Sprite {
             scene.vic.actualpart.Curar(correct);
         }
 
-        this.removeItem = function () {
+        this.useRelic = function () {
+            
+            if(scene.vic.actualpart.puzzle.solution == item.name) scene.vic.actualpart.Curar(true);
+            else scene.vic.actualpart.Curar(false);
             item.visible = false;
         }
     }
