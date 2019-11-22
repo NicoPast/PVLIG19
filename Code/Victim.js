@@ -62,6 +62,7 @@ export default class Victim extends Phaser.GameObjects.Sprite{
 
         this.ComCuracion = function(){
             this.actualpart = undefined;
+            zoom.text.setText("Selected: None");
             if(generalBodyParts[0].getCurado() && generalBodyParts[1].getCurado()){
                 scene.WinGame();
             }

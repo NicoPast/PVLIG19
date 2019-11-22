@@ -43,22 +43,22 @@ export default class Puzzle {
         }
         this.arcano = {
             eyes: {
-                sol: [2, 3, 4, 0 ,1 ]
+                sol: "frase en latin eyes"
             },
             ears: {
-                sol: [0, 2, 3, 4 , 1]
+                sol: "frase en latin ears"
             },
             nose: {
-                sol: [3, 1, 4, 0 , 2]
+                sol: "frase en latin nose"
             },
             mouth: {
-                sol: [4, 3, 1, 0 , 2]
+                sol: "frase en latin mouth"
             },
             abdomen: {
-                sol: [1, 0, 4, 2 , 3]
+                sol: "frase en latin abdomen"
             },
             chest: {
-                sol: [2, 4, 3, 1 , 0]
+                sol: "frase en latin chest"
             }
         }
         this.cthulhu = {

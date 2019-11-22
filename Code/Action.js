@@ -1,4 +1,5 @@
-import Pattern from "./Pattern.js";
+import Cross from "./Cross.js";
+import Rosary from "./Rosary.js";
 
 export default class Action extends Phaser.GameObjects.Sprite {
     constructor(scene, x, y, inventory, type) {
@@ -7,13 +8,15 @@ export default class Action extends Phaser.GameObjects.Sprite {
         let use;
         switch (type) {
             case 0:
+                use = new Cross(scene, 750, 400,  inventory);
                 name = 'arcano';
-                use = new Pattern(scene, 750, 400,  inventory);
                 break;
             case 1:
+                use = new Rosary(scene, 750, 700, inventory);
                 name = 'goo';
                 break;
             case 2:
+                use = false;
                 name = 'fire';
                 break;
             case 3:
@@ -34,6 +37,9 @@ export default class Action extends Phaser.GameObjects.Sprite {
             if (scene.vic.actualpart != undefined) {
                 if (type == 0)
                     use.activate();
+                else if(type == 1){
+                    use.activate();
+                }
                 else if (type == 2 && use) {
                     inventory.useHolyWater('holyWater');
                     //console.log('I use the power of this Holy Water');

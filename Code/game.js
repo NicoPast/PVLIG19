@@ -8,7 +8,7 @@ export default class Game extends Phaser.Scene {
   }
 
   create() {
-    let background = this.add.image(650, 375, 'room');
+    this.add.image(650, 375, 'room');
     this.zoom = this.add.image(220, 400, 'square');
     this.zoom.scaleY = 1.2;
     this.posText = this.add.text(20, 20, 'Possesion Progress: 0%', { fontSize: '32px' })
@@ -19,40 +19,12 @@ export default class Game extends Phaser.Scene {
     this.posesion = 0;
     this.startTime = Date.now();
     this.posRate = 0.5;
+    this.desPos = 1;
 
 
-    this.keycheat = this.input.keyboard.addKey('P');
+    this.keycheat = this.input.keyboard.addKey('F1');
     this.win = false;
 
-    /*
-    let input;
-    let element = this.add.dom(300, 1000, 'nameform', "background-color: lime; width: 220px; height: 10px; font: 48px Arial").createFromCache("nameField");
-
-    let text = this.add.text(300, 10, 'Please enter your name', { color: 'white', fontSize: '20px '});
-
-    element.addListener('click');
-    element.on('click', function(event){
-
-        if (event.target.name === 'playButton')
-        {
-            console.log('punto 1');
-            var inputText = this.getChildByName('nameField');
-
-            //  Have they entered anything?
-            if (inputText.value !== '')
-            {
-                //  Turn off the click events
-                this.removeListener('click');
-
-                //  Hide the login element
-                this.setVisible(false);
-
-                //  Populate the text with whatever they typed in
-                input = 'Welcome ' + inputText.value;
-            }
-        }
-    });
-    */
     socket.on('relic', name => {
       this.desAcc.addItem(name);
     });
@@ -69,19 +41,30 @@ export default class Game extends Phaser.Scene {
   }
 
   update(time, delta) {
-    if (this.posesion < 100) {
-      this.posesion = (Date.now() - this.startTime) * (0.001 * this.posRate);
-      this.posText.setText('Possesion Progress: ' + parseFloat(Math.round(this.posesion * 100) / 100).toFixed(2) + ' %')
+    if(!this.win){
+      if(this.posesion < 100){
+        this.posesion = (Date.now() - this.startTime) * (0.001 * this.posRate);
+        this.posText.setText('Possesion Progress: ' + parseFloat(Math.round(this.posesion * 100) / 100).toFixed(2) + ' %')
+      }
+      else{
+        this.posText.setText('Possesion Progress: 100.00 %')
+        this.zoom.visible = false;
+        this.selText.visible = false;
+        this.desAcc.visible = false;
+        this.desTex.visible = false;
+        this.vic.loose();
+      }
     }
-    else {
-      this.posText.setText('Possesion Progress: 100.00 %')
-      this.zoom.visible = false;
-      this.selText.visible = false;
-      this.desAcc.visible = false;
-      this.desTex.visible = false;
-      this.vic.loose();
-    }
-
+    else{
+      if(this.posesion > 0){
+        console.log('llego')
+        this.posesion -= (Date.now() - this.startTime) * (0.001 * this.desPos);
+        this.posText.setText('Possesion Progress: ' + parseFloat(Math.round(this.posesion * 100) / 100).toFixed(2) + ' %')
+      }
+      else this.posText.setText('Possesion Progress: 0.00 %')
+    } 
+    
+    
     if (this.keycheat.isDown) {
       this.WinGame();
     }
@@ -95,12 +78,12 @@ export default class Game extends Phaser.Scene {
     if (!this.win) {
       this.win = true;
       console.log('hey as wineado y esas cosas');
-      this.posRate = 0;
-      this.posesion = 0;
       this.zoom.visible = false;
       this.selText.visible = false;
       this.desAcc.visible = false;
       this.desTex.visible = false;
+      this.startTime = Date.now();
+      this.vic.updateZoom();
     }
   }
 }

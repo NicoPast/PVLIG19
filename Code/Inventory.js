@@ -40,7 +40,7 @@ export default class Inventory extends Phaser.GameObjects.Sprite {
         holyWater.scaleY = 0.37;
         holyWater.scaleX = 0.6;
         holyWater.visible = false;
-        
+
         let tween = this.scene.tweens.add({
             targets: [this, item, holyWater],
             x: x - 250,
@@ -86,24 +86,32 @@ export default class Inventory extends Phaser.GameObjects.Sprite {
         }
         this.useHolyWater = function () {
             let correct = true;
-            for (let i = 0; i < this.HolyWater.sol.length; i++) {
+            let i = 0;
+            while (i < scene.vic.actualpart.puzzle.solution.length && correct) {
                 if (this.HolyWater.sol[i] != scene.vic.actualpart.puzzle.solution[i]) correct = false;
+                i++
             }
             scene.vic.actualpart.Curar(correct);
             holyWater.visible = false;
         }
 
-        this.usePattern = function(sol){
+        this.usePattern = function (sol) {
             let correct = true;
-            for (let i = 0; i < sol.length; i++) {
-                if (sol[i] != scene.vic.actualpart.puzzle.solution[i]) correct = false;
+            if (sol.length != scene.vic.actualpart.puzzle.solution.length)
+                correct = false;
+            else {
+                let i = 0;
+                while (i < scene.vic.actualpart.puzzle.solution.length && correct) {
+                    if (sol[i] != scene.vic.actualpart.puzzle.solution[i]) correct = false;
+                    i++
+                }
             }
-            scene.vic.actualpart.Curar(correct);
+            if (sol.length != 0) scene.vic.actualpart.Curar(correct);
         }
 
         this.useRelic = function () {
-            
-            if(scene.vic.actualpart.puzzle.solution == item.name) scene.vic.actualpart.Curar(true);
+
+            if (scene.vic.actualpart.puzzle.solution == item.name) scene.vic.actualpart.Curar(true);
             else scene.vic.actualpart.Curar(false);
             item.visible = false;
         }
