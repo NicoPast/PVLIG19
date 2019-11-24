@@ -14,11 +14,16 @@ export default class Pattern extends Phaser.GameObjects.Sprite{
         })
 
         let nodes = [];
-        nodes.push(new NodePat(scene, 550, 150, 0, this));
-        nodes.push(new NodePat(scene, 550, 650, 1, this));
-        nodes.push(new NodePat(scene, 1050, 150, 2, this));
-        nodes.push(new NodePat(scene, 1050, 650, 3, this));
+        
+        nodes.push(new NodePat(scene, 600, 650, 1, this));
+        nodes.push(new NodePat(scene, 1000, 650, 3, this));
+
+        nodes.push(new NodePat(scene, 1100, 300, 2, this));
+        nodes.push(new NodePat(scene, 500, 300, 0, this));
+
         nodes.push(new NodePat(scene, 800, 400, 4, this));        
+
+        nodes.push(new NodePat(scene, 800, 100, 5, this));
 
         let sol = []; 
 

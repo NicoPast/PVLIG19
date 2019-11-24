@@ -23,22 +23,22 @@ export default class Puzzle {
         }
         this.goo = {
             eyes: {
-                sol: [2, 3, 4, 0 ,1 ]
+                sol: [2, 3, 4, 0, 1, 5]
             },
             ears: {
-                sol: [0, 2, 3, 4 , 1]
+                sol: [0, 2, 3, 5, 4, 1]
             },
             nose: {
-                sol: [3, 1, 4, 0 , 2]
+                sol: [3, 5, 1, 4, 0, 2]
             },
             mouth: {
-                sol: [4, 3, 1, 0 , 2]
+                sol: [4, 3, 1, 0, 2, 5]
             },
             abdomen: {
-                sol: [1, 0, 4, 2 , 3]
+                sol: [1, 0, 5, 4, 2, 3]
             },
             chest: {
-                sol: [2, 4, 3, 1 , 0]
+                sol: [5, 2, 4, 3, 1, 0]
             }
         }
         this.arcano = {
@@ -83,28 +83,28 @@ export default class Puzzle {
         }
         this.insectos = {
             eyes: {
-                sol: [false, false, false, true]
+                sol: [2, 3, 4, 6, 0, 1, 5]
             },
             ears: {
-                sol: [false, false, true, false]
+                sol: [0, 2, 6, 3, 5, 4, 1]
             },
             nose: {
-                sol: [false, false, true, true]
+                sol: [3, 6, 5, 1, 4, 0, 2]
             },
             mouth: {
-                sol: [false, true, false, false]
+                sol: [4, 3, 1, 0, 2, 6, 5]
             },
             abdomen: {
-                sol: [false, true, false, true]
+                sol: [6, 1, 0, 5, 4, 2, 3]
             },
             chest: {
-                sol: [true, false, false, true]
+                sol: [5, 2, 4, 6, 3, 1, 0]
             }
         }
         this.solution = this[sick][part].sol;
 
 
-        function CrearReliquia(){
+        function CrearReliquia() {
             switch (Math.floor(Math.random() * 3) + 1) {
                 case 1:
                     return "Charlemagne's cross";
@@ -112,33 +112,8 @@ export default class Puzzle {
                     return "Shrine of the Three Kings";
                 case 3:
                     return "The Holy Foreskin";
-               
+
             }
         }
     }
 }
-
-
-/*
-this.arcano = {
-    eyes: {
-        sol: "frase en latin eyes"
-    },
-    ears: {
-        sol: "frase en latin ears"
-    },
-    nose: {
-        sol: "frase en latin nose"
-    },
-    mouth: {
-        sol: "frase en latin mouth"
-    },
-    abdomen: {
-        sol: "frase en latin abdomen"
-    },
-    chest: {
-        sol: "frase en latin chest"
-    }
-}
-
-*/
