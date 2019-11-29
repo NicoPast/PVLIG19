@@ -16,7 +16,7 @@ export default class Game extends Phaser.Scene {
     this.vic = new Victim(this, 850, 400, { x: this.zoom.x, y: this.zoom.y, text: this.selText });
     this.desTex = new Writter(this, 700, 950, 'goo');
     this.desAcc = new Inventory(this, 1500, 400, 'square');
-    this.posesion = 0;
+    this.soul = 100;
     this.startTime = Date.now();
     this.posRate = 0.5;
     this.desPos = 1;
@@ -42,12 +42,12 @@ export default class Game extends Phaser.Scene {
 
   update(time, delta) {
     if(!this.win){
-      if(this.posesion < 100){
-        this.posesion = (Date.now() - this.startTime) * (0.001 * this.posRate);
-        this.posText.setText('Possesion Progress: ' + parseFloat(Math.round(this.posesion * 100) / 100).toFixed(2) + ' %')
+      if(this.soul > 0){
+        this.soul = 100 - (Date.now() - this.startTime) * (0.001 * this.posRate);
+        this.posText.setText('Remaining Soul: ' + parseFloat(Math.round(this.soul * 100) / 100).toFixed(2) + ' %')
       }
       else{
-        this.posText.setText('Possesion Progress: 100.00 %')
+        this.posText.setText('THE SOUL IS DAMNED')
         this.zoom.visible = false;
         this.selText.visible = false;
         this.desAcc.visible = false;
@@ -56,12 +56,12 @@ export default class Game extends Phaser.Scene {
       }
     }
     else{
-      if(this.posesion > 0){
+      if(this.soul < 100){
         console.log('llego')
-        this.posesion -= (Date.now() - this.startTime) * (0.001 * this.desPos);
-        this.posText.setText('Possesion Progress: ' + parseFloat(Math.round(this.posesion * 100) / 100).toFixed(2) + ' %')
+        this.soul += (Date.now() - this.startTime) * (0.001 * this.desPos);
+        this.posText.setText('Remaining Soul: ' + parseFloat(Math.round(this.soul * 100) / 100).toFixed(2) + ' %')
       }
-      else this.posText.setText('Possesion Progress: 0.00 %')
+      else this.posText.setText('THE SOUL BELONGS TO THE LORD');
     } 
     
     
@@ -77,6 +77,7 @@ export default class Game extends Phaser.Scene {
   WinGame() {
     if (!this.win) {
       this.win = true;
+      this.vic.Win();
       console.log('hey as wineado y esas cosas');
       this.zoom.visible = false;
       this.selText.visible = false;

@@ -21,7 +21,7 @@ export default class Victim extends Phaser.GameObjects.Sprite{
         })
 
         let levitatePos = scene.tweens.add({
-            targets: [this, generalBodyParts[0], generalBodyParts[1]],
+            targets: this,
             y: y - 200,
             duration: 2000,
             yoyo: true,
@@ -30,9 +30,17 @@ export default class Victim extends Phaser.GameObjects.Sprite{
         })
 
         let possesed = scene.tweens.add({
-            targets: [this, generalBodyParts[0], generalBodyParts[1]],
+            targets: this,
             y: y - 150,
             angle: 0,
+            duration: 3000,
+            paused: true,
+            completeDelay: 1,
+        })
+
+        let win = scene.tweens.add({
+            targets: this,
+            y: y + 100,
             duration: 3000,
             paused: true,
             completeDelay: 1,
@@ -46,9 +54,18 @@ export default class Victim extends Phaser.GameObjects.Sprite{
         }
 
         this.loose = function(){
-            possesed.resume();
             levitate.pause();
+            possesed.resume();
             setTimeout(function() { levitatePos.resume(); }, 3000);
+            generalBodyParts.forEach(element => {
+                element.hide();
+                element.visible = false;
+            });
+        }
+
+        this.Win = function(){
+            levitate.pause();
+            win.resume();
             generalBodyParts.forEach(element => {
                 element.hide();
                 element.visible = false;

@@ -7,6 +7,7 @@ export default class Pattern extends Phaser.GameObjects.Sprite {
         scene.add.existing(this).setScale(0.3);
         this.setInteractive();
         let visible = false;
+        this.visible = false;
         this.on('pointerdown', pointer => {
             console.log(':D');
             this.deactivate();
