@@ -2,11 +2,11 @@ import Parts from "./Parts.js";
 
 export default class Face extends Phaser.GameObjects.Sprite {
     constructor(scene, x, y, text) {
-        super(scene, x, y + 10, 'yellow');
+        super(scene, x - 10, y, 'face');
 
         scene.add.existing(this).setScale(0.95);
-        this.scaleX = 0.6;
-        this.scaleY = 0.85;
+        this.scaleX = 0.28;
+        this.scaleY = 0.28;
         this.setInteractive();
         this.on('pointerdown', pointer => {
             text.setText('Selected: None');

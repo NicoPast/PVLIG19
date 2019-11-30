@@ -9,10 +9,11 @@ export default class Game extends Phaser.Scene {
 
   create() {
     this.add.image(650, 375, 'room');
-    this.zoom = this.add.image(220, 400, 'square');
-    this.zoom.scaleY = 1.2;
+    this.zoom = this.add.image(220, 400, 'polaroid');
+    this.zoom.scaleY = 1.7;
+    this.zoom.scaleX = 1.4;
     this.posText = this.add.text(20, 20, 'Possesion Progress: 0%', { fontSize: '32px' })
-    this.selText = this.add.text(40, 600, 'Selected: None', { fontSize: '32px' });
+    this.selText = this.add.text(40, 600, 'Selected: None', { fontSize: '32px', color: '#000' });
     this.vic = new Victim(this, 850, 400, { x: this.zoom.x, y: this.zoom.y, text: this.selText });
     this.desTex = new Writter(this, 700, 950, 'goo');
     this.desAcc = new Inventory(this, 1500, 400, 'square');

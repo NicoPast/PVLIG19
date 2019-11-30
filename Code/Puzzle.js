@@ -149,6 +149,8 @@ export default class Puzzle {
                 sol: [5, 2, 4, 6, 3, 1, 0]
             }
         }
-        this.solution = this[sick][part][Math.floor(Math.random() * 3) + 1].sol;
+        //this.solution = this[sick][part][Math.floor(Math.random() * 3) + 1].sol;
+        this.solution = this[sick][part][0].sol;
+
     }
 }

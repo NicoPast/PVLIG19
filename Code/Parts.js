@@ -3,6 +3,8 @@ import Puzzle from "./Puzzle.js";
 export default class Parts extends Phaser.GameObjects.Sprite {
     constructor(scene, x, y, part, text) {
         let sick = CreateSick();
+        if(part == 'mouth')
+            sick = 'mouth';
         super(scene, x, y, sick);
 
         scene.add.existing(this);
@@ -22,8 +24,8 @@ export default class Parts extends Phaser.GameObjects.Sprite {
                 this.scaleY = 0.2;
                 break;
             case 'mouth':
-                this.scaleX = 0.25;
-                this.scaleY = 0.1;
+                this.scaleX = 0.35;
+                this.scaleY = 0.3;
                 break;
             case 'eyes':
                 this.scaleX = 0.35;
@@ -42,7 +44,7 @@ export default class Parts extends Phaser.GameObjects.Sprite {
                 break;
         }
 
-        this.puzzle = new Puzzle(scene, sick, part);
+        //this.puzzle = new Puzzle(scene, sick, part);
 
         this.getPart = function () {
             return part;
