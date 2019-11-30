@@ -4,8 +4,8 @@ export default class Parts extends Phaser.GameObjects.Sprite {
     constructor(scene, x, y, part, text) {
         let sick = CreateSick();
         if(part == 'mouth')
-            sick = 'mouth';
-        super(scene, x, y, sick);
+            super(scene, x, y, 'mouth')
+        else super(scene, x, y, sick);
 
         scene.add.existing(this);
         this.setInteractive();
@@ -44,7 +44,7 @@ export default class Parts extends Phaser.GameObjects.Sprite {
                 break;
         }
 
-        //this.puzzle = new Puzzle(scene, sick, part);
+        this.puzzle = new Puzzle(scene, sick, part);
 
         this.getPart = function () {
             return part;
