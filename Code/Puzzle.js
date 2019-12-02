@@ -67,34 +67,34 @@ export default class Puzzle {
         }
         this.arcano = {
             eyes: [
-                { sol: ""},
-                { sol: ""},
-                { sol: ""}
+                { sol: "Mater mea in oculis meis et prurigine"},
+                { sol: "Opus est aliquo oculum guttae"},
+                { sol: "Habeo ruber oculis meis"}
             ],
             ears: [
-                { sol: ""},
-                { sol: ""},
-                { sol: ""}
+                { sol: "Habeo cera aures repleti"},
+                { sol: "Et Audiologist est iens ad induendum ad tabernus"},
+                { sol: "Non audiunt quicquam"}
             ],
             nose: [
-                { sol: ""},
-                { sol: ""},
-                { sol: ""}
+                { sol: "g"},
+                { sol: "h"},
+                { sol: "i"}
             ],
             mouth: [
-                { sol: ""},
-                { sol: ""},
-                { sol: ""}
+                { sol: "j"},
+                { sol: "k"},
+                { sol: "l"}
             ],
             abdomen: [
-                { sol: ""},
-                { sol: ""},
-                { sol: ""}
+                { sol: "m"},
+                { sol: "n"},
+                { sol: "ñ"}
             ],
             chest: [
-                { sol: ""},
-                { sol: ""},
-                { sol: ""}
+                { sol: "o"},
+                { sol: "p"},
+                { sol: "q"}
             ]
         }
         this.cthulhu = {
@@ -105,28 +105,28 @@ export default class Puzzle {
             ],
             ears: [
                 { sol: "The Holy Foreskin"},
-                { sol: ""},
-                { sol: ""}
+                { sol: "Crown of thorns"},
+                { sol: "Saint Catherine's Head"}
             ],
             nose: [
                 { sol: "Jesus's Booger"},
-                { sol: ""},
-                { sol: ""}
+                { sol: "Holy Spirit Sneeze"},
+                { sol: "Saint Andrew's hair"}
             ],
             mouth: [
-                { sol: ""},
-                { sol: ""},
-                { sol: ""}
+                { sol: "Shroud of Turin"},
+                { sol: "St. Anthony's Tongue"},
+                { sol: "Jesus's Teeth"}
             ],
             abdomen: [
                 { sol: "Jhon's Pancreas"},
-                { sol: ""},
-                { sol: ""}
+                { sol: "Holy Nail"},
+                { sol: "Jesus's Umbilical cord"}
             ],
             chest: [
                 { sol: "Judas's Heart"},
-                { sol: ""},
-                { sol: ""}
+                { sol: "Lance of Longinus"},
+                { sol: "Saint Joshep's Bones"}
             ]
         }
         this.insectos = {
@@ -161,8 +161,8 @@ export default class Puzzle {
                 { sol: [5, 2, 4, 6, 3, 1, 0]}
             ]
         }
-        //this.solution = this[sick][part][Math.floor(Math.random() * 3) + 1].sol;
-        this.solution = this[sick][part][0].sol;
+        this.solution = this[sick][part][Math.floor(Math.random() * 3)].sol;
+        //this.solution = this[sick][part][0].sol;
 
     }
 }

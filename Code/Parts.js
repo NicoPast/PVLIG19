@@ -72,8 +72,11 @@ export default class Parts extends Phaser.GameObjects.Sprite {
                 console.log("Curado");
                 curado = true;
                 this.setTexture('square');
-                if(part == 'ears')this.other.visible = false;
-                this.visible = false;
+                this.disableInteractive();
+                if(part == 'ears'){
+                    this.other.setTexture('square');
+                    this.other.disableInteractive();
+                }
                 scene.vic.ComCuracion();
             }
 
