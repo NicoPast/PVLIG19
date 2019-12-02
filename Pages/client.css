@@ -1,3 +1,19 @@
+/* HEADERS */
+
+h1{
+    text-align: center;
+    font: 50px bold , sans-serif;
+    color: white;   
+}
+h2{
+    text-align: center;
+    margin-top: 85px;
+    font: 30px bold , sans-serif;
+    color: white;
+}
+a{text-decoration: none;}
+
+/* HEADERS-END */
 *{
     margin: 0px;
     padding: 0px;
@@ -6,36 +22,41 @@
 div#general{
     margin: auto;
     margin-top: 50px;
-    width: 1300px;
-    height: 1500px;
-    background-color: red;
+    width: 1500px;
+    height: 3000px;
+    background-color: black;
 }
 /* TOP */
 div#top{
     margin: auto;
     width: 1200px;
     height: 200px;
-    background-color: green;
+    background-color: rgb(36, 36, 36);
 }
 
 div#Documentacion{
+    margin: 0 auto;
     float: left;
     width: 400px;
     height: 200px;
-    background-color: blue;
+    
 }
 div#StoreAndServices{
-    margin: auto;
+    margin: 0 auto;
     width: 400px;
     height: 200px;
-    background-color: black;
+    
 }
 div#AboutUs{
-    margin: auto;
+    margin: 0 auto;
     float: right;
     width: 400px;
     height: 200px;
-    background-color: white;
+   
+}
+
+.box:hover{
+    background: rgb(65, 65, 65);
 }
 /* TOP-END */
 /* BODY */
@@ -44,7 +65,7 @@ div#Images{
     margin: auto;
     margin-top: 30px;
     width: 1300px;
-    height: 600px;
+    height: 800px;
     background-color: black;
 }
 

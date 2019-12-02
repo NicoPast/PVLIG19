@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <title>Cliente del juego</title>
   <link rel="stylesheet" type="text/css" href="/Pages/client.css">
+  
 </head>
 
 <body>
@@ -14,19 +15,24 @@
 
   <div id="general">
     <div id="top">
-      <div id="Documentacion">
-
+      <a href="">
+        <div id="Documentacion" class="box">
+          <h2>DOCUMENTATION</h2>
+        </div>
+      </a>
+      <a href="">
+        <div id="AboutUs" class="box">
+          <h2>ABOUT US</h2>
+        </div>
+      </a>
+      <a href="">
+      <div id="StoreAndServices" class="box">
+        <h2>STORE AND SERVICES</h2>
       </div>
-
-      <div id="AboutUs">
-
-      </div>
-
-      <div id="StoreAndServices">
-
-      </div>
+      </a>
 
     </div>
+    <h1>Nunca olvidar a que nos enfrentamos</h1>
     <div id="Images" class="slideshow-container">
 
       <!-- Full-width images with number and caption text -->
@@ -64,49 +70,51 @@
       <span class="dot" onclick="currentSlide(3)"></span>
       <span class="dot" onclick="currentSlide(4)"></span>
     </div>
+    <font color="white">
+      <p>Do you need any service?</p>
+      <select id="services">
+        <option value="electrician">Electrician</option>
+        <option value="firefighters">Firefighters</option>
+        <option value="plumber">Plumber</option>
+        <option value="pest_control">Pest Control</option>
+      </select>
+      <button id="submitService"> Send </button>
+
+
+      <p>Send one of our many Relics</p>
+      <select id="relics">
+        <option value="Charlemagne's cross">Charlemagne's cross</option>
+        <option value="Shrine of the Three Kings">Shrine of the Three Kings</option>
+        <option value="The Holy Foreskin">The Holy Foreskin</option>
+        <option value="The Eye of Simon">The Eye of Simon</option>
+        <option value="Jesus's Booger">Jesus's Booger</option>
+        <option value="Jhon's Pancreas">Jhon's Pancreas</option>
+        <option value="Judas's Heart">Judas's Heart</option>
+        <option value="Shroud of Turint">Shroud of Turin</option>
+        <option value="St. Anthony's Tongue">St. Anthony's Tongue</option>
+        <option value="Crown of thorns">Crown of thorns</option>
+        <option value="Buda's Teeth">Buda's Teeth</option>
+        <option value="Lance of Longinus">Lance of Longinus</option>
+        <option value="Holy Nail">Holy Nail</option>
+        <option value="Jesus's Umbilical cord">Jesus's Umbilical cord</option>
+        <option value="Holy Spirit Sneeze">Holy Spirit Sneeze</option>
+        <option value="Saint Joshep's Bones">Saint Joshep's Bones</option>
+        <option value="Saint Catherine's Head">Saint Catherine's Head</option>
+        <option value="Saint Andrew's hair">Saint Andrew's hair</option>
+      </select>
+      <button id="submitRelic"> Send </button>
+
+      <p>Create your own Holy Water </p>
+      <input id="check1" type="checkbox" name="component" value="SaintHair" /> Saint Hair<br>
+      <input id="check2" type="checkbox" name="component" value="CrossPiece" /> Cross Piece<br>
+      <input id="check3" type="checkbox" name="component" value="SacredText" /> Piece of sacred Text<br>
+      <input id="check4" type="checkbox" name="component" value="candleWax" /> Sacred Candle Wax<br>
+      <button id="submitWater"> Create and Send </button>
+    </font>
   </div>
 
 
 
-  <p>Do you need any service?</p>
-  <select id="services">
-    <option value="electrician">Electrician</option>
-    <option value="firefighters">Firefighters</option>
-    <option value="plumber">Plumber</option>
-    <option value="pest_control">Pest Control</option>
-  </select>
-  <button id="submitService"> Send </button>
-
-
-  <p>Send one of our many Relics</p>
-  <select id="relics">
-    <option value="Charlemagne's cross">Charlemagne's cross</option>
-    <option value="Shrine of the Three Kings">Shrine of the Three Kings</option>
-    <option value="The Holy Foreskin">The Holy Foreskin</option>
-    <option value="The Eye of Simon">The Eye of Simon</option>
-    <option value="Jesus's Booger">Jesus's Booger</option>
-    <option value="Jhon's Pancreas">Jhon's Pancreas</option>
-    <option value="Judas's Heart">Judas's Heart</option>
-    <option value="Shroud of Turint">Shroud of Turin</option>
-    <option value="St. Anthony's Tongue">St. Anthony's Tongue</option>
-    <option value="Crown of thorns">Crown of thorns</option>
-    <option value="Buda's Teeth">Buda's Teeth</option>
-    <option value="Lance of Longinus">Lance of Longinus</option>
-    <option value="Holy Nail">Holy Nail</option>
-    <option value="Jesus's Umbilical cord">Jesus's Umbilical cord</option>
-    <option value="Holy Spirit Sneeze">Holy Spirit Sneeze</option>
-    <option value="Saint Joshep's Bones">Saint Joshep's Bones</option>
-    <option value="Saint Catherine's Head">Saint Catherine's Head</option>
-    <option value="Saint Andrew's hair">Saint Andrew's hair</option>
-  </select>
-  <button id="submitRelic"> Send </button>
-
-  <p>Create your own Holy Water</p>
-  <input id="check1" type="checkbox" name="component" value="SaintHair" /> Saint Hair<br>
-  <input id="check2" type="checkbox" name="component" value="CrossPiece" /> Cross Piece<br>
-  <input id="check3" type="checkbox" name="component" value="SacredText" /> Piece of sacred Text<br>
-  <input id="check4" type="checkbox" name="component" value="candleWax" /> Sacred Candle Wax<br>
-  <button id="submitWater"> Create and Send </button>
 
 
   <!--initialization-->
