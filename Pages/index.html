@@ -11,15 +11,26 @@
 </head>
 
 <body>
-    <h1>What The Hell</h1>
-    <h2>The best game that still doesn't exist.</h2>    
-    <button id = 'P1'>Jugar como agente de campo</button>
-    <button id = 'P2'>Jugar como agente informativo</button>
-    <script>
-    </script>
+
+    <div id="topmain">
+        <h1>What The Hell</h1>
+        <h2>The best game that still doesn't exist.</h2>
+    </div>
+    <div id="main">
+        <div id="Player" class="Play">
+            Jugar como agente de campo
+        </div>
+        <div id="Client" class="Play">
+            Jugar como agente informativo
+        </div>
+
+
+    </div>
     <script type="module">
-        P1.onclick = () => window.location.href = 'Pages/game.html';
-        P2.onclick = () => window.location.href = 'Pages/client.html';
+        Player.onclick = () => window.location.href = 'Pages/game.html';
+
+        Client.onclick = () => window.location.href = 'Pages/client.html';
+
     </script>
 </body>
 

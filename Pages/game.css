@@ -1,3 +1,30 @@
 h1 {
   text-align: center;
 }
+
+div#topmain{
+  margin: auto;
+  width: 1300px;
+  height: 100px;
+  background-color: green;
+}
+/* DIV MAIN */
+div#main{
+  margin: auto;
+  width: 1300px;
+  height: 500px;
+  background-color: rgb(36, 36, 36);
+}
+div#Player{
+  float: left;
+  width: 650px;
+  height: 500px;
+}
+div#Client{
+  float: right;
+  width: 650px;
+  height: 500px;
+}
+.Play:hover{
+  background: rgb(65, 65, 65);
+}
