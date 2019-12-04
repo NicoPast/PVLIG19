@@ -15,9 +15,29 @@ app.get('/Pages/inputText.html', function(req, res){
   res.sendFile(__dirname + '/Pages/inputText.html');
 });
 
+// app.get('/ImgPages/Client/borrar1.jpg' , function(req, res){
+//   res.sendFile(__dirname + '/ImgPages/Client/borrar1.jpg');
+// });
+// app.get('/ImgPages/Client/borrar2.jpg' , function(req, res){
+//   res.sendFile(__dirname + '/ImgPages/Client/borrar2.jpg');
+// });
+// app.get('/ImgPages/Client/borrar3.jpg' , function(req, res){
+//   res.sendFile(__dirname + '/ImgPages/Client/borrar3.jpg');
+// });
+// app.get('/ImgPages/Client/borrar4.jpg' , function(req, res){
+//   res.sendFile(__dirname + '/ImgPages/Client/borrar4.jpg');
+// });
+// app.get('/ImgPages/Client/borrar4.jpg' , function(req, res){
+//   res.sendFile(__dirname + '/ImgPages/Client/borrar4.jpg');
+// });
+
+
+
+
 app.use('/Assets/', express.static('Assets'))
 app.use('/Code/', express.static('Code'))
 app.use('/Pages/', express.static('Pages'))
+app.use('/ImgPages/', express.static('ImgPages'))
 
 io.on('connection', socket => {
   console.log('a user connected');
