@@ -9,6 +9,10 @@ export default class Boot extends Phaser.Scene{
         this.load.image('polaroid', '/Assets/Finales/Polaroid.png')
         this.load.image('mouth', '/Assets/Finales/Mouth.png');
         this.load.image('face', '/Assets/Finales/Face.png');
+        this.load.image('nose', '/Assets/Finales/Nose.png');
+        this.load.image('eyes', '/Assets/Finales/Eyes.png');
+        this.load.image('ears', '/Assets/Finales/Ears.png');
+
         this.load.image('victim', '/Assets/favicon.png');
         this.load.image('square', '/Assets/Button.png');
         this.load.image('fire', '/Assets/red.png');

@@ -4,7 +4,14 @@ export default class Parts extends Phaser.GameObjects.Sprite {
     constructor(scene, x, y, part, text) {
         let sick = CreateSick();
         if(part == 'mouth')
-            super(scene, x, y, 'mouth')
+            super(scene, x, y, 'mouth');
+        else if(part == 'nose')
+            super(scene, x, y, 'nose');
+        else if(part == 'eyes')
+            super(scene, x, y, 'eyes');
+        else if(part == 'ears'){
+            super(scene, x, y, 'ears');
+        }
         else super(scene, x, y, sick);
 
         scene.add.existing(this);
@@ -12,24 +19,27 @@ export default class Parts extends Phaser.GameObjects.Sprite {
         let curado = false;
         switch (part) {
             case 'ears':
-                this.scaleX = 0.1;
+                this.scaleX = -0.4;
                 this.scaleY = 0.25;
-                this.other = scene.add.image(x - 280, y, sick);
-                this.other.scaleX = 0.1;
+                this.other = scene.add.image(x - 195, y, 'ears');
+                this.other.scaleX = 0.4;
                 this.other.scaleY = 0.25;
                 this.other.setInteractive();
                 break;
             case 'nose':
-                this.scaleX = 0.1;
-                this.scaleY = 0.2;
+                this.scaleX = 0.3;
+                this.scaleY = 0.3;
                 break;
             case 'mouth':
-                this.scaleX = 0.35;
+                this.scaleX = 0.3;
                 this.scaleY = 0.3;
                 break;
             case 'eyes':
-                this.scaleX = 0.35;
+                this.scaleX = 0.1;
                 this.scaleY = 0.1;
+                /* insecto xdlol
+                this.scaleX = 0.35;
+                this.scaleY = 0.1;*/
                 break;
             case 'chest':
                 this.scaleX = 0.7;
