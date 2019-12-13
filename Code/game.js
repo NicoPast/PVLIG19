@@ -151,6 +151,8 @@ export default class Game extends Phaser.Scene {
       this.selText.visible = false;
       this.desAcc.visible = false;
       this.desTex.visible = false;
+      this.attack.visible = false;
+      this.zoomBack.visible = false;
       this.startTime = Date.now();
       this.vic.updateZoom();
     }
