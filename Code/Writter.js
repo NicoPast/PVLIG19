@@ -3,7 +3,8 @@ export default class Writter extends Phaser.GameObjects.Sprite {
         super(scene, x, y, texture);
 
         scene.add.existing(this);
-        this.scaleX = 2.7;
+        this.scaleX = 0.5;
+        this.scaleY = 0.22;
         this.setInteractive();
         this.on('pointerdown', pointer => {
             if (!element.clic && !activated) {
@@ -12,7 +13,7 @@ export default class Writter extends Phaser.GameObjects.Sprite {
             }
         });
 
-        let deactivator = this.scene.add.image(650, 200, 'square').setAlpha(0.3);
+        let deactivator = this.scene.add.image(650, 290, 'square').setAlpha(0.1);
         deactivator.scaleY = 2;
         deactivator.scaleX = 3.25;
         deactivator.visible = false;
@@ -23,7 +24,7 @@ export default class Writter extends Phaser.GameObjects.Sprite {
             element.visible = false;
         });
 
-        let element = scene.add.dom(x, y - 200).createFromCache("nameform");
+        let element = scene.add.dom(x, y - 200).createFromCache("nameform").setScale(2);
         element.clic = false;
         element.visible = false;
         let submit = scene.input.keyboard.addKey('Enter');

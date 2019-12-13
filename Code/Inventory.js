@@ -2,10 +2,11 @@ import Action from "./Action.js";
 
 export default class Inventory extends Phaser.GameObjects.Sprite {
     constructor(scene, x, y, texture) {
-        super(scene, x, y, texture);
+        super(scene, x + 30, y - 50, texture);
 
         scene.add.existing(this);
-        this.scaleY = 2;
+        this.scaleY = 0.8;
+        this.scaleX = 0.7;
         this.setInteractive();
 
         this.on('pointerdown', pointer => {
@@ -13,7 +14,7 @@ export default class Inventory extends Phaser.GameObjects.Sprite {
             scene.updateUI('i');
         });
 
-        let deactivator = scene.add.image(750, 370, 'square').setAlpha(0.3);
+        let deactivator = scene.add.image(750, 370, 'square').setAlpha(0.1);
         deactivator.scaleY = 1.9;
         deactivator.scaleX = 4;
         deactivator.visible = false;

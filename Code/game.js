@@ -19,8 +19,8 @@ export default class Game extends Phaser.Scene {
     this.zoom.scaleY = 1.7;
     this.zoom.scaleX = 1.4;
     this.selText = this.add.text(40, 600, 'Selected: none', { fontSize: '32px', color: '#000' });
-    this.desTex = new Writter(this, 700, 950, 'goo');
-    this.desAcc = new Inventory(this, 1500, 400, 'square');
+    this.desTex = new Writter(this, 700, 950, 'scroll');
+    this.desAcc = new Inventory(this, 1500, 400, 'bag');
     this.soul = 100;
     this.startTime = Date.now();
     this.posRate = 0.5;

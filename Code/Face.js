@@ -9,7 +9,7 @@ export default class Face extends Phaser.GameObjects.Sprite {
 
         let parts = [];
 
-        parts.push(new Parts(scene, x + 99, y, 'ears'));
+        parts.push(new Parts(scene, x + 100, y, 'ears'));
         parts.push(new Parts(scene, x, y - 10, 'eyes'));
         parts.push(new Parts(scene, x + 4, y + 15, 'nose'));
         parts.push(new Parts(scene, x + 4, y + 80, 'mouth'));
