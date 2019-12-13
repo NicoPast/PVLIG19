@@ -21,6 +21,7 @@ export default class Torso extends Phaser.GameObjects.Sprite {
         this.render = function () {
             this.visible = true;
             bodyparts.forEach(element => {
+                element.puzzle.visible = true;
                 element.visible = true;
             });
             active = true;
@@ -29,6 +30,7 @@ export default class Torso extends Phaser.GameObjects.Sprite {
         this.hide = function () {
             this.visible = false;
             bodyparts.forEach(element => {
+                element.puzzle.visible = false;
                 element.visible = false;
             });
             active = false;

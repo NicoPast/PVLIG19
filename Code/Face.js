@@ -24,7 +24,9 @@ export default class Face extends Phaser.GameObjects.Sprite {
         this.render = function () {
             this.visible = true;
             parts.forEach(element => {
+                element.puzzle.visible = true;
                 if (element.getPart() == 'ears') {
+                    element.puzzle.other.visible = true;
                     element.other.visible = true;
                 }
                 element.visible = true;
@@ -35,10 +37,13 @@ export default class Face extends Phaser.GameObjects.Sprite {
         this.hide = function () {
             this.visible = false;
             parts.forEach(element => {
+                element.puzzle.visible = false;
+                element.visible = false;
                 if (element.getPart() == 'ears') {
+                    element.puzzle.other.visible = false;
                     element.other.visible = false;
                 }
-                element.visible = false;
+                
             });
             active = false;
         }

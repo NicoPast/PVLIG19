@@ -19,8 +19,8 @@
 
 <!--Socket creation-->
 <script>
-    const direccion = '127.0.0.1';
-    const puerto = 3000;
+    const direccion = '147.96.82.82';
+    const puerto = 42069;
     const socket = io('http://' + direccion + ':' + puerto);
     socket.emit('identify', 'field agent');
 </script>
@@ -76,6 +76,7 @@
 <!--Server functions-->
 <script>
 socket.on('service', servicio => {
+    
     muestra.innerHTML = 'Ding dong! The ' + servicio + ' has arrived'
 });
 </script>

@@ -3,19 +3,14 @@ import Puzzle from "./Puzzle.js";
 export default class Parts extends Phaser.GameObjects.Sprite {
     constructor(scene, x, y, part) {
         let sick = CreateSick();
-        if(part == 'mouth')
-            super(scene, x, y, 'mouth');
-        else if(part == 'nose')
-            super(scene, x, y, 'nose');
-        else if(part == 'eyes')
-            super(scene, x, y, 'eyes');
-        else if(part == 'ears'){
-            super(scene, x, y, 'ears');
+        let name = part;
+        if(part == 'abdomen' || part == 'chest'){
+            name = 'square';
         }
-        else super(scene, x, y, sick);
-
+        super(scene, x, y, name);
         scene.add.existing(this);
         this.setInteractive();
+
         let curado = false;
         switch (part) {
             case 'ears':
@@ -41,17 +36,19 @@ export default class Parts extends Phaser.GameObjects.Sprite {
             case 'chest':
                 this.scaleX = 0.7;
                 this.scaleY = 0.4;
+                this.alpha = 0.001;
                 break;
             case 'abdomen':
                 this.scaleX = 0.7;
                 this.scaleY = 0.4;
+                this.alpha = 0.001;
                 break;
             default:
                 console.log('Como cojones has llegado aquí');
                 break;
         }
 
-        this.puzzle = new Puzzle(scene, sick, part);
+        this.puzzle = new Puzzle(scene,  x, y, sick, part);
 
         this.getPart = function () {
             return part;
@@ -78,17 +75,17 @@ export default class Parts extends Phaser.GameObjects.Sprite {
             if (bool) {
                 console.log("Curado");
                 curado = true;
-                this.setTexture('square');
+                this.puzzle.visible = false;
                 this.disableInteractive();
                 if(part == 'ears'){
-                    this.other.setTexture('square');
+                    this.puzzle.other.visible = false;
                     this.other.disableInteractive();
                 }
                 scene.vic.ComCuracion();
             }
 
             else {
-                console.log("Fallo");
+                scene.attackPlayer(sick);
             }
         }
         function CreateSick() {
@@ -105,6 +102,14 @@ export default class Parts extends Phaser.GameObjects.Sprite {
                 case 5:
                     return 'insectos';
             }
+        }
+
+        this.hide = function(){
+            if(part == 'ears'){
+                this.puzzle.other.visible = false;
+                this.other.disableInteractive();
+            }
+            this.puzzle.visible = false;
         }
     }
 

@@ -3,7 +3,7 @@ const app = express(); // servidor de aplicaciones
 const http = require('http').createServer(app); // servidor HTTP
 const io = require('socket.io').listen(http); // Importamos `socket.io`
 
-const port = 3000; // El puerto
+const port = 42069; // El puerto
 let fieldAg = null;
 let infoAg = null;
 var clients = [];
@@ -14,25 +14,6 @@ app.get('/', function(req, res){
 app.get('/Pages/inputText.html', function(req, res){
   res.sendFile(__dirname + '/Pages/inputText.html');
 });
-
-// app.get('/ImgPages/Client/borrar1.jpg' , function(req, res){
-//   res.sendFile(__dirname + '/ImgPages/Client/borrar1.jpg');
-// });
-// app.get('/ImgPages/Client/borrar2.jpg' , function(req, res){
-//   res.sendFile(__dirname + '/ImgPages/Client/borrar2.jpg');
-// });
-// app.get('/ImgPages/Client/borrar3.jpg' , function(req, res){
-//   res.sendFile(__dirname + '/ImgPages/Client/borrar3.jpg');
-// });
-// app.get('/ImgPages/Client/borrar4.jpg' , function(req, res){
-//   res.sendFile(__dirname + '/ImgPages/Client/borrar4.jpg');
-// });
-// app.get('/ImgPages/Client/borrar4.jpg' , function(req, res){
-//   res.sendFile(__dirname + '/ImgPages/Client/borrar4.jpg');
-// });
-
-
-
 
 app.use('/Assets/', express.static('Assets'))
 app.use('/Code/', express.static('Code'))

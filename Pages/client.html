@@ -11,7 +11,6 @@
   <script src="/socket.io/socket.io.js"></script>
   <button id="atras">Volver a la anterior pagina</button>
 
-
   <div id="general">
     <div id="top">
       <a href="/Pages/Guia_del_Agente.pdf" target="_blanck">
@@ -76,9 +75,9 @@
         <option value="firefighters">Firefighters</option>
         <option value="plumber">Plumber</option>
         <option value="pest_control">Pest Control</option>
+        <option value="cleaning_service">Cleaning Service</option>
       </select>
       <button id="submitService"> Send </button>
-
 
       <p>Send one of our many Relics</p>
       <select id="relics">
@@ -112,10 +111,6 @@
     </font>
   </div>
 
-
-
-
-
   <!--initialization-->
   <script>
     const relic = document.getElementById("relics");
@@ -136,8 +131,8 @@
 
   <!--socket creation-->
   <script>
-    const direccion = '127.0.0.1';
-    const puerto = 3000;
+    const direccion = '147.96.82.82';
+    const puerto = 42069;
     const socket = io('http://' + direccion + ':' + puerto);
     socket.emit('identify', 'information agent');
   </script>
