@@ -1,4 +1,4 @@
-import GeneralBP from "./GeneralBodyPart.js";
+import GeneralBP from "./GeneralBP.js";
 
 export default class Victim extends Phaser.GameObjects.Sprite{
     constructor(scene, x, y, zoom){
@@ -79,7 +79,7 @@ export default class Victim extends Phaser.GameObjects.Sprite{
 
         this.ComCuracion = function(){
             this.actualpart = undefined;
-            zoom.text.setText("Selected: None");
+            scene.changeSelText('Selected: none');
             if(generalBodyParts[0].getCurado() && generalBodyParts[1].getCurado()){
                 scene.WinGame();
             }

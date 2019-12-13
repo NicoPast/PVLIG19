@@ -1,23 +1,22 @@
 import Parts from "./Parts.js";
 
 export default class Face extends Phaser.GameObjects.Sprite {
-    constructor(scene, x, y, text) {
+    constructor(scene, x, y) {
         super(scene, x - 10, y, 'face');
-        let parts = [];
-
-        parts.push(new Parts(scene, x + 95, y, 'ears', text));
-
         scene.add.existing(this).setScale(0.95);
         this.scaleX = 0.28;
         this.scaleY = 0.28;
 
-        parts.push(new Parts(scene, x, y - 10, 'eyes', text));
-        parts.push(new Parts(scene, x + 4, y + 15, 'nose', text));
-        parts.push(new Parts(scene, x + 4, y + 80, 'mouth', text));
+        let parts = [];
+
+        parts.push(new Parts(scene, x + 99, y, 'ears'));
+        parts.push(new Parts(scene, x, y - 10, 'eyes'));
+        parts.push(new Parts(scene, x + 4, y + 15, 'nose'));
+        parts.push(new Parts(scene, x + 4, y + 80, 'mouth'));
 
         this.setInteractive();
         this.on('pointerdown', pointer => {
-            text.setText('Selected: None');
+            scene.changeSelText('Selected: none');
         });
 
         let active = false;

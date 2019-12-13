@@ -1,16 +1,20 @@
 import Parts from './Parts.js'
 export default class Torso extends Phaser.GameObjects.Sprite {
-    constructor(scene, x, y, text) {
-        super(scene, x, y - 20, 'yellow');
+    constructor(scene, x, y) {
+        super(scene, x - 10, y - 25, 'body');
 
         scene.add.existing(this);
-        this.scaleX = 0.7;
-        this.scaleY = 0.9;
+        this.scaleX = 0.2;
+        this.scaleY = 0.22;
 
         let bodyparts = [];
-        bodyparts.push(new Parts(scene, x, y + 80, 'abdomen', text));
-        bodyparts.push(new Parts(scene, x, y - 120, 'chest', text));
+        bodyparts.push(new Parts(scene, x, y + 80, 'abdomen'));
+        bodyparts.push(new Parts(scene, x, y - 120, 'chest'));
 
+        this.setInteractive();
+        this.on('pointerdown', pointer => {
+            scene.changeSelText('Selected: none');
+        });
 
         let active = false;
 

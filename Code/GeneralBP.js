@@ -10,16 +10,16 @@ export default class GeneralBP extends Phaser.GameObjects.Sprite{
         let typeImg;
         switch(type){
             case 0:
-                typeImg = new Torso(scene, zoom.x, zoom.y, zoom.text);
+                typeImg = new Torso(scene, zoom.x, zoom.y);
             break;
             case 1:
-                typeImg = new Face(scene, zoom.x, zoom.y - 30, zoom.text);
+                typeImg = new Face(scene, zoom.x, zoom.y - 30);
             break;
         }
         this.on('pointerdown', pointer => {
             victim.updateZoom();            
             typeImg.render();
-            zoom.text.setText('Selected: None');
+            scene.changeSelText('Selected: none');
             victim.actualpart = undefined;
         });
 

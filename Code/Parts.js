@@ -1,7 +1,7 @@
 import Puzzle from "./Puzzle.js";
 
 export default class Parts extends Phaser.GameObjects.Sprite {
-    constructor(scene, x, y, part, text) {
+    constructor(scene, x, y, part) {
         let sick = CreateSick();
         if(part == 'mouth')
             super(scene, x, y, 'mouth');
@@ -21,7 +21,7 @@ export default class Parts extends Phaser.GameObjects.Sprite {
             case 'ears':
                 this.scaleX = -0.4;
                 this.scaleY = 0.25;
-                this.other = scene.add.image(x - 195, y, 'ears');
+                this.other = scene.add.image(x - 202, y, 'ears');
                 this.other.scaleX = 0.4;
                 this.other.scaleY = 0.25;
                 this.other.setInteractive();
@@ -37,9 +37,6 @@ export default class Parts extends Phaser.GameObjects.Sprite {
             case 'eyes':
                 this.scaleX = 0.1;
                 this.scaleY = 0.1;
-                /* insecto xdlol
-                this.scaleX = 0.35;
-                this.scaleY = 0.1;*/
                 break;
             case 'chest':
                 this.scaleX = 0.7;
@@ -66,13 +63,13 @@ export default class Parts extends Phaser.GameObjects.Sprite {
             return this.puzzle.solution;
         }
         this.on('pointerdown', pointer => {
-            text.setText('Selected: ' + part);
+            scene.changeSelText('Selected: ' + part);
             scene.vic.setPart(this);
             console.log(this.puzzle.solution);
         });
         if (part == 'ears') {
             this.other.on('pointerdown', pointer => {
-                text.setText('Selected: ' + part);
+                scene.changeSelText('Selected: ' + part);
                 scene.vic.setPart(this);
                 console.log(part + " " + this.puzzle.solution);
             });
