@@ -1,7 +1,15 @@
 export default class Puzzle extends Phaser.GameObjects.Sprite {
     constructor(scene, x, y, sick, part) {
-        super(scene, x, y, sick);
-        scene.add.existing(this);
+        sick = 'fire';
+        if(sick == 'fire'){
+            console.log('llego');
+            super(scene, x, y, 'fireAnim');
+            scene.add.existing(this);
+            this.play('fireKey');
+        }else{
+            super(scene, x, y, sick);
+            scene.add.existing(this);
+        }
         console.log('creado un demonio de tipo ' + sick + ' en ' + part);
 
         this.fire = {
@@ -169,8 +177,8 @@ export default class Puzzle extends Phaser.GameObjects.Sprite {
 
         switch (part) {
             case 'ears':
-                this.scaleX = -0.4;
-                this.scaleY = 0.25;
+                this.scaleX = -0.1;
+                this.scaleY = 0.1;
                 this.other = scene.add.image(x - 202, y, sick);
                 switch (rand) {
                     case 0:
@@ -183,28 +191,28 @@ export default class Puzzle extends Phaser.GameObjects.Sprite {
                         this.other.tint = 0x000ff0;
                         break;
                 }
-                this.other.scaleX = 0.4;
-                this.other.scaleY = 0.25;
+                this.other.scaleX = 0.1;
+                this.other.scaleY = 0.1;
                 break;
             case 'nose':
-                this.scaleX = 0.3;
-                this.scaleY = 0.3;
+                this.scaleX = 0.05;
+                this.scaleY = 0.05;
                 break;
             case 'mouth':
-                this.scaleX = 0.3;
-                this.scaleY = 0.3;
+                this.scaleX = 0.07;
+                this.scaleY = 0.025;
                 break;
             case 'eyes':
-                this.scaleX = 0.1;
-                this.scaleY = 0.1;
+                this.scaleX = 0.2;
+                this.scaleY = 0.05;
                 break;
             case 'chest':
-                this.scaleX = 0.7;
-                this.scaleY = 0.4;
+                this.scaleX = 0.3;
+                this.scaleY = 0.1;
                 break;
             case 'abdomen':
-                this.scaleX = 0.7;
-                this.scaleY = 0.4;
+                this.scaleX = 0.3;
+                this.scaleY = 0.1;
                 break;
             default:
                 console.log('Como cojones has llegado aquí');
@@ -213,13 +221,13 @@ export default class Puzzle extends Phaser.GameObjects.Sprite {
 
         switch (rand) {
             case 0:
-                this.tint = 0x000000;
+                this.tint = 0x00FF00;
                 break;
             case 1:
                 this.tint = 0xFFFFFF;
                 break;
             case 2:
-                this.tint = 0x000ff0;
+                this.tint = 0xFF0000;
                 break;
         }
 

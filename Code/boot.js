@@ -17,12 +17,14 @@ export default class Boot extends Phaser.Scene{
         
         this.load.image('body', '/Assets/Finales/Body.png');
 
+        this.load.spritesheet('fire','/Assets/Finales/Fire.png', {frameWidth: 768, frameHeight: 1824});
+
         this.load.image('scroll', '/Assets/Finales/oldscroll.png')
         this.load.image('bag', '/Assets/Finales/Bag.png');
 
         this.load.image('victim', '/Assets/favicon.png');
         this.load.image('square', '/Assets/Button.png');
-        this.load.image('fire', '/Assets/red.png');
+        this.load.image('red', '/Assets/red.png');
         this.load.image('insectos', '/Assets/white.png');
         this.load.image('goo', '/Assets/green.png');
         this.load.image('cthulhu', '/Assets/pink.png');

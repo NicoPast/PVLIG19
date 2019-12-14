@@ -8,6 +8,15 @@ export default class Game extends Phaser.Scene {
   }
 
   create() {
+    this.fireAnim = this.anims.create({
+      key: 'fireKey',
+      frames: this.anims.generateFrameNumbers('fire'),
+      frameRate: 8,
+      yoyo: false,
+      repeat: -1
+    });
+
+
     this.posRateIni = 0.5;
     this.posRateAttacked = 1;
 
@@ -34,7 +43,14 @@ export default class Game extends Phaser.Scene {
     this.posRate = this.posRateIni;
     this.desPos = 1;
 
+    // como hacer una animacion 101
+    /*
+    let sprite = this.add.sprite(400, 300, 'fireAnim').setScale(0.2);
 
+    sprite.scaleY = 0.12;
+
+    sprite.play('fireKey');
+    */
     this.keycheat = this.input.keyboard.addKey('F1');
     this.win = false;
 

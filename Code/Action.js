@@ -17,7 +17,7 @@ export default class Action extends Phaser.GameObjects.Sprite {
                 break;
             case 2:
                 use = false;
-                name = 'fire';
+                name = 'red';
                 break;
             case 3:
                 use = false;

@@ -48,7 +48,7 @@ export default class Parts extends Phaser.GameObjects.Sprite {
                 break;
         }
 
-        this.puzzle = new Puzzle(scene,  x, y, sick, part);
+        this.puzzle = new Puzzle(scene,  x, y - 10, sick, part);
 
         this.getPart = function () {
             return part;
