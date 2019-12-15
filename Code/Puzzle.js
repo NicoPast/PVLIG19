@@ -1,6 +1,6 @@
 export default class Puzzle extends Phaser.GameObjects.Sprite {
     constructor(scene, x, y, sick, part) {
-        if(sick == 'fire' || sick == 'goo'){
+        if(sick == 'fire' || sick == 'goo' || sick == 'cthulhu'){
             super(scene, x, y, sick + 'Anim');
             scene.add.existing(this);
             this.play(sick + 'Key');
@@ -178,7 +178,7 @@ export default class Puzzle extends Phaser.GameObjects.Sprite {
             case 'ears':
                 this.scaleX = -0.1;
                 this.scaleY = 0.1;
-                if(sick == 'fire' || sick == 'goo'){
+                if(sick == 'fire' || sick == 'goo' || sick == 'cthulhu'){
                     this.other = scene.add.sprite(x - 202, y, sick + 'Anim');
                     this.other.play(sick + 'Key');
                 }

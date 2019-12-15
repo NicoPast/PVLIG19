@@ -24,6 +24,17 @@ export default class Game extends Phaser.Scene {
       repeat: -1
     });
 
+    this.cthulhu = this.anims.create({
+      key: 'cthulhuKey',
+      frames: [
+       { key: 'tentacle0'}, 
+       { key: 'tentacle1'},
+       { key: 'tentacle2'}
+      ],
+      frameRate: 5,
+      repeat: -1
+    });
+
     this.posRateIni = 0.5;
     this.posRateAttacked = 1;
 
@@ -52,12 +63,13 @@ export default class Game extends Phaser.Scene {
 
     // como hacer una animacion 101
     /*
-    let sprite = this.add.sprite(400, 300, 'gooAnim').setScale(0.2);
+    let sprite = this.add.sprite(400, 300, 'cthulhuAnim').setScale(0.2);
 
     sprite.scaleY = 0.12;
 
-    sprite.play('gooKey');
+    sprite.play('cthulhuKey');
     */
+
     this.keycheat = this.input.keyboard.addKey('F1');
     this.win = false;
 

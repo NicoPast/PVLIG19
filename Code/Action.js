@@ -13,7 +13,7 @@ export default class Action extends Phaser.GameObjects.Sprite {
                 break;
             case 1:
                 use = new Rosary(scene, 850, 650, inventory);
-                name = 'rossaryInv';
+                name = 'rosaryInv';
                 break;
             case 2:
                 use = false;

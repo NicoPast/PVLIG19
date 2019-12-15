@@ -11,10 +11,11 @@ export default class Boot extends Phaser.Scene{
         this.load.image('polaroid', '/Assets/Finales/Polaroid.png');
         this.load.image('scroll', '/Assets/Finales/oldscroll.png')
         this.load.image('bag', '/Assets/Finales/Bag.png');
-        this.load.image('rossaryInv', '/Assets/Finales/Rossary.png');
+        this.load.image('rosaryInv', '/Assets/Finales/Rosary.png');
         this.load.image('crossInv', '/Assets/Finales/Cross.png');
         this.load.image('holyWater', '/Assets/Finales/HolyWater.png');
         this.load.image('relic', '/Assets/Finales/Relic.png');
+        this.load.image('rosaryHUD', '/Assets/Finales/RosaryHUD.png');
         this.load.image('victim', '/Assets/Finales/Victim.png');
 
         this.load.image('face', '/Assets/Finales/Face.png');
@@ -27,6 +28,9 @@ export default class Boot extends Phaser.Scene{
 
         this.load.spritesheet('fire','/Assets/Finales/Fire.png', {frameWidth: 768, frameHeight: 1824});
         this.load.spritesheet('goo', '/Assets/Finales/Goo.png', {frameWidth: 960, frameHeight: 1824})
+        this.load.image('tentacle0', '/Assets/Finales/Tentacle0.png');
+        this.load.image('tentacle1', '/Assets/Finales/Tentacle1.png');
+        this.load.image('tentacle2', '/Assets/Finales/Tentacle2.png');
 
         this.load.image('victim', '/Assets/favicon.png');
         this.load.image('square', '/Assets/Button.png');
