@@ -16,6 +16,7 @@ export default class Boot extends Phaser.Scene{
         this.load.image('holyWater', '/Assets/Finales/HolyWater.png');
         this.load.image('relic', '/Assets/Finales/Relic.png');
         this.load.image('rosaryHUD', '/Assets/Finales/RosaryHUD.png');
+        this.load.image('pentagram', '/Assets/Finales/Pentagram.png');
         this.load.image('victim', '/Assets/Finales/Victim.png');
 
         this.load.image('face', '/Assets/Finales/Face.png');

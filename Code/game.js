@@ -46,13 +46,12 @@ export default class Game extends Phaser.Scene {
     this.selText;
     this.vic = new Victim(this, 850, 400, { x: 220, y: 400 });
     this.zoom = this.add.image(220, 400, 'polaroid');
+    this.selText =  this.add.text(40, 600, 'Selected: none', { fontSize: '32px', color: '#000' });
     this.zoom.scaleY = 1.7;
     this.zoom.scaleX = 1.4;
-    this.selText = this.add.text(40, 600, 'Selected: none', { fontSize: '32px', color: '#000' });
 
     this.attackname = 'square';
-    this.attack = this.add.image(0, 0, this.attackname).setScale(10).setAlpha(0.2);
-    this.attack.visible = false;
+    this.attack;
 
     this.desTex = new Writter(this, 700, 950, 'scroll');
     this.desAcc = new Inventory(this, 1500, 400, 'bag');
@@ -198,8 +197,13 @@ export default class Game extends Phaser.Scene {
 
   attackPlayer(sick){
     this.attackname = sick;
-    this.attack.setTexture(this.attackname);
-    this.attack.visible = true;
+    if(sick == 'fire' || sick == 'cthulhu' || sick == 'goo'){
+      this.attack = this.add.sprite(700, 400, this.attackname + 'Anim');
+      this.attack.play(sick + 'Key');
+      this.attack.scaleX = 2;
+    }
+    if(sick == 'goo')
+      this.attack.alpha = 0.9;
     this.posRate = this.posRateAttacked;
   }
 }
