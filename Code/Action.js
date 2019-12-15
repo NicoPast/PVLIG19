@@ -55,7 +55,6 @@ export default class Action extends Phaser.GameObjects.Sprite {
                     this.visible = false;
                 }
             }
-            else  window.alert("Selecciona primero una parte");
         });
 
         let tween = scene.tweens.add({
