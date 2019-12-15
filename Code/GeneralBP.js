@@ -5,7 +5,7 @@ export default class GeneralBP extends Phaser.GameObjects.Sprite{
     constructor(scene, x, y, scale, type, zoom, victim, texture){
         super(scene, x, y, texture);
 
-        scene.add.existing(this).setScale(scale).setAlpha(0.1);
+        scene.add.existing(this).setScale(scale).setAlpha(0.001);
         this.setInteractive();
         let typeImg;
         switch(type){

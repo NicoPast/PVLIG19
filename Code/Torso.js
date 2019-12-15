@@ -21,8 +21,10 @@ export default class Torso extends Phaser.GameObjects.Sprite {
         this.render = function () {
             this.visible = true;
             bodyparts.forEach(element => {
-                element.puzzle.visible = true;
-                element.visible = true;
+                if (!element.getCurado()) {
+                    element.puzzle.visible = true;
+                    element.visible = true
+                }
             });
             active = true;
         }
@@ -30,8 +32,10 @@ export default class Torso extends Phaser.GameObjects.Sprite {
         this.hide = function () {
             this.visible = false;
             bodyparts.forEach(element => {
-                element.puzzle.visible = false;
-                element.visible = false;
+                if (!element.getCurado()) {
+                    element.puzzle.visible = false;
+                    element.visible = false;
+                }
             });
             active = false;
         }
@@ -42,8 +46,8 @@ export default class Torso extends Phaser.GameObjects.Sprite {
 
         this.hide();
 
-        this.getCurado = function(){
-            if(bodyparts[0].getCurado() && bodyparts[1].getCurado()) return true;
+        this.getCurado = function () {
+            if (bodyparts[0].getCurado() && bodyparts[1].getCurado()) return true;
             else return false;
         }
     }

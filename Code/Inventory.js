@@ -12,6 +12,7 @@ export default class Inventory extends Phaser.GameObjects.Sprite {
         this.on('pointerdown', pointer => {
             this.updateTween();
             scene.updateUI('i');
+            
         });
 
         let deactivator = scene.add.image(750, 370, 'square').setAlpha(0.1);

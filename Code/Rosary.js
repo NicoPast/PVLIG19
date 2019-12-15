@@ -13,6 +13,15 @@ export default class Pattern extends Phaser.GameObjects.Sprite {
             this.deactivate();
         })
 
+        let deactivator = scene.add.image(750, 370, 'square').setAlpha(0.1);
+        deactivator.scaleY = 1.9;
+        deactivator.scaleX = 4;
+        deactivator.visible = false;
+        deactivator.setInteractive();
+
+        deactivator.on('pointerdown', pointer => {
+            this.cancel();
+        });
         let nodes = [];
         nodes.push(new Bead(scene, 1100, 550, 0, this));
         nodes.push(new Bead(scene, 1200, 350, 1, this));
@@ -26,21 +35,18 @@ export default class Pattern extends Phaser.GameObjects.Sprite {
         let sol = [];
 
         this.activate = function () {
-            if (visible) {
-                this.deactivate();
-            }
-            else {
-                visible = true;
-                this.visible = true;
-                for (let i = 0; i < nodes.length; i++) {
-                    nodes[i].show();
-                }
+            visible = true;
+            this.visible = true;
+            deactivator.visible = true;
+            for (let i = 0; i < nodes.length; i++) {
+                nodes[i].show();
             }
         }
 
         this.deactivate = function () {
             visible = false;
             this.visible = false;
+            deactivator.visible = false;
             for (let i = 0; i < nodes.length; i++) {
                 nodes[i].hide();
             }
@@ -49,6 +55,16 @@ export default class Pattern extends Phaser.GameObjects.Sprite {
             }
 
             inventory.usePattern(sol);
+            sol = [];
+        }
+
+        this.cancel = function () {
+            visible = false;
+            this.visible = false;
+            deactivator.visible = false;
+            for (let i = 0; i < nodes.length; i++) {
+                nodes[i].hide();
+            }
             sol = [];
         }
 

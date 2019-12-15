@@ -87,7 +87,7 @@ export default class Game extends Phaser.Scene {
             }
             break;
             case "plumber":
-            if(this.attackname == 'chtullu'){
+            if(this.attackname == 'cthulhu'){
               this.attackname = 'square';
               this.attack.setTexture(this.attackname);
               this.attack.visible = false;
@@ -118,8 +118,6 @@ export default class Game extends Phaser.Scene {
         plumber
         pest_control
         */
-        this.posRate = this.posRateIni;
-        this.attack.visible = false;
       }
     });
   }

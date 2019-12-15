@@ -1,6 +1,5 @@
 export default class Puzzle extends Phaser.GameObjects.Sprite {
     constructor(scene, x, y, sick, part) {
-        //sick = 'goo';
         if(sick == 'fire' || sick == 'goo'){
             super(scene, x, y, sick + 'Anim');
             scene.add.existing(this);
@@ -88,24 +87,24 @@ export default class Puzzle extends Phaser.GameObjects.Sprite {
                 { sol: "Non audiunt quicquam" }
             ],
             nose: [
-                { sol: "g" },
-                { sol: "h" },
-                { sol: "i" }
+                { sol: "Num occidere me allergies sunt" },
+                { sol: "Ego puto captus a frigus" },
+                { sol: "Ut plerumque intra me Diglet" }
             ],
             mouth: [
-                { sol: "j" },
-                { sol: "k" },
-                { sol: "l" }
+                { sol: "Et in spiritum olfacies ad landfill" },
+                { sol: "Debes ire ad dentist saepius" },
+                { sol: "Non enim solemnitas pandere secessus" }
             ],
             abdomen: [
-                { sol: "m" },
-                { sol: "n" },
-                { sol: "ñ" }
+                { sol: "Venter satis nocent" },
+                { sol: "Ne tam prohibere manducans panem purus" },
+                { sol: "Ego vastata est in escam" }
             ],
             chest: [
-                { sol: "o" },
-                { sol: "p" },
-                { sol: "q" }
+                { sol: "Gigeria et Pecs sunt" },
+                { sol: "Et hoc est quod facit ferro naviculam" },
+                { sol: "Ego should satus tondenti" }
             ]
         }
         this.cthulhu = {
