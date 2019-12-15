@@ -9,27 +9,29 @@ export default class Action extends Phaser.GameObjects.Sprite {
         switch (type) {
             case 0:
                 use = new Cross(scene, 750, 400,  inventory);
-                name = 'arcano';
+                name = 'crossInv';
                 break;
             case 1:
                 use = new Rosary(scene, 850, 650, inventory);
-                name = 'green';
+                name = 'rossaryInv';
                 break;
             case 2:
                 use = false;
-                name = 'red';
+                name = 'holyWater';
                 break;
             case 3:
                 use = false;
-                name = 'yellow';
+                name = 'relic';
                 break;
         }
 
         super(scene, x, y, name);
 
         scene.add.existing(this);
-        this.scaleY = 0.37;
-        this.scaleX = 0.6;
+        this.scaleY = 0.2;
+        this.scaleX = 0.4;
+        if(type > 1)
+            this.visible = false;
         this.setInteractive();
 
         this.on('pointerdown', pointer => {
@@ -44,11 +46,13 @@ export default class Action extends Phaser.GameObjects.Sprite {
                     inventory.useHolyWater('holyWater');
                     //console.log('I use the power of this Holy Water');
                     use = false;
+                    this.visible = false;
                 }
                 else if (type == 3 && use) {
                     inventory.useRelic();
                     //console.log('I use the power of this ancient relic!');
                     use = false;
+                    this.visible = false;
                 }
             }
             else  window.alert("Selecciona primero una parte");
@@ -70,6 +74,8 @@ export default class Action extends Phaser.GameObjects.Sprite {
 
         this.updateUse = function (newUse) {
             use = newUse;
+            if(type > 1)
+                this.visible = true;
         }
     }
 }

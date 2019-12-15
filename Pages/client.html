@@ -131,7 +131,7 @@
 
   <!--socket creation-->
   <script>
-    const direccion = '147.96.82.82';
+    const direccion = 'localhost';
     const puerto = 42069;
     const socket = io('http://' + direccion + ':' + puerto);
     socket.emit('identify', 'information agent');

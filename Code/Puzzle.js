@@ -9,6 +9,7 @@ export default class Puzzle extends Phaser.GameObjects.Sprite {
             super(scene, x, y, sick);
             scene.add.existing(this);
         }
+        this.alpha = 0.8;
         console.log('creado un demonio de tipo ' + sick + ' en ' + part);
 
         this.fire = {
@@ -189,14 +190,15 @@ export default class Puzzle extends Phaser.GameObjects.Sprite {
                 switch (rand) {
                     case 0:
                         if(sick != 'goo')
-                            this.tint = 0x00FF00;
-                        else this.tint = 0x66FF00;
+                            this.other.tint = 0x00FF00;
+                        else
+                            this.other.tint = 0x66FF00;
                         break;
                     case 1:
                         this.other.tint = 0xFFFFFF;
                         break;
                     case 2:
-                        this.other.tint = 0x000ff0;
+                        this.other.tint = 0x880000;
                         break;
                 }
                 this.other.scaleX = 0.1;
@@ -232,7 +234,7 @@ export default class Puzzle extends Phaser.GameObjects.Sprite {
                 if(sick != 'goo')
                     this.tint = 0x00FF00;
                 else
-                    this.tint = 0xFFFF00;
+                    this.tint = 0x66FF00;
                 break;
             case 1:
                 this.tint = 0xFFFFFF;
@@ -241,7 +243,5 @@ export default class Puzzle extends Phaser.GameObjects.Sprite {
                 this.tint = 0x880000;
                 break;
         }
-
-
     }
 }

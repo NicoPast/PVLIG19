@@ -3,11 +3,12 @@ import GeneralBP from "./GeneralBP.js";
 export default class Victim extends Phaser.GameObjects.Sprite{
     constructor(scene, x, y, zoom){
         super(scene, x, y, 'victim');
-
+        scene.add.existing(this).setAngle(90);
+        this.scaleX = 0.5;
+        this.scaleY = 0.5;
         let generalBodyParts = [];
-        scene.add.existing(this).setScale(10).setAngle(90);
-        generalBodyParts.push(new GeneralBP(scene, x - 120, y, 0.3, 0, zoom, this, 'arcano'));
-        generalBodyParts.push(new GeneralBP(scene, x + 30, y, 0.4, 1, zoom, this, 'yellow'));
+        generalBodyParts.push(new GeneralBP(scene, x + 60, y, 0.3, 0, zoom, this, 'arcano'));
+        generalBodyParts.push(new GeneralBP(scene, x + 180, y, 0.3, 1, zoom, this, 'yellow'));
         this.actualpart;
 
         let levitate = scene.tweens.add({

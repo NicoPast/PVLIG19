@@ -27,7 +27,7 @@ export default class Game extends Phaser.Scene {
     this.posRateIni = 0.5;
     this.posRateAttacked = 1;
 
-    this.add.image(650, 375, 'room');
+    this.add.image(700, 375, 'room');
     this.zoomBack = this.add.image(220, 400, 'black');
     this.zoomBack.scaleY = 1.2;
     this.zoomBack.scaleX = 1;

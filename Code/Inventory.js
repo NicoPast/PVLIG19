@@ -31,19 +31,12 @@ export default class Inventory extends Phaser.GameObjects.Sprite {
             buts.push(new Action(scene, x + 50, 100 + i * 200, this, i));
         }
 
-        let item = this.scene.add.image(x + 50, 700, 'square');
-        item.scaleY = 0.37;
-        item.scaleX = 0.6;
-        item.visible = false;
-        item.name = 'empty';
-
-        let holyWater = this.scene.add.image(x + 50, 500, 'square');
-        holyWater.scaleY = 0.37;
-        holyWater.scaleX = 0.6;
-        holyWater.visible = false;
-
+        let item = 'empty';
+        
+        let holyWater = [];
+        
         let tween = this.scene.tweens.add({
-            targets: [this, item, holyWater],
+            targets: [this, item],
             x: x - 250,
             duration: 100,
             yoyo: true,
@@ -72,16 +65,12 @@ export default class Inventory extends Phaser.GameObjects.Sprite {
         }
 
         this.addItem = function (name) {
-            item.setTexture('cthulhu');
-            item.visible = true;
-            item.name = name;
-            console.log(item.name);
+            item = name;
+            console.log(item);
             buts[3].updateUse(true);
         }
         this.addHolyWater = function (HolyWater) {
             this.HolyWater = HolyWater;
-            holyWater.setTexture('cthulhu');
-            holyWater.visible = true;
             buts[2].updateUse(true);
             console.log("I have a Holy Water with this configuration " + this.HolyWater.sol[0] + " " + this.HolyWater.sol[1] + " " + this.HolyWater.sol[2] + " " + this.HolyWater.sol[3]);
         }
@@ -93,7 +82,6 @@ export default class Inventory extends Phaser.GameObjects.Sprite {
                 i++
             }
             scene.vic.actualpart.Curar(correct);
-            holyWater.visible = false;
         }
 
         this.usePattern = function (sol) {
@@ -114,7 +102,6 @@ export default class Inventory extends Phaser.GameObjects.Sprite {
 
             if (scene.vic.actualpart.puzzle.solution == item.name) scene.vic.actualpart.Curar(true);
             else scene.vic.actualpart.Curar(false);
-            item.visible = false;
         }
     }
 }

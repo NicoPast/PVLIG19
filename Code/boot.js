@@ -8,7 +8,15 @@ export default class Boot extends Phaser.Scene{
 
         this.load.image('room', '/Assets/Finales/Room.jpg');
 
-        this.load.image('polaroid', '/Assets/Finales/Polaroid.png')
+        this.load.image('polaroid', '/Assets/Finales/Polaroid.png');
+        this.load.image('scroll', '/Assets/Finales/oldscroll.png')
+        this.load.image('bag', '/Assets/Finales/Bag.png');
+        this.load.image('rossaryInv', '/Assets/Finales/Rossary.png');
+        this.load.image('crossInv', '/Assets/Finales/Cross.png');
+        this.load.image('holyWater', '/Assets/Finales/HolyWater.png');
+        this.load.image('relic', '/Assets/Finales/Relic.png');
+        this.load.image('victim', '/Assets/Finales/Victim.png');
+
         this.load.image('face', '/Assets/Finales/Face.png');
         this.load.image('mouth', '/Assets/Finales/Mouth.png');
         this.load.image('nose', '/Assets/Finales/Nose.png');
@@ -19,9 +27,6 @@ export default class Boot extends Phaser.Scene{
 
         this.load.spritesheet('fire','/Assets/Finales/Fire.png', {frameWidth: 768, frameHeight: 1824});
         this.load.spritesheet('goo', '/Assets/Finales/Goo.png', {frameWidth: 960, frameHeight: 1824})
-
-        this.load.image('scroll', '/Assets/Finales/oldscroll.png')
-        this.load.image('bag', '/Assets/Finales/Bag.png');
 
         this.load.image('victim', '/Assets/favicon.png');
         this.load.image('square', '/Assets/Button.png');
