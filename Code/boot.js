@@ -18,6 +18,7 @@ export default class Boot extends Phaser.Scene{
         this.load.image('body', '/Assets/Finales/Body.png');
 
         this.load.spritesheet('fire','/Assets/Finales/Fire.png', {frameWidth: 768, frameHeight: 1824});
+        this.load.spritesheet('goo', '/Assets/Finales/Goo.png', {frameWidth: 960, frameHeight: 1824})
 
         this.load.image('scroll', '/Assets/Finales/oldscroll.png')
         this.load.image('bag', '/Assets/Finales/Bag.png');
@@ -26,7 +27,7 @@ export default class Boot extends Phaser.Scene{
         this.load.image('square', '/Assets/Button.png');
         this.load.image('red', '/Assets/red.png');
         this.load.image('insectos', '/Assets/white.png');
-        this.load.image('goo', '/Assets/green.png');
+        this.load.image('green', '/Assets/green.png');
         this.load.image('cthulhu', '/Assets/pink.png');
         this.load.image('yellow', '/Assets/yellow.png');
         this.load.image('arcano', '/Assets/blue.png');

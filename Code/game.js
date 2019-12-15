@@ -16,6 +16,13 @@ export default class Game extends Phaser.Scene {
       repeat: -1
     });
 
+    this.gooAnim = this.anims.create({
+      key: 'gooKey',
+      frames: this.anims.generateFrameNumbers('goo'),
+      frameRate: 5,
+      yoyo: false,
+      repeat: -1
+    });
 
     this.posRateIni = 0.5;
     this.posRateAttacked = 1;
@@ -45,11 +52,11 @@ export default class Game extends Phaser.Scene {
 
     // como hacer una animacion 101
     /*
-    let sprite = this.add.sprite(400, 300, 'fireAnim').setScale(0.2);
+    let sprite = this.add.sprite(400, 300, 'gooAnim').setScale(0.2);
 
     sprite.scaleY = 0.12;
 
-    sprite.play('fireKey');
+    sprite.play('gooKey');
     */
     this.keycheat = this.input.keyboard.addKey('F1');
     this.win = false;
@@ -133,6 +140,7 @@ export default class Game extends Phaser.Scene {
       else{
         this.posText.setText('THE SOUL IS DAMNED')
         this.zoom.visible = false;
+        this.zoomBack.visible = false;
         this.selText.visible = false;
         this.desAcc.visible = false;
         this.desTex.visible = false;

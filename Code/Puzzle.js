@@ -1,11 +1,10 @@
 export default class Puzzle extends Phaser.GameObjects.Sprite {
     constructor(scene, x, y, sick, part) {
-        sick = 'fire';
-        if(sick == 'fire'){
-            console.log('llego');
-            super(scene, x, y, 'fireAnim');
+        //sick = 'goo';
+        if(sick == 'fire' || sick == 'goo'){
+            super(scene, x, y, sick + 'Anim');
             scene.add.existing(this);
-            this.play('fireKey');
+            this.play(sick + 'Key');
         }else{
             super(scene, x, y, sick);
             scene.add.existing(this);
@@ -179,10 +178,19 @@ export default class Puzzle extends Phaser.GameObjects.Sprite {
             case 'ears':
                 this.scaleX = -0.1;
                 this.scaleY = 0.1;
-                this.other = scene.add.image(x - 202, y, sick);
+                if(sick == 'fire' || sick == 'goo'){
+                    this.other = scene.add.sprite(x - 202, y, sick + 'Anim');
+                    this.other.play(sick + 'Key');
+                }
+                else{
+                    this.other = scene.add.image(x - 202, y, sick);
+                }
+
                 switch (rand) {
                     case 0:
-                        this.other.tint = 0x000000;
+                        if(sick != 'goo')
+                            this.tint = 0x00FF00;
+                        else this.tint = 0x66FF00;
                         break;
                     case 1:
                         this.other.tint = 0xFFFFFF;
@@ -221,13 +229,16 @@ export default class Puzzle extends Phaser.GameObjects.Sprite {
 
         switch (rand) {
             case 0:
-                this.tint = 0x00FF00;
+                if(sick != 'goo')
+                    this.tint = 0x00FF00;
+                else
+                    this.tint = 0xFFFF00;
                 break;
             case 1:
                 this.tint = 0xFFFFFF;
                 break;
             case 2:
-                this.tint = 0xFF0000;
+                this.tint = 0x880000;
                 break;
         }
 
