@@ -52,6 +52,44 @@ div#AboutUs{
     height: 200px;
    
 }
+div#RELICS{
+  margin: 0 auto;
+  float: left;
+  width: 400px;
+  height: 200px;
+  
+}
+div#SERVICES{
+  margin: 0 auto;
+  width: 400px;
+  height: 200px;
+  
+}
+div#HOLYWATER{
+  margin: 0 auto;
+  float: right;
+  width: 400px;
+  height: 200px;
+}
+div#ELECTRICIAN{
+  margin: 0 auto;
+  float: left;
+  width: 400px;
+  height: 200px;
+  
+}
+div#FIREFIGHTERS{
+  margin: 0 auto;
+  width: 400px;
+  height: 200px;
+  
+}
+div#PLUMBER{
+  margin: 0 auto;
+  float: right;
+  width: 400px;
+  height: 200px;
+}
 
 .box:hover{
     background: rgb(65, 65, 65);

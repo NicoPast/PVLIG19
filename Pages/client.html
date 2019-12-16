@@ -18,7 +18,7 @@
           <h2>DOCUMENTATION</h2>
         </div>
       </a>
-      <a href="" target="_blanck">
+      <a href="">
         <div id="AboutUs" class="box">
           <h2>ABOUT US</h2>
         </div>
@@ -68,46 +68,80 @@
       <span class="dot" onclick="currentSlide(3)"></span>
       <span class="dot" onclick="currentSlide(4)"></span>
     </div>
+
     <font color="white">
-      <p>Do you need any service?</p>
-      <select id="services">
-        <option value="electrician">Electrician</option>
-        <option value="firefighters">Firefighters</option>
-        <option value="plumber">Plumber</option>
-        <option value="pest_control">Pest Control</option>
-        <option value="cleaning_service">Cleaning Service</option>
-      </select>
-      <button id="submitService"> Send </button>
+      <div id="top">
+        <div id="RELICS" class="box" onclick="showDiv(RELICS)">
+          <h2>RELICS</h2>
+        </div>
+        <div id="HOLYWATER" class="box" onclick="showDiv(HOLYWATER)">
+          <h2>HOLY WATER</h2>
+        </div>
+        <div id="SERVICES" class="box" onclick="showDiv(SERVICES)">
+          <h2>SERVICES</h2>
+        </div>
 
-      <p>Send one of our many Relics</p>
-      <select id="relics">
-        <option value="Charlemagne's cross">Charlemagne's cross</option>
-        <option value="Shrine of the Three Kings">Shrine of the Three Kings</option>
-        <option value="The Holy Foreskin">The Holy Foreskin</option>
-        <option value="The Eye of Simon">The Eye of Simon</option>
-        <option value="Jesus's Booger">Jesus's Booger</option>
-        <option value="Jhon's Pancreas">Jhon's Pancreas</option>
-        <option value="Judas's Heart">Judas's Heart</option>
-        <option value="Shroud of Turint">Shroud of Turin</option>
-        <option value="St. Anthony's Tongue">St. Anthony's Tongue</option>
-        <option value="Crown of thorns">Crown of thorns</option>
-        <option value="Jesus's Teeth">Jesus's Teeth</option>
-        <option value="Lance of Longinus">Lance of Longinus</option>
-        <option value="Holy Nail">Holy Nail</option>
-        <option value="Jesus's Umbilical cord">Jesus's Umbilical cord</option>
-        <option value="Holy Spirit Sneeze">Holy Spirit Sneeze</option>
-        <option value="Saint Joshep's Bones">Saint Joshep's Bones</option>
-        <option value="Saint Catherine's Head">Saint Catherine's Head</option>
-        <option value="Saint Andrew's hair">Saint Andrew's hair</option>
-      </select>
-      <button id="submitRelic"> Send </button>
 
-      <p>Create your own Holy Water </p>
-      <input id="check1" type="checkbox" name="component" value="SaintHair" /> Saint Hair<br>
-      <input id="check2" type="checkbox" name="component" value="CrossPiece" /> Cross Piece<br>
-      <input id="check3" type="checkbox" name="component" value="SacredText" /> Piece of sacred Text<br>
-      <input id="check4" type="checkbox" name="component" value="candleWax" /> Sacred Candle Wax<br>
-      <button id="submitWater"> Create and Send </button>
+
+
+
+
+        <div id="services" style="display: none;">
+          <p>Do you need any service?</p>
+          <div id="ELECTRICIAN" class="box" onclick="sendService('electrician')">
+          </div>
+          <div id="PLUMBER" class="box" onclick="sendService('plumber')">
+          </div>
+          <div id="FIREFIGHTERS" class="box" onclick="sendService('firefighters')">
+          </div>
+          <select id="services">
+            <option value="electrician">Electrician</option>
+            <option value="firefighters">Firefighters</option>
+            <option value="plumber">Plumber</option>
+            <option value="pest_control">Pest Control</option>
+            <option value="cleaning_service">Cleaning Service</option>
+          </select>
+          <button id="submitService"> Send </button>
+        </div>
+
+
+
+
+
+
+
+        <div id="relics" style="display: none;">
+          <p>Send one of our many Relics</p>
+          <select id="relics">
+            <option value="Charlemagne's cross">Charlemagne's cross</option>
+            <option value="Shrine of the Three Kings">Shrine of the Three Kings</option>
+            <option value="The Holy Foreskin">The Holy Foreskin</option>
+            <option value="The Eye of Simon">The Eye of Simon</option>
+            <option value="Jesus's Booger">Jesus's Booger</option>
+            <option value="Jhon's Pancreas">Jhon's Pancreas</option>
+            <option value="Judas's Heart">Judas's Heart</option>
+            <option value="Shroud of Turint">Shroud of Turin</option>
+            <option value="St. Anthony's Tongue">St. Anthony's Tongue</option>
+            <option value="Crown of thorns">Crown of thorns</option>
+            <option value="Jesus's Teeth">Jesus's Teeth</option>
+            <option value="Lance of Longinus">Lance of Longinus</option>
+            <option value="Holy Nail">Holy Nail</option>
+            <option value="Jesus's Umbilical cord">Jesus's Umbilical cord</option>
+            <option value="Holy Spirit Sneeze">Holy Spirit Sneeze</option>
+            <option value="Saint Joshep's Bones">Saint Joshep's Bones</option>
+            <option value="Saint Catherine's Head">Saint Catherine's Head</option>
+            <option value="Saint Andrew's hair">Saint Andrew's hair</option>
+          </select>
+          <button id="submitRelic"> Send </button>
+        </div>
+        <div id="holywater" style="display: none;">
+          <p>Create your own Holy Water </p>
+          <input id="check1" type="checkbox" name="component" value="SaintHair" /> Saint Hair<br>
+          <input id="check2" type="checkbox" name="component" value="CrossPiece" /> Cross Piece<br>
+          <input id="check3" type="checkbox" name="component" value="SacredText" /> Piece of sacred Text<br>
+          <input id="check4" type="checkbox" name="component" value="candleWax" /> Sacred Candle Wax<br>
+          <button id="submitWater"> Create and Send </button>
+        </div>
     </font>
   </div>
 
@@ -160,6 +194,52 @@
 
   <!-- HTML VISUAL FUCNTIONS -->
   <script>
+
+    function sendService(service) {
+      socket.emit('services', service);
+    }
+
+
+    let holydiv = document.getElementById("holywater");
+    let serdiv = document.getElementById("services");
+    let relicdiv = document.getElementById("relics");
+    function showDiv(divName) {
+      switch (divName) {
+        case SERVICES:
+          holydiv.style.display = "none";
+          relicdiv.style.display = "none";
+          if (serdiv.style.display == "none") {
+            serdiv.style.display = "block";
+          }
+          else {
+            serdiv.style.display = "none";
+          }
+          break;
+        case HOLYWATER:
+          serdiv.style.display = "none";
+          relicdiv.style.display = "none";
+          if (holydiv.style.display == "none") {
+            holydiv.style.display = "block";
+          }
+          else {
+            holydiv.style.display = "none";
+          }
+          break;
+        case RELICS:
+          holydiv.style.display = "none";
+          serdiv.style.display = "none";
+          if (relicdiv.style.display == "none") {
+            relicdiv.style.display = "block";
+          }
+          else {
+            relicdiv.style.display = "none";
+          }
+          break;
+        default:
+          break;
+      }
+    }
+
     var slideIndex = 1;
     showSlides(slideIndex);
 
