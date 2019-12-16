@@ -3,7 +3,7 @@ export default class Puzzle extends Phaser.GameObjects.Sprite {
         super(scene, x, y, sick + 'Anim');
         scene.add.existing(this);
         this.play(sick + 'Key');
-        this.alpha = 0.8;
+        this.alpha = 0.6;
         console.log('creado un demonio de tipo ' + sick + ' en ' + part);
 
         this.fire = {
@@ -171,8 +171,9 @@ export default class Puzzle extends Phaser.GameObjects.Sprite {
 
         switch (part) {
             case 'ears':
-                this.scaleX = -0.05;
-                this.scaleY = 0.1;
+                this.scaleX = -0.03;
+                this.scaleY = 0.07;
+                this.y = this.y + 5;
                 this.other = scene.add.sprite(x - 202, y, sick + 'Anim');
                 this.other.play(sick + 'Key');
 
@@ -187,28 +188,34 @@ export default class Puzzle extends Phaser.GameObjects.Sprite {
                         this.other.tint = 0xFF0000;
                         break;
                 }
-                this.other.scaleX = 0.05;
-                this.other.scaleY = 0.1;
+                this.other.scaleX = 0.03;
+                this.other.scaleY = 0.07;
+                this.other.alpha = 0.6;
+                this.other.y = this.other.y + 5;
                 break;
             case 'nose':
-                this.scaleX = 0.05;
-                this.scaleY = 0.05;
+                this.scaleX = 0.04;
+                this.scaleY = 0.09;
                 break;
             case 'mouth':
                 this.scaleX = 0.07;
                 this.scaleY = 0.025;
+                this.y = this.y + 10;
                 break;
             case 'eyes':
-                this.scaleX = 0.2;
-                this.scaleY = 0.05;
+                this.scaleX = 0.12;
+                this.scaleY = 0.04;
+                this.y = this.y + 10;
                 break;
             case 'chest':
-                this.scaleX = 0.3;
-                this.scaleY = 0.1;
+                this.scaleX = 0.2;
+                this.scaleY = 0.15;
                 break;
             case 'abdomen':
-                this.scaleX = 0.3;
+                this.scaleX = 0.2;
                 this.scaleY = 0.1;
+                this.y = this.y - 10;
+                this.x = this.x + 5;
                 break;
             default:
                 console.log('Como cojones has llegado aquí');

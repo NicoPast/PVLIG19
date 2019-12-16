@@ -28,9 +28,11 @@ export default class Inventory extends Phaser.GameObjects.Sprite {
         let activated = false;
 
         let buts = [];
-        for (let i = 0; i < 4; i++) {
-            buts.push(new Action(scene, x + 50, 100 + i * 200, this, i));
-        }
+
+        buts.push(new Action(scene, x + 50, 150, 0.4, 0.2, 260, this, 0));
+        buts.push(new Action(scene, x + 50, 320, 0.4, 0.2, 250, this, 1));
+        buts.push(new Action(scene, x + 50, 500, 0.3, 0.2, 275, this, 2));
+        buts.push(new Action(scene, x + 50, 700, 0.25, 0.2, 250, this, 3));
 
         let item = 'empty';
         

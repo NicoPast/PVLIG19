@@ -2,7 +2,7 @@ import Cross from "./Cross.js";
 import Rosary from "./Rosary.js";
 
 export default class Action extends Phaser.GameObjects.Sprite {
-    constructor(scene, x, y, inventory, type) {
+    constructor(scene, x, y, sX, sY, tweenXMove, inventory, type) {
 
         let name;
         let use;
@@ -28,8 +28,8 @@ export default class Action extends Phaser.GameObjects.Sprite {
         super(scene, x, y, name);
 
         scene.add.existing(this);
-        this.scaleY = 0.2;
-        this.scaleX = 0.4;
+        this.scaleX = sX;
+        this.scaleY = sY;
         if(type > 1)
             this.visible = false;
         this.setInteractive();
@@ -59,7 +59,7 @@ export default class Action extends Phaser.GameObjects.Sprite {
 
         let tween = scene.tweens.add({
             targets: this,
-            x: x - 300,
+            x: x - tweenXMove,
             duration: 100,
             yoyo: true,
             repeat: 0,
