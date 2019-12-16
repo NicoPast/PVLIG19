@@ -46,6 +46,17 @@ export default class Game extends Phaser.Scene {
       repeat: -1
     });
 
+    this.arcanoAnim = this.anims.create({
+      key: 'arcanoKey',
+      frames:[
+        {key: 'smoke1'},
+        {key: 'smoke0'},
+        {key: 'smoke2'}
+      ],
+      frameRate: 5,
+      repeat: -1
+    });
+
     this.posRateIni = 0.5;
     this.posRateAttacked = 1;
 
@@ -73,11 +84,11 @@ export default class Game extends Phaser.Scene {
 
     // como hacer una animacion 101
     /*
-    let sprite = this.add.sprite(400, 300, 'insectsAnim').setScale(0.2);
+    let sprite = this.add.sprite(400, 300, 'arcanoAnim').setScale(0.2);
 
     sprite.scaleY = 0.12;
 
-    sprite.play('insectosKey');
+    sprite.play('arcanoKey');
     */
 
     this.keycheat = this.input.keyboard.addKey('F1');
@@ -214,6 +225,8 @@ export default class Game extends Phaser.Scene {
       this.attack.play(sick + 'Key');
       this.attack.scaleX = 2;
     }
+    else this.attack = this.add.sprite(700,400, 'black').setScale(5);
+    this.attack.alpha = 0.9;
     if(sick == 'goo')
       this.attack.alpha = 0.9;
     this.posRate = this.posRateAttacked;
