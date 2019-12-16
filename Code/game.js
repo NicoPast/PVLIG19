@@ -24,7 +24,7 @@ export default class Game extends Phaser.Scene {
       repeat: -1
     });
 
-    this.cthulhu = this.anims.create({
+    this.cthulhuAnim = this.anims.create({
       key: 'cthulhuKey',
       frames: [
        { key: 'tentacle0'}, 
@@ -32,6 +32,17 @@ export default class Game extends Phaser.Scene {
        { key: 'tentacle2'}
       ],
       frameRate: 5,
+      repeat: -1
+    });
+
+    this.insectosAnim = this.anims.create({
+      key: 'insectosKey',
+      frames: [
+        {key: 'worms0'},
+        {key: 'worms1'},
+        {key: 'worms2'}
+      ],
+      frameRate: 3,
       repeat: -1
     });
 
@@ -50,7 +61,7 @@ export default class Game extends Phaser.Scene {
     this.zoom.scaleY = 1.7;
     this.zoom.scaleX = 1.4;
 
-    this.attackname = 'square';
+    this.attackname = '';
     this.attack;
 
     this.desTex = new Writter(this, 700, 950, 'scroll');
@@ -62,11 +73,11 @@ export default class Game extends Phaser.Scene {
 
     // como hacer una animacion 101
     /*
-    let sprite = this.add.sprite(400, 300, 'cthulhuAnim').setScale(0.2);
+    let sprite = this.add.sprite(400, 300, 'insectsAnim').setScale(0.2);
 
     sprite.scaleY = 0.12;
 
-    sprite.play('cthulhuKey');
+    sprite.play('insectosKey');
     */
 
     this.keycheat = this.input.keyboard.addKey('F1');
@@ -147,7 +158,8 @@ export default class Game extends Phaser.Scene {
         this.posText.setText('Remaining Soul: ' + parseFloat(Math.round(this.soul * 100) / 100).toFixed(2) + ' %')
       }
       else{
-        this.posText.setText('THE SOUL IS DAMNED')
+        this.posText.setText('THE SOUL IS DAMNED');
+        if(this.attackname != '') this.attack.visible = false;
         this.zoom.visible = false;
         this.zoomBack.visible = false;
         this.selText.visible = false;
@@ -184,7 +196,7 @@ export default class Game extends Phaser.Scene {
       this.selText.visible = false;
       this.desAcc.visible = false;
       this.desTex.visible = false;
-      this.attack.visible = false;
+      if(this.attackname != '') this.attack.visible = false;
       this.zoomBack.visible = false;
       this.startTime = Date.now();
       this.vic.updateZoom();
@@ -197,7 +209,7 @@ export default class Game extends Phaser.Scene {
 
   attackPlayer(sick){
     this.attackname = sick;
-    if(sick == 'fire' || sick == 'cthulhu' || sick == 'goo'){
+    if(sick != 'arcano'){
       this.attack = this.add.sprite(700, 400, this.attackname + 'Anim');
       this.attack.play(sick + 'Key');
       this.attack.scaleX = 2;
