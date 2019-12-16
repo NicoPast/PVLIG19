@@ -1,13 +1,8 @@
 export default class Puzzle extends Phaser.GameObjects.Sprite {
     constructor(scene, x, y, sick, part) {
-        if(sick != 'arcano'){
-            super(scene, x, y, sick + 'Anim');
-            scene.add.existing(this);
-            this.play(sick + 'Key');
-        }else{
-            super(scene, x, y, sick);
-            scene.add.existing(this);
-        }
+        super(scene, x, y, sick + 'Anim');
+        scene.add.existing(this);
+        this.play(sick + 'Key');
         this.alpha = 0.8;
         console.log('creado un demonio de tipo ' + sick + ' en ' + part);
 
@@ -178,13 +173,8 @@ export default class Puzzle extends Phaser.GameObjects.Sprite {
             case 'ears':
                 this.scaleX = -0.1;
                 this.scaleY = 0.1;
-                if(sick != 'arcano'){
-                    this.other = scene.add.sprite(x - 202, y, sick + 'Anim');
-                    this.other.play(sick + 'Key');
-                }
-                else{
-                    this.other = scene.add.image(x - 202, y, sick);
-                }
+                this.other = scene.add.sprite(x - 202, y, sick + 'Anim');
+                this.other.play(sick + 'Key');
 
                 switch (rand) {
                     case 0:
