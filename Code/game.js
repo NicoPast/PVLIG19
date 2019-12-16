@@ -174,8 +174,11 @@ export default class Game extends Phaser.Scene {
         this.zoom.visible = false;
         this.zoomBack.visible = false;
         this.selText.visible = false;
+        if(this.desAcc.isActive()) this.desAcc.updateTween();
+        else if(this.desTex.isActive()) this.desTex.updateTween();
         this.desAcc.visible = false;
         this.desTex.visible = false;
+        if(this.attackname != '') this.attack.visible = false;
         this.vic.loose();
       }
     }
@@ -204,11 +207,13 @@ export default class Game extends Phaser.Scene {
       this.vic.Win();
       console.log('hey as wineado y esas cosas');
       this.zoom.visible = false;
+      this.zoomBack.visible = false;
       this.selText.visible = false;
+      if(this.desAcc.isActive()) this.desAcc.updateTween();
+      else if(this.desTex.isActive()) this.desTex.updateTween();
       this.desAcc.visible = false;
       this.desTex.visible = false;
       if(this.attackname != '') this.attack.visible = false;
-      this.zoomBack.visible = false;
       this.startTime = Date.now();
       this.vic.updateZoom();
     }

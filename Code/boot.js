@@ -27,8 +27,8 @@ export default class Boot extends Phaser.Scene{
         
         this.load.image('body', '/Assets/Finales/Body.png');
 
-        this.load.spritesheet('fire','/Assets/Finales/Fire.png', {frameWidth: 768, frameHeight: 1824});
-        this.load.spritesheet('goo', '/Assets/Finales/Goo.png', {frameWidth: 960, frameHeight: 1824})
+        this.load.spritesheet('fire','/Assets/Finales/Fire.png', {frameWidth: 1200, frameHeight: 1200});
+        this.load.spritesheet('goo', '/Assets/Finales/Goo.png', {frameWidth: 1200, frameHeight: 1200})
         this.load.image('tentacle0', '/Assets/Finales/Tentacle0.png');
         this.load.image('tentacle1', '/Assets/Finales/Tentacle1.png');
         this.load.image('tentacle2', '/Assets/Finales/Tentacle2.png');

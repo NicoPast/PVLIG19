@@ -171,26 +171,23 @@ export default class Puzzle extends Phaser.GameObjects.Sprite {
 
         switch (part) {
             case 'ears':
-                this.scaleX = -0.1;
+                this.scaleX = -0.05;
                 this.scaleY = 0.1;
                 this.other = scene.add.sprite(x - 202, y, sick + 'Anim');
                 this.other.play(sick + 'Key');
 
                 switch (rand) {
                     case 0:
-                        if(sick != 'goo')
-                            this.other.tint = 0x00FF00;
-                        else
-                            this.other.tint = 0x66FF00;
+                        this.other.tint = 0x00FF00;
                         break;
                     case 1:
                         this.other.tint = 0xFFFFFF;
                         break;
                     case 2:
-                        this.other.tint = 0x880000;
+                        this.other.tint = 0xFF0000;
                         break;
                 }
-                this.other.scaleX = 0.1;
+                this.other.scaleX = 0.05;
                 this.other.scaleY = 0.1;
                 break;
             case 'nose':
@@ -220,16 +217,16 @@ export default class Puzzle extends Phaser.GameObjects.Sprite {
 
         switch (rand) {
             case 0:
-                if(sick != 'goo')
-                    this.tint = 0x00FF00;
-                else
-                    this.tint = 0x66FF00;
+                this.tint = 0x00FF00;
                 break;
             case 1:
-                this.tint = 0xFFFFFF;
+                if(sick == 'arcano')
+                    this.tint = 0x000000;
+                else
+                    this.tint = 0xFFFFFF;
                 break;
             case 2:
-                this.tint = 0x880000;
+                this.tint = 0xFF0000;
                 break;
         }
     }
