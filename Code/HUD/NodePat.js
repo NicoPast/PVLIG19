@@ -4,7 +4,7 @@ export default class NodePat extends Phaser.GameObjects.Sprite{
     
         scene.add.existing(this).setScale(0.15);
         this.visible = false;
-        this.alpha = 0.2;
+        this.alpha = 0.3;
         this.setInteractive();
         
         let val = num;
@@ -15,12 +15,12 @@ export default class NodePat extends Phaser.GameObjects.Sprite{
         })
 
         this.on('pointerover', pointer =>{
-            this.alpha = 0.1;
+            this.alpha = 0.2;
             pattern.updateSol(val);
         })
 
         this.on('pointerout', pointer =>{
-            this.alpha = 0.2;
+            this.alpha = 0.3;
         })
 
         this.show = function(){

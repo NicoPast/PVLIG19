@@ -102,7 +102,7 @@ export default class Parts extends Phaser.GameObjects.Sprite {
                     return 'insectos';
             }
         }
-
+        
         this.hide = function(){
             if(part == 'ears'){
                 this.puzzle.other.visible = false;

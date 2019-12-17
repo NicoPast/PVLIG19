@@ -25,12 +25,12 @@ export default class Face extends Phaser.GameObjects.Sprite {
             this.visible = true;
             parts.forEach(element => {
                 element.visible = true;
+                if(element.getPart() == 'ears')
+                    element.other.visible = true;
                 if (!element.getCurado()) {
                     element.puzzle.visible = true;
-                    if (element.getPart() == 'ears') {
-                        element.other.visible = true;
+                    if (element.getPart() == 'ears')
                         element.puzzle.other.visible = true;
-                    }
                 }
             });
             active = true;
@@ -40,12 +40,12 @@ export default class Face extends Phaser.GameObjects.Sprite {
             this.visible = false;
             parts.forEach(element => {
                 element.visible = false;
+                if(element.getPart() == 'ears')
+                    element.other.visible = false;
                 if (!element.getCurado()) {
                     element.puzzle.visible = false;
-                    if (element.getPart() == 'ears') {
-                        element.other.visible = false;
+                    if (element.getPart() == 'ears')
                         element.puzzle.other.visible = false;
-                    }
                 }
             });
             active = false;
