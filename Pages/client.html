@@ -3,6 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
+  <link rel="shortcut icon" href="/Assets/favicon.png" type="image/png" />
   <link rel="stylesheet" type="text/css" href="/Pages/client.css">
 
 </head>
@@ -182,13 +183,12 @@
       socket.emit('holyWater', HolyWaterSend);
     }
     atras.onclick = () => {
-      socket.emit('leave', 'information agent')
       window.location.href = '/';
-    };
+    };/*
     window.addEventListener("beforeunload", function (salir) {
-      socket.emit('leave', 'information agent');
+      //socket.emit('leave', 'information agent');
       window.location.href = '/';
-    });
+    });*/
   </script>
 
 

@@ -6,7 +6,7 @@ const io = require('socket.io').listen(http); // Importamos `socket.io`
 const port = 42069; // El puerto
 let fieldAg = null;
 let infoAg = null;
-var clients = [];
+let clients = [];
 
 app.get('/', function(req, res){
   res.sendFile(__dirname + '/Pages/index.html');
@@ -26,6 +26,14 @@ io.on('connection', socket => {
 
   socket.on('disconnect', () => {
     console.log('a user disconnected');
+    if(infoAg == socket){
+      console.log('a information agent disconnected');
+      infoAg = null;
+    } 
+    else {
+      console.log('a field agent disconnected');
+      fieldAg = null;
+    }
     clients.splice(clients.indexOf(socket), 1); // lo sacamos del array
   });
 
@@ -39,18 +47,12 @@ io.on('connection', socket => {
   });
 
   socket.on('relic', name => {
-    // para enviar algo, usamos `emit`
-    // que tiene un nombre de mensaje,
-    // y un objeto
       console.log(' reliquia : ' + name);
     if(fieldAg != null) fieldAg.emit('relic', name);
     else if(infoAg != null) infoAg.emit('problem', 'Error, no hay jugador conectado');
   });
 
   socket.on('holyWater', HolyWaterSend => {
-    // para enviar algo, usamos `emit`
-    // que tiene un nombre de mensaje,
-    // y un objeto
     console.log( 'send water with this configuration: ' + HolyWaterSend.SaintHair + " " + HolyWaterSend.CrossPiece + " " + HolyWaterSend.SacredText + " " + HolyWaterSend.candleWax);
     if(fieldAg != null) fieldAg.emit('holyWater', HolyWaterSend);
     else if(infoAg != null) infoAg.emit('problem', 'Error, no hay jugador conectado');
@@ -62,14 +64,6 @@ io.on('connection', socket => {
       fieldAg = socket;
     else if(infoAg == null) infoAg = socket;
   })
-
-  socket.on('leave', name => {
-    console.log (name + ' disconnected');
-
-    if(name == 'field agent' && fieldAg != null)
-      fieldAg = null;
-    else if(infoAg != null) infoAg = null;
-  });
 });
 
 // Creación del servidor en sí (por HTTP)

@@ -1,6 +1,6 @@
-import Victim from "./Victim.js";
-import Inventory from "./Inventory.js";
-import Writter from "./Writter.js";
+import Victim from "./Possesed/Victim.js";
+import Inventory from "./HUD/Inventory.js";
+import Writter from "./HUD/Writter.js";
 
 export default class Game extends Phaser.Scene {
   constructor() {
@@ -56,6 +56,14 @@ export default class Game extends Phaser.Scene {
       frameRate: 5,
       repeat: -1
     });
+
+    this.music = this.sound.add('musicBack', {
+      mute: false,
+      volume: 0.8,
+      loop: true
+    });
+
+    this.music.play();
 
     this.posRateIni = 0.5;
     this.posRateAttacked = 1;
@@ -184,7 +192,6 @@ export default class Game extends Phaser.Scene {
     }
     else{
       if(this.soul < 100){
-        console.log('llego')
         this.soul += (Date.now() - this.startTime) * (0.001 * this.desPos);
         this.posText.setText('Remaining Soul: ' + parseFloat(Math.round(this.soul * 100) / 100).toFixed(2) + ' %')
       }
