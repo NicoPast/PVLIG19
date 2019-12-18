@@ -20,6 +20,7 @@ export default class Boot extends Phaser.Scene{
         this.load.image('rosaryHUD', '/Assets/Images/RosaryHUD.png');
         this.load.image('pentagram', '/Assets/Images/Pentagram.png');
         this.load.image('victim', '/Assets/Images/Victim.png');
+        this.load.image('restart', '/Assets/Images/Restart.png');
 
         this.load.image('face', '/Assets/Images/Face.png');
         this.load.image('mouth', '/Assets/Images/Mouth.png');

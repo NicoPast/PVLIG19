@@ -79,6 +79,9 @@ export default class Game extends Phaser.Scene {
     this.selText =  this.add.text(40, 600, 'Selected: none', { fontSize: '32px', color: '#000' });
     this.zoom.scaleY = 1.7;
     this.zoom.scaleX = 1.4;
+    this.restart = this.add.sprite(158,740,'restart');
+    this.restart.setInteractive();
+    this.restart.visible = false;
 
     this.attackname = '';
     this.attack;
@@ -102,6 +105,11 @@ export default class Game extends Phaser.Scene {
     this.keycheat = this.input.keyboard.addKey('F1');
     this.win = false;
 
+    this.restart.on('pointerdown', pointer => {
+      this.scene.restart();
+    });
+
+    
     socket.on('relic', name => {
       this.desAcc.addItem(name);
     });
@@ -186,6 +194,7 @@ export default class Game extends Phaser.Scene {
         else if(this.desTex.isActive()) this.desTex.updateTween();
         this.desAcc.visible = false;
         this.desTex.visible = false;
+        this.restart.visible = true;
         if(this.attackname != '') this.attack.visible = false;
         this.vic.loose();
       }
@@ -220,6 +229,7 @@ export default class Game extends Phaser.Scene {
       else if(this.desTex.isActive()) this.desTex.updateTween();
       this.desAcc.visible = false;
       this.desTex.visible = false;
+      this.restart.visible = true;
       if(this.attackname != '') this.attack.visible = false;
       this.startTime = Date.now();
       this.vic.updateZoom();
