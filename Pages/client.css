@@ -1,233 +1,336 @@
 /* HEADERS */
 
-h1{
+h1 {
     text-align: center;
-    font: 50px bold , sans-serif;
-    color: white;   
-}
-h2{
-    text-align: center;
-    margin-top: 85px;
-    font: 30px bold , sans-serif;
+    font: 50px bold, sans-serif;
     color: white;
 }
-a{text-decoration: none;}
+
+h2 {
+    text-align: center;
+    margin-top: 85px;
+    font: 30px bold, sans-serif;
+    color: white;
+}
+
+a {
+    text-decoration: none;
+}
+
 
 /* HEADERS-END */
-*{
+
+* {
     margin: 0px;
     padding: 0px;
 }
 
-div#general{
-    margin: auto;
-    width: 1300px;
-    height: 1600px;
+html {
+    position: relative;
+    box-sizing: border-box;
+    min-height: 100%;
 }
+
+*::after {
+    box-sizing: inherit;
+}
+
+div#general {
+    margin: auto;
+    position: relative;
+    min-height: 100%;
+    width: 1300px;
+    height: 1800px;
+    padding-bottom: 100px;
+}
+
+
 /* TOP */
-div#top{
+
+div#top {
     margin: auto;
     width: 1200px;
     height: 200px;
-    background-color:black;
+    background-color: black;
 }
 
-div#Documentacion{
+div#Documentacion {
     margin: 0 auto;
     float: left;
     width: 400px;
     height: 200px;
-    
 }
-div#StoreAndServices{
+
+div#StoreAndServices {
     margin: 0 auto;
     width: 400px;
     height: 200px;
-    
 }
-div#AboutUs{
+
+div#AboutUs {
     margin: 0 auto;
     float: right;
     width: 400px;
     height: 200px;
-   
 }
 
-.container:hover{
+.container:hover {
     background: rgb(65, 65, 65);
 }
+
+
 /* TOP-END */
+
+
 /* BODY */
-.box{
-  position: relative;
-  width: 50%;
+
+.box {
+    position: relative;
+    width: 50%;
 }
 
-.box:hover .overlay{
-  height: 100%;
+.box:hover .overlay {
+    height: 100%;
 }
 
 .overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: rgb(65, 65, 65);
-  overflow: hidden;
-  width: 100%;
-  height: 0;
-  transition: .5s ease;
-}
-.text{
-  white-space: nowrap; 
-  color: white;
-  font-size: 20px;
-  position: relative;
-  overflow: hidden;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgb(65, 65, 65);
+    overflow: hidden;
+    width: 100%;
+    height: 0;
+    transition: .5s ease;
 }
 
-div#RELICS{
-  margin: 0 auto;
-  float: left;
-  width: 400px;
-  height: 200px;
-  
-}
-div#SERVICES{
-  margin: 0 auto;
-  width: 400px;
-  height: 200px;
-  
-}
-div#HOLYWATER{
-  margin: 0 auto;
-  float: right;
-  width: 400px;
-  height: 200px;
-}
-div#BLOCKLEFT{
-  margin: 0 auto;
-  float: left;
-  width: 400px;
-  height: 400px;
-  
-}
-div#BLOCKCENTER{
-  margin: 0 auto;
-  width: 400px;
-  height: 400px;
-  
-}
-div#BLOCKRIGHT{
-  margin: 0 auto;
-  float: right;
-  width: 400px;
-  height: 400px;
+.text {
+    white-space: nowrap;
+    color: white;
+    font-size: 20px;
+    position: relative;
+    overflow: hidden;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
 }
 
-div#divisions{
-  margin: auto;
-  width: 1200px;
-  height: 400px;
-  background-color:black;
+div#StoreAndService {
+    margin: auto;
+    width: 1200px;
+    height: 200px;
+    background-color: black;
 }
 
-body{
-  background-image: url("/ImgPages/Pentagrama.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
+div#RELICS {
+    margin: 0 auto;
+    float: left;
+    width: 400px;
+    height: 200px;
 }
 
-div#Images{
+div#SERVICES {
+    margin: 0 auto;
+    width: 400px;
+    height: 200px;
+}
+
+div#HOLYWATER {
+    margin: 0 auto;
+    float: right;
+    width: 400px;
+    height: 200px;
+}
+
+div#BLOCKLEFT {
+    margin: 0 auto;
+    float: left;
+    width: 400px;
+    height: 400px;
+}
+
+div#BLOCKCENTER {
+    margin: 0 auto;
+    width: 400px;
+    height: 400px;
+}
+
+div#BLOCKRIGHT {
+    margin: 0 auto;
+    float: right;
+    width: 400px;
+    height: 400px;
+}
+
+div#divisions {
+    margin: auto;
+    width: 1200px;
+    height: 400px;
+}
+
+div#CreateAndSend {
+    margin: 100px;
+    float: right;
+    width: 400px;
+    height: 200px;
+}
+
+.checks {
+    margin: 0 auto;
+    width: 400px;
+    height: 200px;
+}
+
+.holywater {
+    display: block;
+    position: relative;
+    background-color: black;
+}
+
+.holywater:hover {
+    background: rgb(65, 65, 65)
+}
+
+.labels {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.labels input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.check {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 12px;
+    width: 12px;
+    background-color: white;
+}
+
+body {
+    background-image: url("/ImgPages/Pentagrama.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+div#footer {
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 200px;
+    margin-top: 200px;
+    position: static;
+    background-color: black;
+}
+
+div#Images {
     margin: auto;
     margin-top: 30px;
     width: 1300px;
     height: 800px;
 }
 
-
-* {box-sizing:border-box}
-
+* {
+    box-sizing: border-box
+}
 
 .slideshow-container {
-  position: relative;
-  margin: auto;
+    position: relative;
+    margin: auto;
 }
-
 
 .mySlides {
-  display: none;
+    display: none;
 }
 
-.prev, .next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  width: auto;
-  margin-top: -22px;
-  padding: 16px;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
+.prev,
+.next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
 }
-
 
 .next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
+    right: 0;
+    border-radius: 3px 0 0 3px;
 }
 
-
-.prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.8);
+.prev:hover,
+.next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
 }
-
 
 .numbertext {
-  color: #f2f2f2;
-  font-size: 12px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0;
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
 }
-
 
 .dot {
-  cursor: pointer;
-  height: 15px;
-  width: 15px;
-  margin: 0 2px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.6s ease;
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
 }
 
-.active, .dot:hover {
-  background-color: #717171;
+.active,
+.dot:hover {
+    background-color: #717171;
 }
 
 .fade {
-  -webkit-animation-name: fade;
-  -webkit-animation-duration: 1.5s;
-  animation-name: fade;
-  animation-duration: 1.5s;
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
 }
 
 @-webkit-keyframes fade {
-  from {opacity: .4}
-  to {opacity: 1}
+    from {
+        opacity: .4
+    }
+    to {
+        opacity: 1
+    }
 }
 
 @keyframes fade {
-  from {opacity: .4}
-  to {opacity: 1}
+    from {
+        opacity: .4
+    }
+    to {
+        opacity: 1
+    }
 }

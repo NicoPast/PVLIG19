@@ -137,33 +137,33 @@ export default class Puzzle extends Phaser.GameObjects.Sprite {
         this.insectos = {
             eyes: [
                 { sol: [2, 3, 4, 6, 0, 1, 5] },
-                { sol: [2, 3, 4, 6, 0, 1, 5] },
-                { sol: [2, 3, 4, 6, 0, 1, 5] }
+                { sol: [6, 0, 5, 1, 2, 4, 3] },
+                { sol: [1, 6, 3, 5, 2, 0, 4] }
             ],
             ears: [
                 { sol: [0, 2, 6, 3, 5, 4, 1] },
-                { sol: [0, 2, 6, 3, 5, 4, 1] },
-                { sol: [0, 2, 6, 3, 5, 4, 1] }
+                { sol: [6, 2, 1, 4, 0, 3, 5] },
+                { sol: [2, 0, 5, 1, 6, 4, 3] }
             ],
             nose: [
                 { sol: [3, 6, 5, 1, 4, 0, 2] },
-                { sol: [3, 6, 5, 1, 4, 0, 2] },
-                { sol: [3, 6, 5, 1, 4, 0, 2] }
+                { sol: [4, 3, 2, 5, 0, 6, 1] },
+                { sol: [6, 2, 0, 3, 1, 4, 5] }
             ],
             mouth: [
+                { sol: [2, 3, 5, 0, 1, 4, 6] },
                 { sol: [4, 3, 1, 0, 2, 6, 5] },
-                { sol: [4, 3, 1, 0, 2, 6, 5] },
-                { sol: [4, 3, 1, 0, 2, 6, 5] }
+                { sol: [4, 3, 2, 5, 0, 1, 6] }
             ],
             abdomen: [
                 { sol: [6, 1, 0, 5, 4, 2, 3] },
-                { sol: [6, 1, 0, 5, 4, 2, 3] },
-                { sol: [6, 1, 0, 5, 4, 2, 3] }
+                { sol: [0, 2, 4, 5, 3, 1, 6] },
+                { sol: [1, 6, 3, 5, 2, 0, 4] }
             ],
             chest: [
                 { sol: [5, 2, 4, 6, 3, 1, 0] },
-                { sol: [5, 2, 4, 6, 3, 1, 0] },
-                { sol: [5, 2, 4, 6, 3, 1, 0] }
+                { sol: [3, 5, 1, 2, 4, 0, 6] },
+                { sol: [4, 3, 2, 5, 0, 6, 1] }
             ]
         }
         let rand = Math.floor(Math.random() * 3);
@@ -227,7 +227,7 @@ export default class Puzzle extends Phaser.GameObjects.Sprite {
                 this.tint = 0x00FF00;
                 break;
             case 1:
-                if(sick == 'arcano')
+                if (sick == 'arcano')
                     this.tint = 0x000000;
                 else
                     this.tint = 0xFFFFFF;

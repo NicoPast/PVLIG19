@@ -2,426 +2,535 @@
 <html lang="es">
 
 <head>
-  <meta charset="UTF-8">
-  <link rel="shortcut icon" href="/Assets/favicon.png" type="image/png" />
-  <link rel="stylesheet" type="text/css" href="/Pages/client.css">
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="/Assets/favicon.png" type="image/png" />
+    <link rel="stylesheet" type="text/css" href="/Pages/client.css">
 
 </head>
 
 <body>
-  <script src="/socket.io/socket.io.js"></script>
-  <button id="atras">Volver a la anterior pagina</button>
+    <script src="/socket.io/socket.io.js"></script>
+    <button id="atras">Volver a la anterior pagina</button>
 
-  <div id="general">
-    <div id="top">
-      <a href="/Pages/Biblia_del_Exorcista.pdf" target="_blanck">
-        <div id="Documentacion" class="container">
-          <h2>DOCUMENTATION</h2>
+    <div id="general">
+        <div id="top">
+            <a href="/Pages/Biblia_del_Exorcista.pdf" target="_blanck">
+                <div id="Documentacion" class="container">
+                    <h2>DOCUMENTATION</h2>
+                </div>
+            </a>
+            <a href="#footer">
+                <div id="AboutUs" class="container">
+                    <h2>ABOUT US</h2>
+                </div>
+            </a>
+            <a href="#StoreAndService">
+                <div id="StoreAndServices" class="container">
+                    <h2>STORE AND SERVICES</h2>
+                </div>
+            </a>
+
         </div>
-      </a>
-      <a href="">
-        <div id="AboutUs" class="container">
-          <h2>ABOUT US</h2>
+        <h1>Nunca olvidar la razon de nuestra lucha</h1>
+        <div id="Images" class="slideshow-container">
+
+            <!-- Full-width images with number and caption text -->
+            <div class="mySlides fade">
+                <div class="numbertext">1 / 4</div>
+                <img src="/ImgPages/Client/borrar1.jpg" style="width: 100%;height: 100%;">
+            </div>
+
+            <div class="mySlides fade">
+                <div class="numbertext">2 / 4</div>
+                <img src="/ImgPages/Client/borrar2.jpg" style="width: 100%;height: 100%;">
+            </div>
+
+            <div class="mySlides fade">
+                <div class="numbertext">3 / 4</div>
+                <img src="/ImgPages/Client/borrar3.jpg" style="width: 100%;height: 100%;">
+            </div>
+
+            <div class="mySlides fade">
+                <div class="numbertext">4 / 4</div>
+                <img src="/ImgPages/Client/borrar4.jpg" style="width: 100%;height: 100%;">
+            </div>
+
+            <!-- Next and previous buttons -->
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
         </div>
-      </a>
-      <a href="">
-        <div id="StoreAndServices" class="container">
-          <h2>STORE AND SERVICES</h2>
-        </div>
-      </a>
-
-    </div>
-    <h1>Nunca olvidar la razon de nuestra lucha</h1>
-    <div id="Images" class="slideshow-container">
-
-      <!-- Full-width images with number and caption text -->
-      <div class="mySlides fade">
-        <div class="numbertext">1 / 4</div>
-        <img src="/ImgPages/Client/borrar1.jpg" style="width: 100%;height: 100%;">
-      </div>
-
-      <div class="mySlides fade">
-        <div class="numbertext">2 / 4</div>
-        <img src="/ImgPages/Client/borrar2.jpg" style="width: 100%;height: 100%;">
-      </div>
-
-      <div class="mySlides fade">
-        <div class="numbertext">3 / 4</div>
-        <img src="/ImgPages/Client/borrar3.jpg" style="width: 100%;height: 100%;">
-      </div>
-
-      <div class="mySlides fade">
-        <div class="numbertext">4 / 4</div>
-        <img src="/ImgPages/Client/borrar4.jpg" style="width: 100%;height: 100%;">
-      </div>
-
-      <!-- Next and previous buttons -->
-      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-      <a class="next" onclick="plusSlides(1)">&#10095;</a>
-    </div>
-    <div style="text-align:center">
-      <span class="dot" onclick="currentSlide(1)"></span>
-      <span class="dot" onclick="currentSlide(2)"></span>
-      <span class="dot" onclick="currentSlide(3)"></span>
-      <span class="dot" onclick="currentSlide(4)"></span>
-    </div>
-
-    <font color="white">
-      <div id="top">
-        <div id="RELICS" class="container" onclick="showDiv(RELICS)">
-          <h2>RELICS</h2>
-        </div>
-        <div id="HOLYWATER" class="container" onclick="showDiv(HOLYWATER)">
-          <h2>HOLY WATER</h2>
-        </div>
-        <div id="SERVICES" class="container" onclick="showDiv(SERVICES)">
-          <h2>SERVICES</h2>
+        <div style="text-align:center">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="currentSlide(4)"></span>
         </div>
 
-        <div id="services" style="display: none;">
-          <div id="BLOCKLEFT" class="box" onclick="sendService('electrician')">
-            <img src="/ImgPages/Client/Electrician.jpg" style="width: 100%;height: 100%;">
-            <div class="overlay">
-              <div class="text">
-                <h1>ELECTRICIAN</h1>
-              </div>
-            </div>
-          </div>
-          <div id="BLOCKRIGHT" class="box" onclick="sendService('plumber')">
-            <img src="/ImgPages/Client/plumber.jpg" style="width: 100%; height: 100%;">
-            <div class="overlay">
-              <div class="text">
-                <h1>PLUMBER</h1>
-              </div>
-            </div>
-          </div>
-          <div id="BLOCKCENTER" class="box" onclick="sendService('firefighters')">
-            <img src="/ImgPages/Client/firefighters.jpg" style="width: 100%;height: 100%;">
-            <div class="overlay">
-              <div class="text">
-                <h1>FIREFIGHTERS</h1>
-              </div>
-            </div>
-          </div>
-          <div id="BLOCKLEFT" class="box" onclick="sendService('pest_control')">
-            <img src="/ImgPages/Client/Pest_Control.jpg" style="width: 100%;height: 100%;">
-            <div class="overlay">
-              <div class="text">
-                <h1>
-                  <p>PEST</p> CONTROL
-                </h1>
-              </div>
-            </div>
-          </div>
-          <div id="BLOCKRIGHT" class="box" onclick="sendService('cleaning_service')">
-            <img src="/ImgPages/Client/cleaning_services.jpg" style="width: 100%;height: 100%;">
-            <div class="overlay">
-              <div class="text">
-                <h1>
-                  <p>CLEANING</p> SERVICES
-                </h1>
-              </div>
-            </div>
-          </div>
+        <font color="white">
+            <div id="StoreAndService">
+                <div id="RELICS" class="container" onclick="showDiv(RELICS)">
+                    <h2>RELICS</h2>
+                </div>
+                <div id="HOLYWATER" class="container" onclick="showDiv(HOLYWATER)">
+                    <h2>HOLY WATER</h2>
+                </div>
+                <div id="SERVICES" class="container" onclick="showDiv(SERVICES)">
+                    <h2>SERVICES</h2>
+                </div>
+
+                <div id="services" style="display: none;">
+                    <div id="BLOCKLEFT" class="box" onclick="sendService('electrician')">
+                        <img src="/ImgPages/Client/Electrician.jpg" style="width: 100%;height: 100%;">
+                        <div class="overlay">
+                            <div class="text">
+                                <h1>ELECTRICIAN</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="BLOCKRIGHT" class="box" onclick="sendService('plumber')">
+                        <img src="/ImgPages/Client/plumber.jpg" style="width: 100%; height: 100%;">
+                        <div class="overlay">
+                            <div class="text">
+                                <h1>PLUMBER</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="BLOCKCENTER" class="box" onclick="sendService('firefighters')">
+                        <img src="/ImgPages/Client/firefighters.jpg" style="width: 100%;height: 100%;">
+                        <div class="overlay">
+                            <div class="text">
+                                <h1>FIREFIGHTERS</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="BLOCKLEFT" class="box" onclick="sendService('pest_control')">
+                        <img src="/ImgPages/Client/Pest_Control.jpg" style="width: 100%;height: 100%;">
+                        <div class="overlay">
+                            <div class="text">
+                                <h1>
+                                    <p>PEST</p> CONTROL
+                                </h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="BLOCKRIGHT" class="box" onclick="sendService('cleaning_service')">
+                        <img src="/ImgPages/Client/cleaning_services.jpg" style="width: 100%;height: 100%;">
+                        <div class="overlay">
+                            <div class="text">
+                                <h1>
+                                    <p>CLEANING</p> SERVICES
+                                </h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="relics" style="display: none;">
+                    <div id="divisions">
+                        <div id="BLOCKLEFT" class="box" onclick="sendRelic('\Charlemagne\'s cross')">
+                            <img src="/ImgPages/Client/Relics/cruz_carlomagno.jpg" style="width: 100%;height: 100%;">
+                            <div class="overlay">
+                                <div class="text">
+                                    <h1>
+                                        <p>Charlemagne's</p> cross
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="BLOCKRIGHT" class="box" onclick="sendRelic('Shrine of the Three Kings')">
+                            <img src="/ImgPages/Client/Relics/Shrine.jpg" style="width: 100%; height: 100%;">
+                            <div class="overlay">
+                                <div class="text">
+                                    <h1>
+                                        <p>Shrine of the</p> Three Kings
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="BLOCKCENTER" class="box" onclick="sendRelic('The Holy Foreskin')">
+                            <img src="/ImgPages/Client/Relics/HolyForeskin.jpg" style="width: 100%;height: 100%;">
+                            <div class="overlay">
+                                <div class="text">
+                                    <h1>
+                                        <p>The Holy</p>Foreskin
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="divisions">
+                        <div id="BLOCKLEFT" class="box" onclick="sendRelic('\Jesus\'s Booger')">
+                            <img src="/ImgPages/Client/Relics/booger.jpg" style="width: 100%;height: 100%;">
+                            <div class="overlay">
+                                <div class="text">
+                                    <h1>
+                                        <p>Jesus's</p> Booger
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="BLOCKRIGHT" class="box" onclick="sendRelic('The Eye of Simon')">
+                            <img src="/ImgPages/Client/Relics/eye.jpg" style="width: 100%; height: 100%;">
+                            <div class="overlay">
+                                <div class="text">
+                                    <h1>
+                                        <p>The Eye of</p> Simon
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="BLOCKCENTER" class="box" onclick="sendRelic('\Jhon\'s Pancreas')">
+                            <img src="/ImgPages/Client/Relics/pancreas.jpg" style="width: 100%;height: 100%;">
+                            <div class="overlay">
+                                <div class="text">
+                                    <h1>
+                                        <p>Jhon's</p>Pancreas
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="divisions">
+                        <div id="BLOCKLEFT" class="box" onclick="sendRelic('\Judas\'s Heart')">
+                            <img src="/ImgPages/Client/Relics/heart.png" style="width: 100%;height: 100%;">
+                            <div class="overlay">
+                                <div class="text">
+                                    <h1>
+                                        <p>Judas's</p> Heart
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="BLOCKRIGHT" class="box" onclick="sendRelic('Shroud of Turint')">
+                            <img src="/ImgPages/Client/Relics/shroud.jpg" style="width: 100%; height: 100%;">
+                            <div class="overlay">
+                                <div class="text">
+                                    <h1>
+                                        <p>Shroud of</p> Turint
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="BLOCKCENTER" class="box" onclick="sendRelic('\St. Anthony\'s Tongue')">
+                            <img src="/ImgPages/Client/Relics/tongue.jpg" style="width: 100%;height: 100%;">
+                            <div class="overlay">
+                                <div class="text">
+                                    <h1>
+                                        <p>St. Anthony's </p>Tongue
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="divisions">
+                        <div id="BLOCKLEFT" class="box" onclick="sendRelic('Crown of thorns')">
+                            <img src="/ImgPages/Client/Relics/crown.jpg" style="width: 100%;height: 100%;">
+                            <div class="overlay">
+                                <div class="text">
+                                    <h1>
+                                        <p>Crown of </p> thorns
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="BLOCKRIGHT" class="box" onclick="sendRelic('Lance of Longinus')">
+                            <img src="/ImgPages/Client/Relics/lance_of_longuinus.png" style="width: 100%; height: 100%;">
+                            <div class="overlay">
+                                <div class="text">
+                                    <h1>
+                                        <p>Lance of </p> Longinus
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="BLOCKCENTER" class="box" onclick="sendRelic('\Jesus\'s Teeth')">
+                            <img src="/ImgPages/Client/Relics/teeth.jpg" style="width: 100%;height: 100%;">
+                            <div class="overlay">
+                                <div class="text">
+                                    <h1>
+                                        <p>Jesus's </p>Teeth
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="divisions">
+                        <div id="BLOCKLEFT" class="box" onclick="sendRelic('Holy Nail')">
+                            <img src="/ImgPages/Client/Relics/nail.jpg" style="width: 100%;height: 100%;">
+                            <div class="overlay">
+                                <div class="text">
+                                    <h1>
+                                        <p>Holy </p> Nail
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="BLOCKRIGHT" class="box" onclick="sendRelic('Holy Spirit Sneeze')">
+                            <img src="/ImgPages/Client/Relics/sneeze.jpg" style="width: 100%; height: 100%;">
+                            <div class="overlay">
+                                <div class="text">
+                                    <h1>
+                                        <p>Holy Spirit </p> Sneeze
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="BLOCKCENTER" class="box" onclick="sendRelic('\Jesus\'s Umbilical cord')">
+                            <img src="/ImgPages/Client/Relics/umbilcal_cord.jpg" style="width: 100%;height: 100%;">
+                            <div class="overlay">
+                                <div class="text">
+                                    <h1>
+                                        <p>Jesus's </p>Umbilical cord
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="divisions">
+                        <div id="BLOCKLEFT" class="box" onclick="sendRelic('\Saint Joshep\'s Bones')">
+                            <img src="/ImgPages/Client/Relics/bones.jpg" style="width: 100%;height: 100%;">
+                            <div class="overlay">
+                                <div class="text">
+                                    <h1>
+                                        <p>Saint Joshep's </p> Bones
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="BLOCKRIGHT" class="box" onclick="sendRelic('\Saint Catherine\'s Head')">
+                            <img src="/ImgPages/Client/Relics/head.jpg" style="width: 100%; height: 100%;">
+                            <div class="overlay">
+                                <div class="text">
+                                    <h1>
+                                        <p>Saint Catherine's </p> Head
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="BLOCKCENTER" class="box" onclick="sendRelic('\Saint Andrew\'s hair')">
+                            <img src="/ImgPages/Client/Relics/hair.jpg" style="width: 100%;height: 100%;">
+                            <div class="overlay">
+                                <div class="text">
+                                    <h1>
+                                        <p>Saint Andrew's </p>hair
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="holywater" style="display: none;">
+                    <div id="divisions">
+                        <div id="BLOCKLEFT" class="holywater" onclick="checkComponent('check1' , 1)">
+                            <div id="checks1" class="checks" style="display:none"> <img src="/ImgPages/Client/check.png" style="width: 100%;height: 100%;"></div>
+                            <div id="notchecks1" class="checks" style="display:block"> <img src="/ImgPages/Client/redcross.png" style="width: 100%;height: 100%;"></div>
+                            <h1>Pelo de Santo</h1>
+                        </div>
+                        <div id="BLOCKRIGHT" class="holywater" onclick="checkComponent('check3' , 3)">
+                            <div id="checks3" class="checks" style="display:none"> <img src="/ImgPages/Client/check.png" style="width: 100%;height: 100%;"></div>
+                            <div id="notchecks3" class="checks" style="display:block"> <img src="/ImgPages/Client/redcross.png" style="width: 100%;height: 100%;"></div>
+                            <h1>Trozo de las Escrituras Sagradas</h1>
+                        </div>
+                        <div id="BLOCKCENTER" class="holywater" onclick="checkComponent('check2', 2)">
+                            <div id="checks2" class="checks" style="display:none"> <img src="/ImgPages/Client/check.png" style="width: 100%;height: 100%;"></div>
+                            <div id="notchecks2" class="checks" style="display:block"> <img src="/ImgPages/Client/redcross.png" style="width: 100%;height: 100%;"></div>
+                            <h1>Pieza de Cruz</h1>
+                        </div>
+                    </div>
+                    <div id="BLOCKLEFT" class="holywater" onclick="checkComponent('check4', 4)">
+                        <div id="checks4" class="checks" style="display:none"> <img src="/ImgPages/Client/check.png" style="width: 100%;height: 100%;"></div>
+                        <div id="notchecks4" class="checks" style="display:block"><img src="/ImgPages/Client/redcross.png" style="width: 100%;height: 100%;"></div>
+                        <h1>Cera Sagrada</h1>
+                    </div>
+                    <div id="CreateAndSend" class="holywater" onclick="sendWater()">
+                        <H1>CREATE AND SEND</H1>
+                    </div>
+                </div>
+
+        </font>
         </div>
-      
-        <div id="relics" style="display: none;">
-          <div id="divisions">
-            <div id="BLOCKLEFT" class="box" onclick="sendRelic('\Charlemagne\'s cross')">
-              <img src="/ImgPages/Client/Relics/cruz_carlomagno.jpg" style="width: 100%;height: 100%;">
-              <div class="overlay">
-                <div class="text">
-                  <h1><p>Charlemagne's</p> cross</h1>
-                </div>
-              </div>
-            </div>
-            <div id="BLOCKRIGHT" class="box" onclick="sendRelic('Shrine of the Three Kings')">
-              <img src="/ImgPages/Client/Relics/Shrine.jpg" style="width: 100%; height: 100%;">
-              <div class="overlay">
-                <div class="text">
-                  <h1><p>Shrine of the</p> Three Kings</h1>
-                </div>
-              </div>
-            </div>
-            <div id="BLOCKCENTER" class="box" onclick="sendRelic('The Holy Foreskin')">
-              <img src="/ImgPages/Client/Relics/HolyForeskin.jpg" style="width: 100%;height: 100%;">
-              <div class="overlay">
-                <div class="text">
-                  <h1><p>The Holy</p>Foreskin</h1>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div id="divisions">
-            <div id="BLOCKLEFT" class="box" onclick="sendRelic('\Jesus\'s Booger')">
-              <img src="/ImgPages/Client/Relics/booger.jpg" style="width: 100%;height: 100%;">
-              <div class="overlay">
-                <div class="text">
-                  <h1><p>Jesus's</p> Booger</h1>
-                </div>
-              </div>
-            </div>
-            <div id="BLOCKRIGHT" class="box" onclick="sendRelic('The Eye of Simon')">
-              <img src="/ImgPages/Client/Relics/eye.jpg" style="width: 100%; height: 100%;">
-              <div class="overlay">
-                <div class="text">
-                  <h1><p>The Eye of</p> Simon</h1>
-                </div>
-              </div>
-            </div>
-            <div id="BLOCKCENTER" class="box" onclick="sendRelic('\Jhon\'s Pancreas')">
-              <img src="/ImgPages/Client/Relics/pancreas.jpg" style="width: 100%;height: 100%;">
-              <div class="overlay">
-                <div class="text">
-                  <h1><p>Jhon's</p>Pancreas</h1>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div id="divisions">
-            <div id="BLOCKLEFT" class="box" onclick="sendRelic('\Judas\'s Heart')">
-              <img src="/ImgPages/Client/Relics/heart.png" style="width: 100%;height: 100%;">
-              <div class="overlay">
-                <div class="text">
-                  <h1><p>Judas's</p> Heart</h1>
-                </div>
-              </div>
-            </div>
-            <div id="BLOCKRIGHT" class="box" onclick="sendRelic('Shroud of Turint')">
-              <img src="/ImgPages/Client/Relics/shroud.jpg" style="width: 100%; height: 100%;">
-              <div class="overlay">
-                <div class="text">
-                  <h1><p>Shroud of</p> Turint</h1>
-                </div>
-              </div>
-            </div>
-            <div id="BLOCKCENTER" class="box" onclick="sendRelic('\St. Anthony\'s Tongue')">
-              <img src="/ImgPages/Client/Relics/tongue.jpg" style="width: 100%;height: 100%;">
-              <div class="overlay">
-                <div class="text">
-                  <h1><p>St. Anthony's </p>Tongue</h1>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div id="divisions">
-            <div id="BLOCKLEFT" class="box" onclick="sendRelic('Crown of thorns')">
-              <img src="/ImgPages/Client/Relics/crown.jpg" style="width: 100%;height: 100%;">
-              <div class="overlay">
-                <div class="text">
-                  <h1><p>Crown of </p> thorns</h1>
-                </div>
-              </div>
-            </div>
-            <div id="BLOCKRIGHT" class="box" onclick="sendRelic('Lance of Longinus')">
-              <img src="/ImgPages/Client/Relics/lance_of_longuinus.png" style="width: 100%; height: 100%;">
-              <div class="overlay">
-                <div class="text">
-                  <h1><p>Lance of </p> Longinus</h1>
-                </div>
-              </div>
-            </div>
-            <div id="BLOCKCENTER" class="box" onclick="sendRelic('\Jesus\'s Teeth')">
-              <img src="/ImgPages/Client/Relics/teeth.jpg" style="width: 100%;height: 100%;">
-              <div class="overlay">
-                <div class="text">
-                  <h1><p>Jesus's </p>Teeth</h1>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div id="divisions">
-            <div id="BLOCKLEFT" class="box" onclick="sendRelic('Holy Nail')">
-              <img src="/ImgPages/Client/Relics/nail.jpg" style="width: 100%;height: 100%;">
-              <div class="overlay">
-                <div class="text">
-                  <h1><p>Holy </p> Nail</h1>
-                </div>
-              </div>
-            </div>
-            <div id="BLOCKRIGHT" class="box" onclick="sendRelic('Holy Spirit Sneeze')">
-              <img src="/ImgPages/Client/Relics/sneeze.jpg" style="width: 100%; height: 100%;">
-              <div class="overlay">
-                <div class="text">
-                  <h1><p>Holy Spirit </p> Sneeze</h1>
-                </div>
-              </div>
-            </div>
-            <div id="BLOCKCENTER" class="box" onclick="sendRelic('\Jesus\'s Umbilical cord')">
-              <img src="/ImgPages/Client/Relics/umbilcal_cord.jpg" style="width: 100%;height: 100%;">
-              <div class="overlay">
-                <div class="text">
-                  <h1><p>Jesus's </p>Umbilical cord</h1>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div id="divisions">
-            <div id="BLOCKLEFT" class="box" onclick="sendRelic('\Saint Joshep\'s Bones')">
-              <img src="/ImgPages/Client/Relics/bones.jpg" style="width: 100%;height: 100%;">
-              <div class="overlay">
-                <div class="text">
-                  <h1><p>Saint Joshep's </p> Bones</h1>
-                </div>
-              </div>
-            </div>
-            <div id="BLOCKRIGHT" class="box" onclick="sendRelic('\Saint Catherine\'s Head')">
-              <img src="/ImgPages/Client/Relics/head.jpg" style="width: 100%; height: 100%;">
-              <div class="overlay">
-                <div class="text">
-                  <h1><p>Saint Catherine's </p> Head</h1>
-                </div>
-              </div>
-            </div>
-            <div id="BLOCKCENTER" class="box" onclick="sendRelic('\Saint Andrew\'s hair')">
-              <img src="/ImgPages/Client/Relics/hair.jpg" style="width: 100%;height: 100%;">
-              <div class="overlay">
-                <div class="text">
-                  <h1><p>Saint Andrew's </p>hair</h1>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div id="footer">
+            <p>
+                <h1>CREATED BY SANDWICH MIXTO</h1>
+            </p>
+            <h2>CARLOS ROMERO & NICOLAS PASTORE</h2>
         </div>
 
-        <div id="holywater" style="display: none;">
-          <p>Create your own Holy Water </p>
-          <input id="check1" type="checkbox" name="component" value="SaintHair" /> Saint Hair<br>
-          <input id="check2" type="checkbox" name="component" value="CrossPiece" /> Cross Piece<br>
-          <input id="check3" type="checkbox" name="component" value="SacredText" /> Piece of sacred Text<br>
-          <input id="check4" type="checkbox" name="component" value="candleWax" /> Sacred Candle Wax<br>
-          <button id="submitWater"> Create and Send </button>
-        </div>
+        <!--initialization-->
+        <script>
+            const atras = document.getElementById("atras");
 
-    </font>
-  </div>
+            let check1 = false;
+            let check2 = false;
+            let check3 = false;
+            let check4 = false;
 
-  <!--initialization-->
-  <script>
-    const atras = document.getElementById("atras");
-    const sendWater = document.getElementById("submitWater");
-    const check1 = document.getElementById("check1");
-    const check2 = document.getElementById("check2");
-    const check3 = document.getElementById("check3");
-    const check4 = document.getElementById("check4");
+            function HolyWater(com1, com2, com3, com4) {
+                this.sol = [com1, com2, com3, com4];
+            }
+        </script>
 
-    function HolyWater(com1, com2, com3, com4) {
-      this.sol = [com1, com2, com3, com4];
-    }
-  </script>
+        <!--socket creation-->
+        <script>
+            const direccion = 'localhost';
+            const puerto = 42069;
+            const socket = io('http://' + direccion + ':' + puerto);
+            socket.emit('identify', 'information agent');
+        </script>
 
-  <!--socket creation-->
-  <script>
-    const direccion = 'localhost';
-    const puerto = 42069;
-    const socket = io('http://' + direccion + ':' + puerto);
-    socket.emit('identify', 'information agent');
-  </script>
-
-  <!--Html functions-->
-  <script>
-    sendWater.onclick = () => {
-      let HolyWaterSend = new HolyWater(check1.checked, check2.checked, check3.checked, check4.checked);
-      console.log(HolyWaterSend.sol[0] + " " + HolyWaterSend.sol[1] + " " + HolyWaterSend.sol[2] + " " + HolyWaterSend.sol[3]);
-      socket.emit('holyWater', HolyWaterSend);
-    }
-    atras.onclick = () => {
-      window.location.href = '/';
-    };/*
-    window.addEventListener("beforeunload", function (salir) {
-      //socket.emit('leave', 'information agent');
-      window.location.href = '/';
-    });*/
-  </script>
+        <!--Html functions-->
+        <script>
+            atras.onclick = () => {
+                window.location.href = '/';
+            };
+        </script>
 
 
-  <!-- HTML VISUAL FUCNTIONS -->
-  <script>
+        <!-- HTML VISUAL FUCNTIONS -->
+        <script>
+            function sendWater() {
+                let HolyWaterSend = new HolyWater(check1, check2, check3, check4);
+                console.log(HolyWaterSend.sol[0] + " " + HolyWaterSend.sol[1] + " " + HolyWaterSend.sol[2] + " " + HolyWaterSend.sol[3]);
+                socket.emit('holyWater', HolyWaterSend);
+            }
 
-    function sendService(service) {
-      socket.emit('services', service);
-    }
-    function sendRelic(relic) {
-      socket.emit('relic', relic);
-    }
+            function sendService(service) {
+                socket.emit('services', service);
+            }
 
-    let holydiv = document.getElementById("holywater");
-    let serdiv = document.getElementById("services");
-    let relicdiv = document.getElementById("relics");
-    function showDiv(divName) {
-      switch (divName) {
-        case SERVICES:
-          holydiv.style.display = "none";
-          relicdiv.style.display = "none";
-          if (serdiv.style.display == "none") {
-            serdiv.style.display = "block";
-          }
-          else {
-            serdiv.style.display = "none";
-          }
-          break;
-        case HOLYWATER:
-          serdiv.style.display = "none";
-          relicdiv.style.display = "none";
-          if (holydiv.style.display == "none") {
-            holydiv.style.display = "block";
-          }
-          else {
-            holydiv.style.display = "none";
-          }
-          break;
-        case RELICS:
-          holydiv.style.display = "none";
-          serdiv.style.display = "none";
-          if (relicdiv.style.display == "none") {
-            relicdiv.style.display = "block";
-          }
-          else {
-            relicdiv.style.display = "none";
-          }
-          break;
-        default:
-          break;
-      }
-    }
+            function sendRelic(relic) {
+                socket.emit('relic', relic);
+            }
 
-    var slideIndex = 1;
-    showSlides(slideIndex);
+            function checkComponent(check, type) {
+                let cross = document.getElementById("notchecks" + type);
+                let tick = document.getElementById("checks" + type);
+                switch (check) {
+                    case 'check1':
+                        check1 = !check1;
+                        if (check1) {
+                            cross.style.display = "none";
+                            tick.style.display = "block";
+                        } else {
+                            cross.style.display = "block";
+                            tick.style.display = "none";
+                        }
+                        break;
+                    case 'check2':
+                        check2 = !check2;
+                        if (check2) {
+                            cross.style.display = "none";
+                            tick.style.display = "block";
+                        } else {
+                            cross.style.display = "block";
+                            tick.style.display = "none";
+                        }
+                        break;
+                    case 'check3':
+                        check3 = !check3;
+                        if (check3) {
+                            cross.style.display = "none";
+                            tick.style.display = "block";
+                        } else {
+                            cross.style.display = "block";
+                            tick.style.display = "none";
+                        }
+                        break;
+                    case 'check4':
+                        check4 = !check4;
+                        if (check4) {
+                            cross.style.display = "none";
+                            tick.style.display = "block";
+                        } else {
+                            cross.style.display = "block";
+                            tick.style.display = "none";
+                        }
+                        break;
+                    default:
+                        break;
+                }
+            }
+            let holydiv = document.getElementById("holywater");
+            let serdiv = document.getElementById("services");
+            let relicdiv = document.getElementById("relics");
+
+            function showDiv(divName) {
+                switch (divName) {
+                    case SERVICES:
+                        holydiv.style.display = "none";
+                        relicdiv.style.display = "none";
+                        if (serdiv.style.display == "none") {
+                            serdiv.style.display = "block";
+                        } else {
+                            serdiv.style.display = "none";
+                        }
+                        break;
+                    case HOLYWATER:
+                        serdiv.style.display = "none";
+                        relicdiv.style.display = "none";
+                        if (holydiv.style.display == "none") {
+                            holydiv.style.display = "block";
+                        } else {
+                            holydiv.style.display = "none";
+                        }
+                        break;
+                    case RELICS:
+                        holydiv.style.display = "none";
+                        serdiv.style.display = "none";
+                        if (relicdiv.style.display == "none") {
+                            relicdiv.style.display = "block";
+                        } else {
+                            relicdiv.style.display = "none";
+                        }
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            var slideIndex = 1;
+            showSlides(slideIndex);
 
 
-    function plusSlides(n) {
-      showSlides(slideIndex += n);
-    }
+            function plusSlides(n) {
+                showSlides(slideIndex += n);
+            }
 
 
-    function currentSlide(n) {
-      showSlides(slideIndex = n);
-    }
+            function currentSlide(n) {
+                showSlides(slideIndex = n);
+            }
 
-    function showSlides(n) {
-      var i;
-      var slides = document.getElementsByClassName("mySlides");
-      var dots = document.getElementsByClassName("dot");
-      if (n > slides.length) { slideIndex = 1 }
-      if (n < 1) { slideIndex = slides.length }
-      for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-      }
-      for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
-      }
-      slides[slideIndex - 1].style.display = "block";
-      dots[slideIndex - 1].className += " active";
-    }
-  </script>
-  <!--Socket functions-->
-  <script>
-    socket.on('problem', error => {
-      console.log(error);
-    });
-
-  </script>
+            function showSlides(n) {
+                var i;
+                var slides = document.getElementsByClassName("mySlides");
+                var dots = document.getElementsByClassName("dot");
+                if (n > slides.length) {
+                    slideIndex = 1
+                }
+                if (n < 1) {
+                    slideIndex = slides.length
+                }
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active", "");
+                }
+                slides[slideIndex - 1].style.display = "block";
+                dots[slideIndex - 1].className += " active";
+            }
+        </script>
+        <!--Socket functions-->
+        <script>
+            socket.on('problem', error => {
+                console.log(error);
+            });
+        </script>
 
 </body>
+
+
 
 </html>
